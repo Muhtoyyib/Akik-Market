@@ -10,7 +10,7 @@ Source: Matic P1 and P11, already built for Home (`openspec/changes/home-page/sp
 
 ### Requirement: Same shell on every page
 
-Every page SHALL render, in order, the "Skip to content" link, the header (announcement bar, navigation, floating pill and menu as specified for Home), one `main` holding the page's sections, and the footer. The header and footer SHALL look and behave the same on every page, and every page's header, Home's included, links to the built pages in sitemap order (About, the three division pages, Projects, Listings, News, Contact), leaving out pages not built yet.
+Every page SHALL render, in order, the "Skip to content" link, the header (announcement bar, navigation, floating pill and menu as specified for Home), one `main` holding the page's sections, and the footer. The header and footer SHALL look and behave the same on every page, and every page's header, Home's included, links to the built pages in sitemap order (About, the three division pages, Projects, Listings, Testimonials, News, Contact), leaving out pages not built yet.
 
 #### Scenario: Visiting any page
 

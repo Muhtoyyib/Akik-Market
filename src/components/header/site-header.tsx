@@ -43,13 +43,13 @@ export function SiteHeader({announcement, whatsappHref, links}: SiteHeaderProps)
         <div ref={ref} className="flex h-20 items-center justify-between gap-6">
           <WordmarkLink />
           {hasMenu && (
-            <nav aria-label="Main" className="hidden lg:block">
-              <NavLinks links={links} listClassName="flex items-center gap-4 xl:gap-6" linkClassName="type-small whitespace-nowrap" />
+            <nav aria-label="Main" className="hidden xl:block">
+              <NavLinks links={links} listClassName="flex items-center gap-6" linkClassName="type-small whitespace-nowrap" />
             </nav>
           )}
           <div className="flex items-center gap-2">
             <Button href={whatsappHref}>Chat on WhatsApp</Button>
-            {hasMenu && <MenuButton handle={menu} className="lg:hidden" />}
+            {hasMenu && <MenuButton handle={menu} className="xl:hidden" />}
           </div>
         </div>
       </Frame>

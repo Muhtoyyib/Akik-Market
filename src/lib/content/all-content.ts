@@ -12,13 +12,15 @@ import {listings} from "@/lib/content/listings";
 import {listingsIndex, listingsNextSteps} from "@/lib/content/listings-page";
 import {newsBodies} from "@/lib/content/news-bodies";
 import {newsIndex} from "@/lib/content/news-page";
+import {moreQuotes, testimonialsIndex, testimonialsShare} from "@/lib/content/testimonials-page";
 import {notFoundContent} from "@/lib/content/not-found";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {projects} from "@/lib/content/projects";
 import {projectEnquiry, projectsIndex} from "@/lib/content/projects-page";
 import {posts} from "@/lib/content/news";
 import {siteContent} from "@/lib/content/site";
-import {leadQuote, quotes, stories} from "@/lib/content/stories";
+import {leadQuote, quotes} from "@/lib/content/quotes";
+import {stories} from "@/lib/content/stories";
 
 export const allContent = {
   "Site-wide": {...siteContent, business: {startYear, social, email, address, hours, shopPhoto}},
@@ -27,6 +29,7 @@ export const allContent = {
   "Customer stories": {stories, leadQuote, quotes},
   Projects: {projects},
   "News page": {newsIndex},
+  "Testimonials page": {testimonialsIndex, testimonialsShare, moreQuotes},
   "Listings page": {listingsIndex, listingsNextSteps},
   "Projects banner": {projectsBanner},
   Founder: {founderPhotos},

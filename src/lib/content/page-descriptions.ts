@@ -11,6 +11,7 @@ export const pageDescriptions = {
   autos: placeholder("Inspected cars with checked papers and honest prices, with test drives welcome, at Akik on Iwo Road, Ibadan."),
   listings: real("Homes and cars for sale in Ibadan from Akik, each with photos, details and a price, and one tap to ask on WhatsApp."),
   news: real("New phones in stock, homes finished and handed over, and cars just arrived at Akik in Ibadan."),
+  testimonials: real("What customers say about buying phones, homes and cars from Akik in Ibadan, in their own words."),
   projects: real("Homes and estates Akik has built and handed over in Ibadan, with the facts and photos of each."),
 };
 // Stryker restore StringLiteral

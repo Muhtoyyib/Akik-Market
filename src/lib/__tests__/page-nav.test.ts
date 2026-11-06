@@ -15,6 +15,7 @@ describe("pageNav", () => {
       "Autos /autos",
       "Projects /projects",
       "Listings /listings",
+      "Testimonials /testimonials",
       "News /news",
       "Contact /contact",
     ]);

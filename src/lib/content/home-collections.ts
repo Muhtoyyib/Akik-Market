@@ -2,6 +2,7 @@
 import {businesses, whatsappTo, type BusinessKey} from "@/lib/content/business";
 import type {Listing} from "@/lib/content/listings";
 import type {Post} from "@/lib/content/news";
+import type {Quote} from "@/lib/content/quotes";
 import type {Story} from "@/lib/content/stories";
 import {featuredTabs} from "@/lib/featured";
 import {listingsHref} from "@/lib/listings";
@@ -51,5 +52,13 @@ export function homeStories(all: readonly Story[]) {
   return businesses.flatMap((entry) => {
     const found = all.find((item) => item.business === entry.key);
     return found ? [{key: entry.key, label: entry.tab, story: found.story}] : [];
+  });
+}
+
+/** Proof: the first quote about each business, in growth order (Home proof spec, one column per business). */
+export function homeQuotes(all: readonly Quote[]) {
+  return businesses.flatMap((entry) => {
+    const found = all.find((item) => item.business === entry.key);
+    return found ? [{key: entry.key, quote: found.quote, source: found.source}] : [];
   });
 }

@@ -16,11 +16,11 @@ See [proposal.md](./proposal.md). Home's proof and stories sections already have
 - **Alternatives considered:** trusting the owner's word at handover.
 - **Dropped:** that alone, because the permission would be lost when content is edited later.
 
-### D2. One quote style
+### D2. A photo wall, one quote at a time
 
-- **Chosen:** the wall reuses Home's proof column (top border, quote, mono source line) in a grid.
-- **Alternatives considered:** a masonry wall of varied cards.
-- **Dropped:** masonry. It reorders content for screen readers and keyboard users, and mixed card styles fight the house style.
+- **Chosen (2026-11-06, at the user's request):** the Alvo photo wall: rows of round photos, a tile per customer, the selected quote in one card. Tiles are in DOM order row by row, so screen readers and keyboards meet them in the order they're drawn.
+- **Alternatives considered:** Home's proof column repeated in a grid with filter tabs (the first plan); a masonry wall of varied cards.
+- **Dropped:** the grid, which the user replaced with the wall. Masonry, which reorders content for screen readers and keyboard users.
 
 ## Risks / Trade-offs
 

@@ -1,7 +1,7 @@
 import {render, screen, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
-import {Stories} from "@/features/home/stories/stories";
+import {Stories} from "@/components/stories/stories";
 import {homeContent} from "@/lib/content/home";
 
 const {stories} = homeContent;

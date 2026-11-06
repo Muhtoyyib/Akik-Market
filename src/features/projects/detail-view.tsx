@@ -1,5 +1,5 @@
+import {ClosingBlock} from "@/components/closing-block/closing-block";
 import {PageLayout} from "@/components/page-layout/page-layout";
-import {ProjectEnquiry} from "@/features/projects/project-enquiry";
 import {ProjectFacts} from "@/features/projects/project-facts";
 import {ProjectGallery} from "@/features/projects/project-gallery";
 import {ProjectHero} from "@/features/projects/project-hero";
@@ -19,7 +19,7 @@ export function ProjectDetailView({project, related}: ProjectDetailViewProps) {
       <ProjectFacts project={project} />
       <ProjectGallery photos={project.photos} />
       <RelatedProjects projects={related} />
-      <ProjectEnquiry heading={projectEnquiry.heading.value} action={projectEnquiry.action.value} href={project.enquiryHref} />
+      <ClosingBlock heading={projectEnquiry.heading.value} action={projectEnquiry.action.value} href={project.enquiryHref} />
     </PageLayout>
   );
 }

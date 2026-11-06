@@ -17,6 +17,7 @@ import { Route as DesignSystemRouteImport } from "./routes/design-system"
 import { Route as EngineeringRouteImport } from "./routes/engineering"
 import { Route as ListingsRouteImport } from "./routes/listings"
 import { Route as PhonesAndGadgetsRouteImport } from "./routes/phones-and-gadgets"
+import { Route as TestimonialsRouteImport } from "./routes/testimonials"
 import { Route as NewsIndexRouteImport } from "./routes/news.index"
 import { Route as NewsSlugRouteImport } from "./routes/news.$slug"
 import { Route as ProjectsIndexRouteImport } from "./routes/projects.index"
@@ -62,6 +63,11 @@ const PhonesAndGadgetsRoute = PhonesAndGadgetsRouteImport.update({
   path: "/phones-and-gadgets",
   getParentRoute: () => rootRouteImport,
 } as any)
+const TestimonialsRoute = TestimonialsRouteImport.update({
+  id: "/testimonials",
+  path: "/testimonials",
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NewsIndexRoute = NewsIndexRouteImport.update({
   id: "/news/",
   path: "/news/",
@@ -92,6 +98,7 @@ export interface FileRoutesByFullPath {
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/testimonials": typeof TestimonialsRoute
   "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
   "/news/": typeof NewsIndexRoute
@@ -106,6 +113,7 @@ export interface FileRoutesByTo {
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/testimonials": typeof TestimonialsRoute
   "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
   "/news": typeof NewsIndexRoute
@@ -121,6 +129,7 @@ export interface FileRoutesById {
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/testimonials": typeof TestimonialsRoute
   "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
   "/news/": typeof NewsIndexRoute
@@ -137,6 +146,7 @@ export interface FileRouteTypes {
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/testimonials"
     | "/news/$slug"
     | "/projects/$slug"
     | "/news/"
@@ -151,6 +161,7 @@ export interface FileRouteTypes {
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/testimonials"
     | "/news/$slug"
     | "/projects/$slug"
     | "/news"
@@ -165,6 +176,7 @@ export interface FileRouteTypes {
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/testimonials"
     | "/news/$slug"
     | "/projects/$slug"
     | "/news/"
@@ -180,6 +192,7 @@ export interface RootRouteChildren {
   EngineeringRoute: typeof EngineeringRoute
   ListingsRoute: typeof ListingsRoute
   PhonesAndGadgetsRoute: typeof PhonesAndGadgetsRoute
+  TestimonialsRoute: typeof TestimonialsRoute
   NewsSlugRoute: typeof NewsSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   NewsIndexRoute: typeof NewsIndexRoute
@@ -244,6 +257,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof PhonesAndGadgetsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    "/testimonials": {
+      id: "/testimonials"
+      path: "/testimonials"
+      fullPath: "/testimonials"
+      preLoaderRoute: typeof TestimonialsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     "/news/": {
       id: "/news/"
       path: "/news"
@@ -284,6 +304,7 @@ const rootRouteChildren: RootRouteChildren = {
   EngineeringRoute: EngineeringRoute,
   ListingsRoute: ListingsRoute,
   PhonesAndGadgetsRoute: PhonesAndGadgetsRoute,
+  TestimonialsRoute: TestimonialsRoute,
   NewsSlugRoute: NewsSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   NewsIndexRoute: NewsIndexRoute,

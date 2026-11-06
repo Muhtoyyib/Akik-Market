@@ -4,7 +4,7 @@ import {Divisions} from "@/features/home/divisions/divisions";
 import {Founder} from "@/features/home/founder/founder";
 import {News} from "@/features/home/news/news";
 import {Proof} from "@/features/home/proof/proof";
-import {Stories} from "@/features/home/stories/stories";
+import {Stories} from "@/components/stories/stories";
 import {Trust} from "@/components/trust/trust";
 import {homeContent} from "@/lib/content/home";
 import {siteContent} from "@/lib/content/site";

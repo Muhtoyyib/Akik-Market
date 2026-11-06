@@ -31,14 +31,20 @@ describe("SiteHeader in a browser", () => {
     expect([mainNav().checkVisibility(), rowMenuButton().checkVisibility()]).toEqual([true, false]);
   });
 
-  it("fits every page link in the header row at 1024px, the narrowest desktop width", async () => {
-    await page.viewport(1024, 768);
+  it("fits every page link in the header row at 1280px, the narrowest width that shows them there", async () => {
+    await page.viewport(1280, 800);
     const {container} = renderPage(everyPage);
     const row = mainNav().parentElement!;
     expect([
       row.scrollWidth <= row.clientWidth,
       new Set([...container.querySelectorAll("nav li")].map((li) => li.getBoundingClientRect().top)).size,
     ]).toEqual([true, 1]);
+  });
+
+  it("moves the links into the menu at 1024px, where all of them don't fit the row", async () => {
+    await page.viewport(1024, 768);
+    renderPage();
+    expect([mainNav().checkVisibility(), rowMenuButton().checkVisibility()]).toEqual([false, true]);
   });
 
   it("moves the links into the menu on a phone", async () => {

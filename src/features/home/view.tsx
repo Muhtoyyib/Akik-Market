@@ -6,7 +6,7 @@ import {Hero} from "@/components/hero/hero";
 import {LinkBanner} from "@/components/link-banner/link-banner";
 import {News} from "@/features/home/news/news";
 import {Proof} from "@/features/home/proof/proof";
-import {Stories} from "@/features/home/stories/stories";
+import {Stories} from "@/components/stories/stories";
 import {Visit} from "@/components/visit/visit";
 import {Trust} from "@/components/trust/trust";
 import {homeContent} from "@/lib/content/home";
@@ -30,7 +30,7 @@ export function HomeView() {
       <Divisions eyebrow={divisions.eyebrow.value} heading={divisions.heading.value} cards={divisions.cards} />
       <Featured eyebrow={featured.eyebrow.value} heading={featured.heading.value} tabs={featured.tabs} />
       <Proof heading={proof.heading.value} lead={proof.lead.value} columns={proof.columns} />
-      <Stories heading={stories.heading.value} tabs={stories.tabs} />
+      <Stories heading={stories.heading.value} tabs={stories.tabs} id={SECTION_IDS.stories} />
       <LinkBanner
         name="Our projects"
         headingId="projects-heading"

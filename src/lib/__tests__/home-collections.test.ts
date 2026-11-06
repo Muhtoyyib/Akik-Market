@@ -1,8 +1,9 @@
 import {describe, expect, it} from "vite-plus/test";
 import {business} from "@/lib/content/business";
-import {homeFeatured, homeNews, homeStories} from "@/lib/content/home-collections";
+import {homeFeatured, homeNews, homeQuotes, homeStories} from "@/lib/content/home-collections";
 import {listings} from "@/lib/content/listings";
 import {posts} from "@/lib/content/news";
+import {quotes} from "@/lib/content/quotes";
 import {stories} from "@/lib/content/stories";
 
 const names = (tabs: ReturnType<typeof homeFeatured>) => tabs.flatMap((tab) => tab.items.map((item) => item.value.name));
@@ -48,5 +49,11 @@ describe("Home's rules over the shared collections", () => {
 
   it("finds a business by its key", () => {
     expect(business("autos").name).toBe("Autos");
+  });
+});
+
+describe("homeQuotes", () => {
+  it("skips a business with no quote rather than leaving an empty column", () => {
+    expect(homeQuotes(quotes.filter((item) => item.business !== "autos")).map((column) => column.key)).toEqual(["phones", "engineering"]);
   });
 });

@@ -18,6 +18,7 @@ const STATIC_PAGES = [
   "/projects",
   "/listings",
   "/news",
+  "/testimonials",
   "/phones-and-gadgets",
   "/engineering",
   "/autos",

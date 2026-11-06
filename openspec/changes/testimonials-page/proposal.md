@@ -4,17 +4,17 @@ Akik's pitch is that people buy a phone, then a car, then a house from the same 
 
 ## What Changes
 
-- A new page at `/testimonials`: the story box with tabs, a lead quote with three columns, a wall of every quote filterable by business, and an invitation to share a story on WhatsApp.
+- A new page at `/testimonials`: the story box with tabs, a lead quote over a wall of photos (one per customer, selectable to read their quote), and an invitation to share a story on WhatsApp.
 - Customer stories and quotes move into one shared collection (per site-shell), read by Home, the division pages and this page.
 
 ## Sources per section
 
-| Section     | Source                                                                                                             | Why                                                     |
-| ----------- | ------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------- |
-| page header | Matic P3, carrying the `h1`                                                                                        | Same opening as every section                           |
-| stories     | Matic P6 video box with tabs, as built for Home's Customer stories                                                 | Strongest fit for customer stories                      |
-| quote wall  | Matic P5 lead quote and three columns, then the same column style repeated in a grid, with our pill tabs to filter | One style for every quote; tabs keep a long wall usable |
-| share       | Obvious closing block (captured, frame 11)                                                                         | Ends on one action                                      |
+| Section     | Source                                                                                           | Why                                                    |
+| ----------- | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| page header | Matic P3, carrying the `h1`                                                                      | Same opening as every section                          |
+| stories     | Matic P6 video box with tabs, as built for Home's Customer stories                               | Strongest fit for customer stories                     |
+| quote wall  | Matic P5 lead quote, then the photo wall from the user's Alvo landing page (captured 2026-11-06) | The user asked for it: photos fill most of the section |
+| share       | Obvious closing block (captured, frame 11)                                                       | Ends on one action                                     |
 
 **Outline approval:** the client lead asked for these specs on 2026-11-06. The outline still needs their sign-off before building, per `docs/design-reference/README.md`.
 

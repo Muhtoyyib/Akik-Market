@@ -11,6 +11,7 @@ export const SITE_PAGES: readonly NavLink[] = [
   ...businesses.map((entry) => ({label: entry.name, href: entry.path})),
   {label: "Projects", href: "/projects"},
   {label: "Listings", href: "/listings"},
+  {label: "Testimonials", href: "/testimonials"},
   {label: "News", href: "/news"},
   {label: "Contact", href: "/contact"},
 ];

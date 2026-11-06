@@ -1,25 +1,39 @@
 ## Purpose
 
-Every customer quote, led by the strongest one.
+Every customer quote, as a wall of photos: the strongest quote first, then a photo for every customer, with the chosen customer's quote below.
 
-Source: Matic P5 (lead quote with a highlighted phrase, three columns with top borders), as built for Home's proof, repeated in a grid with pill tabs.
+Source: the user's own Alvo landing page (`gigs/alvo/apps/website`, `TestimonialWall`), captured 2026-11-06: rows of round photos (6, 7, 8, 7), real customers selectable, filler photos muted, the selected quote in a card under the wall. Rebuilt in the house style: no copied code or images, no scale on selection (anti-slop), and no faces (page spec, "Permission for real customers"). The user asked for it on 2026-11-06, with photos filling most of the section. It replaces the earlier column grid and filter tabs.
 
 ## ADDED Requirements
 
-### Requirement: Lead quote and wall
+### Requirement: Lead quote
 
-The section SHALL show the lead quote as on Home, then every other quote in Home's proof column style, three columns from 1024px, two from 768px and one on phones. Each quote SHALL show its business in that business's accent and its source line in `type-label`.
+The section SHALL open with the lead quote as on Home (Matic P5): the quote large and centred, its highlighted phrase in `<em>`, and its source in `type-label`.
 
-#### Scenario: Ten quotes
+#### Scenario: Arriving at the wall
 
-- **WHEN** the collection has ten quotes
-- **THEN** the lead quote shows large and the other nine sit in the grid
+- **WHEN** the section renders
+- **THEN** the lead quote sits above the wall
 
-### Requirement: Filter by business
+### Requirement: Photo wall
 
-Pill tabs above the wall SHALL offer "All" and one tab per business with quotes, setting `?business=<key>`. The lead quote SHALL stay visible on every tab.
+Under the lead quote, round photos SHALL sit in centred rows of 6, 7, 8, 7 and 6, so the rows stagger (Alvo uses four rows; a fifth gives photos most of the section). Each customer with a quote SHALL have one tile showing the photo of what they bought, spread evenly through the wall; every other tile SHALL be a muted (greyscale, faded) photo of Akik's phones, homes or cars, hidden from assistive technology. Photos SHALL fill most of the section's height.
 
-#### Scenario: Homes tab
+#### Scenario: Nine quotes
 
-- **WHEN** a visitor chooses Homes
-- **THEN** only Engineering quotes show in the grid
+- **WHEN** the collection has nine quotes
+- **THEN** the wall has 34 tiles, nine of them customers and 25 muted
+
+### Requirement: Choosing a customer
+
+Each customer tile SHALL be a button named "Read {first name}'s quote", pressed when selected, with a 44px touch target on phones. Selecting one SHALL show that customer's quote under the wall in a card: the quote, the first name, and the business in its accent. The selected tile SHALL be marked with an accent ring, never by growing. The first customer SHALL be selected on load, and the card SHALL announce changes politely.
+
+#### Scenario: Choosing Ngozi
+
+- **WHEN** a visitor presses "Read Ngozi's quote"
+- **THEN** Ngozi's tile is pressed and the card shows Ngozi's quote with "Engineering & Real Estate" in its accent
+
+#### Scenario: Keyboard
+
+- **WHEN** a keyboard user tabs through the wall
+- **THEN** focus moves only through the customer tiles, in wall order, each with a visible focus ring

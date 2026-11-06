@@ -1,12 +1,13 @@
 import {Button} from "@/components/button/button";
 import {Frame} from "@/components/frame/frame";
 
-type ProjectEnquiryProps = {heading: string; action: string; href: string};
+type ClosingBlockProps = {heading: string; action: string; href: string};
 
-const HEADING_ID = "enquiry-heading";
+const HEADING_ID = "closing-heading";
 
-/** Obvious's closing block (frame 11) without the photo, so the primary pill sits on a light surface. */
-export function ProjectEnquiry({heading, action, href}: ProjectEnquiryProps) {
+/** Obvious's closing block (frame 11) without the photo, so the primary pill sits on a light surface. Ends a project
+ * page (the enquiry) and the Testimonials page (share your story). */
+export function ClosingBlock({heading, action, href}: ClosingBlockProps) {
   return (
     <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>

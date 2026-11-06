@@ -35,7 +35,7 @@ The pill SHALL open WhatsApp to Akik's main number with a short prefilled greeti
 
 ### Requirement: Menu on small screens
 
-Under 1024px the section links SHALL move into a menu opened by a round menu button beside the WhatsApp pill. The menu SHALL open as a full-width panel, close on Escape, on the close button and when a link is chosen, return focus to the menu button when closed, and keep focus inside while open.
+Under 1280px the page links SHALL move into a menu (nine page links measured too wide for the 1024px row beside the wordmark and WhatsApp pill, 2026-11-06) opened by a round menu button beside the WhatsApp pill. The menu SHALL open as a full-width panel, close on Escape, on the close button and when a link is chosen, return focus to the menu button when closed, and keep focus inside while open.
 
 #### Scenario: Nothing to list
 

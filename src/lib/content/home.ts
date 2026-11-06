@@ -4,10 +4,11 @@
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
 import {address, businesses, shopContacts, shopPhoto, social, startYear, whatsappTo, type BusinessKey} from "@/lib/content/business";
 import {founderPhotos} from "@/lib/content/founder";
-import {homeFeatured, homeNews, homeStories} from "@/lib/content/home-collections";
+import {homeFeatured, homeNews, homeQuotes, homeStories} from "@/lib/content/home-collections";
 import {listings} from "@/lib/content/listings";
 import {posts} from "@/lib/content/news";
-import {leadQuote, quotes, stories} from "@/lib/content/stories";
+import {leadQuote, quotes} from "@/lib/content/quotes";
+import {stories} from "@/lib/content/stories";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {onwardLink} from "@/lib/onward-link";
 import {photo, SIZES, variantPath} from "@/lib/responsive-image";
@@ -61,7 +62,7 @@ export const homeContent = {
   proof: {
     heading: real("What customers say"),
     lead: leadQuote,
-    columns: quotes.map(({business, quote, source}) => ({key: business, quote, source})),
+    columns: homeQuotes(quotes),
   },
   stories: {
     heading: real("Customer stories"),
