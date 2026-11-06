@@ -1,4 +1,5 @@
 import {cn} from "cn";
+import type {MouseEvent} from "react";
 import type {NavLink} from "@/lib/site-nav";
 
 type NavLinksProps = {
@@ -6,7 +7,7 @@ type NavLinksProps = {
   currentPath: string;
   listClassName: string;
   linkClassName: string;
-  onNavigate?: () => void;
+  onNavigate?: (event: MouseEvent<HTMLAnchorElement>) => void;
 };
 
 const LINK = "rounded-sm outline-offset-2 outline-brand-navy transition-colors focus-visible:outline-2 focus-visible:outline-solid";

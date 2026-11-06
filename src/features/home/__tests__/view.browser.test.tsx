@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react";
+import {render, screen, within} from "@testing-library/react";
 import {beforeEach, describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
 import {HomeView} from "@/features/home/view";
@@ -6,6 +6,11 @@ import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 
 const pill = () => document.querySelector<HTMLElement>("[data-floating-pill]")!;
+// Below the 6rem scroll padding that keeps a jump clear of the floating pill, and above the fold.
+const landedInView = (id: string) => {
+  const top = document.getElementById(id)!.getBoundingClientRect().top;
+  return [document.activeElement?.id, top >= 96 && top < window.innerHeight];
+};
 const heroBox = () => document.querySelector("video")!.parentElement!.getBoundingClientRect();
 
 describe("Home in a browser", () => {
@@ -60,6 +65,20 @@ describe("Home in a browser", () => {
     render(<HomeView />);
     await userEvent.click(screen.getByRole("link", {name: "See what we do"}));
     await expect.poll(() => document.activeElement?.id).toBe("divisions-heading");
+  });
+
+  it("jumps to the News section from the header and focuses its heading", async () => {
+    render(<HomeView />);
+    await userEvent.click(within(screen.getByRole("navigation", {name: "Main"})).getByRole("link", {name: "News"}));
+    await expect.poll(() => landedInView("news-heading")).toEqual(["news-heading", true]);
+  });
+
+  it("closes the menu and lands on the News heading when News is chosen on a phone", async () => {
+    await page.viewport(390, 844);
+    render(<HomeView />);
+    await userEvent.click(document.querySelector<HTMLElement>('button[aria-label="Menu"]')!);
+    await userEvent.click(within(await screen.findByRole("dialog")).getByRole("link", {name: "News"}));
+    await expect.poll(() => [screen.queryByRole("dialog"), ...landedInView("news-heading")]).toEqual([null, "news-heading", true]);
   });
 
   it("turns the divisions into a swipe row on a phone without scrolling the page sideways", async () => {

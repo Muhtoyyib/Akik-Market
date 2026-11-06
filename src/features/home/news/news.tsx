@@ -3,6 +3,7 @@ import {MediaBox} from "@/components/media-box/media-box";
 import {SectionHeader} from "@/components/section-header/section-header";
 import {Frame} from "@/features/home/frame";
 import {newsDate} from "@/lib/news";
+import {SECTION_IDS} from "@/lib/home-sections";
 
 type Post = {
   date: string;
@@ -46,7 +47,7 @@ export function News({eyebrow, heading, posts, action}: NewsProps) {
   // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
   if (posts.length === 0) return null;
   return (
-    <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
+    <section id={SECTION_IDS.news} aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>
         <SectionHeader eyebrow={eyebrow} heading={heading} headingId={HEADING_ID} />
         {/* Focusable so a keyboard can scroll the swipe row (WCAG 2.1.1, axe scrollable-region-focusable): until the

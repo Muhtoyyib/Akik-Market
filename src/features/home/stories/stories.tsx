@@ -1,6 +1,7 @@
 import {MediaBox} from "@/components/media-box/media-box";
 import {PillTabs} from "@/components/pill-tabs/pill-tabs";
 import {Frame} from "@/features/home/frame";
+import {SECTION_IDS} from "@/lib/home-sections";
 
 type Story = {name: string; since: string; quote: string; image: {src: string; alt: string; width: number; height: number}};
 type StoryTab = {key: string; label: string; story: {value: Story}};
@@ -30,9 +31,9 @@ export function Stories({heading, tabs}: StoriesProps) {
   // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
   if (tabs.length === 0) return null;
   return (
-    <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
+    <section id={SECTION_IDS.stories} aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>
-        <h2 id={HEADING_ID} className="sr-only">
+        <h2 id={HEADING_ID} tabIndex={-1} className="sr-only">
           {heading}
         </h2>
         <PillTabs

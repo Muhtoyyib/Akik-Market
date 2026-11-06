@@ -5,6 +5,7 @@ import {Frame} from "@/features/home/frame";
 import {AnnouncementBar} from "@/features/home/header/announcement-bar";
 import {FloatingPill} from "@/features/home/header/floating-pill";
 import {MenuButton} from "@/features/home/header/menu-button";
+import {jumpOnClick} from "@/features/home/header/jump-to-section";
 import {NavLinks} from "@/features/home/header/nav-links";
 import {SiteMenu} from "@/features/home/header/site-menu";
 import {WordmarkLink} from "@/features/home/header/wordmark-link";
@@ -50,6 +51,7 @@ export function SiteHeader({announcement, whatsappHref, links, currentPath}: Sit
                 currentPath={currentPath}
                 listClassName="flex items-center gap-4 xl:gap-6"
                 linkClassName="type-small whitespace-nowrap"
+                onNavigate={jumpOnClick}
               />
             </nav>
           )}

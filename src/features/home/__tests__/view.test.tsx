@@ -59,6 +59,19 @@ describe("Home header", () => {
     expect(hrefs.filter((href) => href?.startsWith("/") && href !== "/")).toEqual([]);
   });
 
+  it("links the header to Home's sections, in page order, while Home is the only page", () => {
+    render(<HomeView />);
+    const nav = screen.getByRole("navigation", {name: "Main"});
+    const links = within(nav).getAllByRole("link");
+    expect(links.map((link) => [link.textContent, document.querySelector(link.getAttribute("href")!)?.tagName])).toEqual([
+      ["Businesses", "SECTION"],
+      ["Featured", "SECTION"],
+      ["Stories", "SECTION"],
+      ["News", "SECTION"],
+      ["Visit us", "SECTION"],
+    ]);
+  });
+
   it("makes the whole announcement one link with its full text as the name", () => {
     render(<HomeView />);
     expect(screen.getByRole("link", {name: homeContent.announcement.value.text})).toHaveAttribute(

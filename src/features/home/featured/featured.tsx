@@ -5,6 +5,7 @@ import type {FeaturedItem} from "@/features/home/featured/item-card";
 import {ItemCarousel} from "@/features/home/featured/item-carousel";
 import {Frame} from "@/features/home/frame";
 import type {OnwardLink} from "@/lib/onward-link";
+import {SECTION_IDS} from "@/lib/home-sections";
 
 type FeaturedTab = {
   key: "phones" | "engineering" | "autos";
@@ -40,7 +41,7 @@ export function Featured({eyebrow, heading, tabs}: FeaturedProps) {
   if (!only) return null;
   const header = <SectionHeader align="start" eyebrow={eyebrow} heading={heading} headingId={HEADING_ID} />;
   return (
-    <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
+    <section id={SECTION_IDS.featured} aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>
         {tabs.length > 1 ? (
           <PillTabs

@@ -12,14 +12,28 @@ import {Trust} from "@/features/home/trust/trust";
 import {SiteHeader} from "@/features/home/header/site-header";
 import {SkipLink} from "@/features/home/skip-link";
 import {homeContent} from "@/lib/home-content";
+import {headerLinks, sectionLinks} from "@/lib/home-sections";
 import {siteNav} from "@/lib/site-nav";
 
 export function HomeView() {
   const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news, founder, visit, footer} = homeContent;
+  // Each flag mirrors the guard that leaves the section out when it has no content; Visit always renders.
+  const sections = sectionLinks({
+    divisions: divisions.cards.length > 0,
+    featured: featured.tabs.length > 0,
+    stories: stories.tabs.length > 0,
+    news: news.posts.length > 0,
+    visit: true,
+  });
   return (
     <>
       <SkipLink />
-      <SiteHeader announcement={announcement.value} whatsappHref={whatsapp.main.href} links={siteNav} currentPath="/" />
+      <SiteHeader
+        announcement={announcement.value}
+        whatsappHref={whatsapp.main.href}
+        links={headerLinks(siteNav, sections)}
+        currentPath="/"
+      />
       <main id="main" tabIndex={-1} className="pt-4 pb-24 outline-none md:pb-36">
         <Hero
           media={hero.media.value}
