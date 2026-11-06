@@ -3,7 +3,7 @@ import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisio
 import {Featured} from "@/features/home/featured/featured";
 import {Founder} from "@/features/home/founder/founder";
 import {Hero} from "@/components/hero/hero";
-import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
+import {LinkBanner} from "@/components/link-banner/link-banner";
 import {News} from "@/features/home/news/news";
 import {Proof} from "@/features/home/proof/proof";
 import {Stories} from "@/features/home/stories/stories";
@@ -31,7 +31,10 @@ export function HomeView() {
       <Featured eyebrow={featured.eyebrow.value} heading={featured.heading.value} tabs={featured.tabs} />
       <Proof heading={proof.heading.value} lead={proof.lead.value} columns={proof.columns} />
       <Stories heading={stories.heading.value} tabs={stories.tabs} />
-      <ProjectsBanner
+      <LinkBanner
+        name="Our projects"
+        headingId="projects-heading"
+        division="engineering"
         eyebrow={projects.eyebrow.value}
         heading={projects.heading.value}
         href={projects.link.href}

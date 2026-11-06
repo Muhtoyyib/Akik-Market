@@ -1,46 +1,12 @@
 import {Button} from "@/components/button/button";
-import {MediaBox} from "@/components/media-box/media-box";
+import {NewsCard, type NewsCardPost} from "@/components/news-card/news-card";
 import {SectionHeader} from "@/components/section-header/section-header";
 import {Frame} from "@/components/frame/frame";
-import {newsDate} from "@/lib/news";
 import {SECTION_IDS} from "@/lib/home-sections";
 
-type Post = {
-  date: string;
-  title: {value: string};
-  href?: string;
-  image: {value: {src: string; alt: string; width: number; height: number}};
-};
-type NewsProps = {eyebrow: string; heading: string; posts: readonly Post[]; action: {label: string; href: string}};
+type NewsProps = {eyebrow: string; heading: string; posts: readonly NewsCardPost[]; action: {label: string; href: string}};
 
 const HEADING_ID = "news-heading";
-
-/** A link only once the post exists (news spec, "Links"): the title's ::after layer then covers the whole card. */
-function Title({title, href}: {title: string; href?: string}) {
-  if (href === undefined) return <h3 className="type-h3">{title}</h3>;
-  return (
-    <h3 className="type-h3 group-hover:underline">
-      <a href={href} className="outline-none after:absolute after:inset-0">
-        {title}
-      </a>
-    </h3>
-  );
-}
-
-function NewsCard({date, title, href, image}: Post) {
-  return (
-    <div className="group rounded-md outline-offset-2 outline-brand-navy has-focus-visible:outline-2 has-focus-visible:outline-solid">
-      <MediaBox ratio="3:2" scrim media={{kind: "image", ...image.value}}>
-        <div className="absolute inset-0 flex flex-col justify-end p-6 text-on-dark">
-          <time dateTime={date} className="mb-2 type-label">
-            {newsDate(date)}
-          </time>
-          <Title title={title.value} href={href} />
-        </div>
-      </MediaBox>
-    </div>
-  );
-}
 
 /** Matic P9: centred header, three image cards with the date and title over the photo, then one text link. */
 export function News({eyebrow, heading, posts, action}: NewsProps) {

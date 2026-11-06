@@ -1,7 +1,7 @@
 import {readdirSync} from "node:fs";
 import {resolve} from "node:path";
 import {describe, expect, it} from "vite-plus/test";
-import {posts} from "@/lib/content/news";
+import {newsSummaries as posts} from "@/lib/content/news-summaries";
 import {collectionPaths, NOT_FOUND_PATH, pageExists, prerenderList, prerenderPathnames, routedPath} from "@/lib/site-pages";
 
 const routesDir = resolve(import.meta.dirname, "../../routes");

@@ -10,6 +10,8 @@ import {founderPhotos} from "@/lib/content/founder";
 import {homeContent} from "@/lib/content/home";
 import {listings} from "@/lib/content/listings";
 import {listingsIndex, listingsNextSteps} from "@/lib/content/listings-page";
+import {newsBodies} from "@/lib/content/news-bodies";
+import {newsIndex} from "@/lib/content/news-page";
 import {notFoundContent} from "@/lib/content/not-found";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {projects} from "@/lib/content/projects";
@@ -21,9 +23,10 @@ import {leadQuote, quotes, stories} from "@/lib/content/stories";
 export const allContent = {
   "Site-wide": {...siteContent, business: {startYear, social, email, address, hours, shopPhoto}},
   Listings: {listings},
-  "News posts": {posts},
+  "News posts": {posts, bodies: newsBodies},
   "Customer stories": {stories, leadQuote, quotes},
   Projects: {projects},
+  "News page": {newsIndex},
   "Listings page": {listingsIndex, listingsNextSteps},
   "Projects banner": {projectsBanner},
   Founder: {founderPhotos},

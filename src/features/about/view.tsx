@@ -1,6 +1,6 @@
 import {IconRowsSection} from "@/components/icon-row/icon-rows-section";
 import {PageLayout} from "@/components/page-layout/page-layout";
-import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
+import {LinkBanner} from "@/components/link-banner/link-banner";
 import {Visit} from "@/components/visit/visit";
 import {FounderStory} from "@/features/about/founder-story";
 import {Team} from "@/features/about/team";
@@ -20,7 +20,10 @@ export function AboutView({content}: {content: typeof aboutContent}) {
       <Timeline eyebrow={timeline.eyebrow.value} heading={timeline.heading.value} chapters={timeline.chapters} />
       <IconRowsSection heading={values.heading.value} rows={values.rows} headingId="values-heading" />
       <Team heading={team.heading.value} people={team.people} />
-      <ProjectsBanner
+      <LinkBanner
+        name="Our projects"
+        headingId="projects-heading"
+        division="engineering"
         eyebrow={projectsBanner.eyebrow.value}
         heading={projectsBanner.heading.value}
         href={projectsBanner.link.href}

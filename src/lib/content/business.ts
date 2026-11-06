@@ -36,11 +36,18 @@ export function whatsappTo(number: string, topic: string) {
 
 export const mainWhatsapp = {number: mainNumber, href: whatsappHref(mainNumber.value, greeting.value)};
 
-// In the order the business grew.
+// In the order the business grew. `tab` is the short name on tabs by business (Home's Featured and Stories, News).
 export const businesses = [
-  {key: "phones", name: "Phones & Gadgets", path: "/phones-and-gadgets", number: mainNumber, topic: "a phone"},
-  {key: "engineering", name: "Engineering & Real Estate", path: "/engineering", number: secondNumber, topic: "a house or land"},
-  {key: "autos", name: "Autos", path: "/autos", number: mainNumber, topic: "a car"},
+  {key: "phones", name: "Phones & Gadgets", tab: "Phones", path: "/phones-and-gadgets", number: mainNumber, topic: "a phone"},
+  {
+    key: "engineering",
+    name: "Engineering & Real Estate",
+    tab: "Homes",
+    path: "/engineering",
+    number: secondNumber,
+    topic: "a house or land",
+  },
+  {key: "autos", name: "Autos", tab: "Cars", path: "/autos", number: mainNumber, topic: "a car"},
 ] as const;
 
 export type BusinessKey = (typeof businesses)[number]["key"];

@@ -1,13 +1,13 @@
 import {PillTabs} from "@/components/pill-tabs/pill-tabs";
 import {ProjectGrid} from "@/features/projects/project-grid";
-import {useTypeParam} from "@/components/pill-tabs/use-type-param";
+import {useTabParam} from "@/components/pill-tabs/use-tab-param";
 import {type Project, PROJECT_TYPES, type ProjectType} from "@/lib/content/projects";
 
 type ProjectsFilterProps = {projects: readonly Project[]; types: readonly ProjectType[]};
 
 /** Tabs for "All" and each type with projects, kept in ?type=; with one type there are no tabs (filters spec). */
 export function ProjectsFilter({projects, types}: ProjectsFilterProps) {
-  const {type, select} = useTypeParam(types, "all");
+  const {tab: type, select} = useTabParam("type", types, "all");
   if (types.length < 2) return <ProjectGrid projects={projects} level={2} />;
   const tabs = [
     {value: "all", label: "All", panel: <ProjectGrid projects={projects} level={2} />},

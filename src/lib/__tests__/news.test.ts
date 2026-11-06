@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vite-plus/test";
-import {latestPosts, newsDate} from "@/lib/news";
+import {latestPosts, newestPosts, newsDate, postBusinesses} from "@/lib/news";
 
 describe("newsDate", () => {
   it("writes a date as day, short month and year in capitals", () => {
@@ -36,5 +36,21 @@ describe("latestPosts", () => {
     const posts = [post("2026-08-01"), post("2026-09-01")];
     latestPosts(posts);
     expect(posts.map((entry) => entry.date)).toEqual(["2026-08-01", "2026-09-01"]);
+  });
+});
+
+describe("postBusinesses", () => {
+  it("lists only the businesses with posts, in the order given", () => {
+    expect(postBusinesses([{business: "autos"}, {business: "phones"}], ["phones", "engineering", "autos"])).toEqual(["phones", "autos"]);
+  });
+});
+
+describe("newestPosts", () => {
+  it("lists every post newest first without changing the collection", () => {
+    const posts = [post("2026-08-01"), post("2026-09-01"), post("2026-07-01"), post("2026-10-01")];
+    expect([newestPosts(posts).map((entry) => entry.date), posts[0]?.date]).toEqual([
+      ["2026-10-01", "2026-09-01", "2026-08-01", "2026-07-01"],
+      "2026-08-01",
+    ]);
   });
 });

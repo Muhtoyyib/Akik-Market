@@ -1,12 +1,10 @@
-import {ArrowLeft} from "lucide-react";
+import {BackLink} from "@/components/back-link/back-link";
 import {Frame} from "@/components/frame/frame";
 import {MediaBox} from "@/components/media-box/media-box";
 import type {Project} from "@/lib/content/projects";
 import {PROJECTS_PATH} from "@/lib/page-heads";
 
 const HEADING_ID = "project-heading";
-const BACK_LINK =
-  "inline-flex min-h-11 items-center gap-2 type-small font-semibold text-ink underline-offset-4 outline-offset-2 outline-brand-navy hover:underline focus-visible:outline-2 focus-visible:outline-solid";
 
 /** Matic P2: a back link, the building in a 16:9 box (4:5 on phones), then the type, year and the page's h1. */
 export function ProjectHero({project}: {project: Project}) {
@@ -15,10 +13,7 @@ export function ProjectHero({project}: {project: Project}) {
   return (
     <section aria-labelledby={HEADING_ID} className="pt-6 md:pt-8">
       <Frame>
-        <a href={PROJECTS_PATH} className={BACK_LINK}>
-          <ArrowLeft aria-hidden size={16} strokeWidth={1.5} />
-          All projects
-        </a>
+        <BackLink href={PROJECTS_PATH} label="All projects" />
         {cover && (
           <div className="mt-4">
             <MediaBox ratio="4:5/16:9" media={{kind: "image", ...cover}} priority />

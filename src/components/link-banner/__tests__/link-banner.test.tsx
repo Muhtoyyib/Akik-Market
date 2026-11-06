@@ -1,12 +1,15 @@
 import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
-import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
+import {LinkBanner} from "@/components/link-banner/link-banner";
 import {homeContent} from "@/lib/content/home";
 
 const {projects} = homeContent;
 const renderBanner = () =>
   render(
-    <ProjectsBanner
+    <LinkBanner
+      name="Our projects"
+      headingId="projects-heading"
+      division="engineering"
       eyebrow={projects.eyebrow.value}
       heading={projects.heading.value}
       href={projects.link.href}

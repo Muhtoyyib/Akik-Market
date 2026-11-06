@@ -17,6 +17,8 @@ import { Route as DesignSystemRouteImport } from "./routes/design-system"
 import { Route as EngineeringRouteImport } from "./routes/engineering"
 import { Route as ListingsRouteImport } from "./routes/listings"
 import { Route as PhonesAndGadgetsRouteImport } from "./routes/phones-and-gadgets"
+import { Route as NewsIndexRouteImport } from "./routes/news.index"
+import { Route as NewsSlugRouteImport } from "./routes/news.$slug"
 import { Route as ProjectsIndexRouteImport } from "./routes/projects.index"
 import { Route as ProjectsSlugRouteImport } from "./routes/projects.$slug"
 
@@ -60,6 +62,16 @@ const PhonesAndGadgetsRoute = PhonesAndGadgetsRouteImport.update({
   path: "/phones-and-gadgets",
   getParentRoute: () => rootRouteImport,
 } as any)
+const NewsIndexRoute = NewsIndexRouteImport.update({
+  id: "/news/",
+  path: "/news/",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NewsSlugRoute = NewsSlugRouteImport.update({
+  id: "/news/$slug",
+  path: "/news/$slug",
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ProjectsIndexRoute = ProjectsIndexRouteImport.update({
   id: "/projects/",
   path: "/projects/",
@@ -80,7 +92,9 @@ export interface FileRoutesByFullPath {
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
+  "/news/": typeof NewsIndexRoute
   "/projects/": typeof ProjectsIndexRoute
 }
 export interface FileRoutesByTo {
@@ -92,7 +106,9 @@ export interface FileRoutesByTo {
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
+  "/news": typeof NewsIndexRoute
   "/projects": typeof ProjectsIndexRoute
 }
 export interface FileRoutesById {
@@ -105,7 +121,9 @@ export interface FileRoutesById {
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
+  "/news/": typeof NewsIndexRoute
   "/projects/": typeof ProjectsIndexRoute
 }
 export interface FileRouteTypes {
@@ -119,7 +137,9 @@ export interface FileRouteTypes {
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/news/$slug"
     | "/projects/$slug"
+    | "/news/"
     | "/projects/"
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -131,7 +151,9 @@ export interface FileRouteTypes {
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/news/$slug"
     | "/projects/$slug"
+    | "/news"
     | "/projects"
   id:
     | "__root__"
@@ -143,7 +165,9 @@ export interface FileRouteTypes {
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/news/$slug"
     | "/projects/$slug"
+    | "/news/"
     | "/projects/"
   fileRoutesById: FileRoutesById
 }
@@ -156,7 +180,9 @@ export interface RootRouteChildren {
   EngineeringRoute: typeof EngineeringRoute
   ListingsRoute: typeof ListingsRoute
   PhonesAndGadgetsRoute: typeof PhonesAndGadgetsRoute
+  NewsSlugRoute: typeof NewsSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
+  NewsIndexRoute: typeof NewsIndexRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
 }
 
@@ -218,6 +244,20 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof PhonesAndGadgetsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    "/news/": {
+      id: "/news/"
+      path: "/news"
+      fullPath: "/news/"
+      preLoaderRoute: typeof NewsIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/news/$slug": {
+      id: "/news/$slug"
+      path: "/news/$slug"
+      fullPath: "/news/$slug"
+      preLoaderRoute: typeof NewsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     "/projects/": {
       id: "/projects/"
       path: "/projects"
@@ -244,7 +284,9 @@ const rootRouteChildren: RootRouteChildren = {
   EngineeringRoute: EngineeringRoute,
   ListingsRoute: ListingsRoute,
   PhonesAndGadgetsRoute: PhonesAndGadgetsRoute,
+  NewsSlugRoute: NewsSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
+  NewsIndexRoute: NewsIndexRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,
 }
 export const routeTree = rootRouteImport

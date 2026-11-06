@@ -1,8 +1,7 @@
 // Pure rules for the Projects pages: order, filter tabs and related projects (projects-pages design D1, D3).
+import {relatedItems} from "@/lib/related";
 
 type Ordered = {slug: string; type: string; completed: string};
-
-const RELATED_COUNT = 3;
 
 /** Newest first by completion date (YYYY-MM), without changing the collection itself. */
 export function newestFirst<T extends Ordered>(projects: readonly T[]): T[] {
@@ -16,8 +15,5 @@ export function presentTypes<K extends string>(projects: readonly Ordered[], ord
 
 /** Up to three other projects: the newest of the same type, then the newest of any type. */
 export function relatedProjects<T extends Ordered>(current: T, projects: readonly T[]): T[] {
-  const others = newestFirst(projects.filter((project) => project.slug !== current.slug));
-  const sameType = others.filter((project) => project.type === current.type);
-  const rest = others.filter((project) => project.type !== current.type);
-  return [...sameType, ...rest].slice(0, RELATED_COUNT);
+  return relatedItems(current, projects, (project) => ({id: project.slug, group: project.type, date: project.completed}));
 }

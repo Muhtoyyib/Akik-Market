@@ -14,5 +14,15 @@ export function newsDate(iso: string): string {
 
 /** The newest posts first. YYYY-MM-DD strings sort by date as plain text. */
 export function latestPosts<T extends {date: string}>(posts: readonly T[]): T[] {
-  return [...posts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, POSTS_ON_HOME);
+  return newestPosts(posts).slice(0, POSTS_ON_HOME);
+}
+
+/** The tabs on the News page: a business gets one only once it has a post, in the order given (filters spec). */
+export function postBusinesses<K extends string>(posts: readonly {business: string}[], order: readonly K[]): K[] {
+  return order.filter((key) => posts.some((post) => post.business === key));
+}
+
+/** Every post, newest first, without changing the collection. */
+export function newestPosts<T extends {date: string}>(posts: readonly T[]): T[] {
+  return [...posts].sort((a, b) => b.date.localeCompare(a.date));
 }

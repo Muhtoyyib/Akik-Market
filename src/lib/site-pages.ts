@@ -1,6 +1,7 @@
 // Every route that ships must be listed here so the build prerenders it to static HTML (site page-registration spec).
 // vite.config.ts loads this file through Vite, so it may import content modules for their slugs. Every page loads it,
 // so it imports slug lists, never whole collections.
+import {newsSummaries} from "@/lib/content/news-summaries";
 import {projectSummaries} from "@/lib/content/project-summaries";
 
 type Collection = {base: string; slugs: readonly string[]};
@@ -16,6 +17,7 @@ const STATIC_PAGES = [
   "/about",
   "/projects",
   "/listings",
+  "/news",
   "/phones-and-gadgets",
   "/engineering",
   "/autos",
@@ -24,7 +26,10 @@ const STATIC_PAGES = [
 ];
 
 // A collection's item pages, for each collection whose `$slug` route is built.
-const COLLECTIONS: Collection[] = [{base: "/projects", slugs: projectSummaries.value.map((summary) => summary.slug)}];
+const COLLECTIONS: Collection[] = [
+  {base: "/projects", slugs: projectSummaries.value.map((summary) => summary.slug)},
+  {base: "/news", slugs: newsSummaries.map((summary) => summary.slug)},
+];
 
 /** One path per item, after checking every slug is well formed and used once. */
 export function collectionPaths(base: string, slugs: readonly string[]): string[] {

@@ -154,10 +154,10 @@ describe("homeContent", () => {
     expect(homeContent.news.posts.map((post) => post.date)).toEqual(["2026-10-30", "2026-10-14", "2026-09-22"]);
   });
 
-  it("leaves news cards unlinked and sends the action to Instagram until the News page exists", () => {
+  it("links each news card to its post and the action to the News page, now that they exist", () => {
     expect([homeContent.news.posts.map((post) => post.href), homeContent.news.action]).toEqual([
-      [undefined, undefined, undefined],
-      {label: "Follow us on Instagram", href: "https://www.instagram.com/akikmarket/"},
+      ["/news/new-phones-this-week", "/news/jericho-terrace-interiors", "/news/fresh-car-arrivals"],
+      {label: "More news", href: "/news"},
     ]);
   });
 

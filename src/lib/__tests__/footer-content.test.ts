@@ -29,6 +29,7 @@ describe("footer content", () => {
     expect(footer.columns.find((column) => column.heading === "Company")?.links).toEqual([
       {label: "About", href: "/about"},
       {label: "Projects", href: "/projects"},
+      {label: "News", href: "/news"},
     ]);
   });
 

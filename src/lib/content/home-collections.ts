@@ -9,12 +9,8 @@ import {latestPosts} from "@/lib/news";
 import {onwardLink} from "@/lib/onward-link";
 import {pageExists} from "@/lib/site-pages";
 
-// Stryker disable StringLiteral,ObjectLiteral : tab labels and actions from the featured-now spec; tests pin them.
-const ON_HOME: Record<BusinessKey, {label: string; action: string}> = {
-  phones: {label: "Phones", action: "See all phones"},
-  engineering: {label: "Homes", action: "See all properties"},
-  autos: {label: "Cars", action: "See all cars"},
-};
+// Stryker disable StringLiteral,ObjectLiteral : actions from the featured-now spec; tests pin them.
+const ACTIONS: Record<BusinessKey, string> = {phones: "See all phones", engineering: "See all properties", autos: "See all cars"};
 // Stryker restore StringLiteral,ObjectLiteral
 
 /** "See all": the Listings tab for homes and cars once that page exists (listings page spec, "Links in"), else the
@@ -29,7 +25,8 @@ export function homeFeatured(items: readonly Listing[]) {
   return featuredTabs(
     businesses.map((entry) => ({
       key: entry.key,
-      ...ON_HOME[entry.key],
+      label: entry.tab,
+      action: ACTIONS[entry.key],
       link: seeAll(entry),
       items: items.filter((item) => item.value.business === entry.key),
     }))
@@ -53,6 +50,6 @@ export function homeNews(all: readonly Post[]) {
 export function homeStories(all: readonly Story[]) {
   return businesses.flatMap((entry) => {
     const found = all.find((item) => item.business === entry.key);
-    return found ? [{key: entry.key, label: ON_HOME[entry.key].label, story: found.story}] : [];
+    return found ? [{key: entry.key, label: entry.tab, story: found.story}] : [];
   });
 }
