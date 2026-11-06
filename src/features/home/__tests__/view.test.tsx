@@ -64,8 +64,10 @@ describe("Home hero", () => {
 
   it("keeps each reassurance claim from breaking inside itself", () => {
     render(<HomeView />);
+    // Scoped to the hero: the same phrases come back as promises in Buy with confidence.
+    const hero = within(screen.getByRole("heading", {level: 1}).closest("section")!);
     for (const claim of homeContent.hero.claims.value) {
-      expect(screen.getByText(claim)).toHaveClass("whitespace-nowrap");
+      expect(hero.getByText(claim)).toHaveClass("whitespace-nowrap");
     }
   });
 });

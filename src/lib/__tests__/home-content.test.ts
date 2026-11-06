@@ -129,4 +129,27 @@ describe("homeContent", () => {
       false,
     ]);
   });
+
+  it("lists all four buy-with-confidence promises in the placeholder report until the owner approves them", () => {
+    const paths = listPlaceholders(homeContent).map((entry) => entry.path);
+    expect(paths.filter((path) => path.startsWith("trust.rows."))).toEqual([
+      "trust.rows.0",
+      "trust.rows.1",
+      "trust.rows.2",
+      "trust.rows.3",
+    ]);
+  });
+
+  it("orders the promises phones, cars, land, handover", () => {
+    expect(homeContent.trust.rows.map((row) => row.value.title)).toEqual([
+      "Genuine phones",
+      "Inspected cars",
+      "Verified land papers",
+      "Handover you can see",
+    ]);
+  });
+
+  it("points the trust photo at a file in public/", () => {
+    expect(existsSync(`public${homeContent.trust.image.value.src}`)).toBe(true);
+  });
 });

@@ -214,6 +214,17 @@ export const homeContent = {
     ],
   },
   projects,
+  // Spec (buy-with-confidence, "Promises are owner-approved"): every claim waits for the owner's sign-off.
+  trust: {
+    heading: placeholder("Buy with confidence"),
+    image: placeholder({src: "/placeholders/trust-handshake.jpg", alt: "", width: 800, height: 1000}),
+    rows: [
+      placeholder({icon: "shield" as const, title: "Genuine phones", line: "Every device is original, with warranty."}),
+      placeholder({icon: "clipboard-check" as const, title: "Inspected cars", line: "Each car is checked before it's listed."}),
+      placeholder({icon: "file-check" as const, title: "Verified land papers", line: "We confirm the documents before you pay."}),
+      placeholder({icon: "key" as const, title: "Handover you can see", line: "Visit the site or the car before you commit."}),
+    ],
+  },
   featured: {
     eyebrow: real("Featured now"),
     heading: placeholder("Just in at Akik"),

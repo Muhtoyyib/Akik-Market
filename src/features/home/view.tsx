@@ -4,12 +4,13 @@ import {Hero} from "@/features/home/hero/hero";
 import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
 import {Proof} from "@/features/home/proof/proof";
 import {Stories} from "@/features/home/stories/stories";
+import {Trust} from "@/features/home/trust/trust";
 import {SiteHeader} from "@/features/home/header/site-header";
 import {SkipLink} from "@/features/home/skip-link";
 import {homeContent} from "@/lib/home-content";
 
 export function HomeView() {
-  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects} = homeContent;
+  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust} = homeContent;
   return (
     <>
       <SkipLink />
@@ -32,6 +33,7 @@ export function HomeView() {
           href={projects.link.href}
           image={projects.image.value}
         />
+        <Trust heading={trust.heading.value} image={trust.image.value} rows={trust.rows} whatsappHref={whatsapp.main.href} />
       </main>
     </>
   );

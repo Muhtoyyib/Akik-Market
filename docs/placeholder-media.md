@@ -58,3 +58,11 @@ The house-keys clip (15064) and the suburban and beach-house clips (48394, 27543
 | `projects-house.jpg` | Two-storey house with a tiled roof and a formal garden | [rawpixel](https://www.rawpixel.com/image/5941076/free-public-domain-cc0-photo), via Openverse | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
 
 Only a 1024x768 copy was available (Openverse and rawpixel both cap downloads at 1024px), so it is a little soft on high-density screens. It is not an Akik building; its alt text is empty so the page doesn't claim it is.
+
+## Buy with confidence
+
+| File                  | Shows                              | Source                                                                                                                                        | Licence                                              |
+| --------------------- | ---------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| `trust-handshake.jpg` | Two hands in a handshake, no faces | Still from [Mixkit 30004](https://mixkit.co/free-stock-video/hands-in-a-handshake-with-a-person-in-a-suit-30004/), cropped to 4:5 at 800x1000 | Mixkit Stock Video Free License (checked 2026-11-06) |
+
+Every handshake, keys and handover clip of a real-estate scene checked on Mixkit (15773, 5889, 13126, 6518, 36136) was Restricted.
