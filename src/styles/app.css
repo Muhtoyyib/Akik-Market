@@ -161,6 +161,17 @@
   }
 }
 
+/* Pill tabs: Base UI sets these variables on the indicator from the selected tab's box (pill-tabs/spec.md). */
+@utility pill-indicator {
+  left: var(--active-tab-left);
+  top: var(--active-tab-top);
+  width: var(--active-tab-width);
+  height: var(--active-tab-height);
+  transition-property: left, width;
+  transition-duration: 250ms;
+  transition-timing-function: var(--ease-standard);
+}
+
 @layer base {
   /* Light scheme only (design.md D3): form controls and scrollbars stay light even when the system prefers dark. */
   :root {

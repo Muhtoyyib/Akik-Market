@@ -8,6 +8,10 @@ export default defineConfig({
   ...sharedViteConfig,
   // Tailwind runs here so browser tests see the real tokens and utilities from app.css.
   plugins: [tailwindcss(), react()],
+  // Pre-bundled up front: when Vite finds a dependency mid-run it reloads the browser and every test file fails to import.
+  optimizeDeps: {
+    include: ["react", "react-dom", "react-dom/client", "@base-ui/react/tabs", "lucide-react", "axe-core", "@testing-library/react", "cn"],
+  },
   test: {
     ...sharedTestConfig,
     projects: [
