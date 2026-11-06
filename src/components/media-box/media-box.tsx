@@ -18,7 +18,8 @@ type MediaBoxProps = {
   banner?: boolean;
   /** A gradient under overlay text. Text is readable (4.5:1) over the lower third of the box. */
   scrim?: boolean;
-  caption?: {title: string; description: string};
+  /** With `href`, the title is a link whose ::after layer covers the nearest positioned ancestor (the card). */
+  caption?: {title: string; description: string; href?: string};
   children?: ReactNode;
 };
 
@@ -50,10 +51,18 @@ function MediaElement({media, priority}: {media: Media; priority: boolean}) {
   );
 }
 
-function Caption({title, description}: {title: string; description: string}) {
+function Caption({title, description, href}: NonNullable<MediaBoxProps["caption"]>) {
   return (
     <div className="mt-4">
-      <h3 className="type-h3 text-ink">{title}</h3>
+      <h3 className="type-h3 text-ink group-hover:underline">
+        {href ? (
+          <a href={href} className="outline-none after:absolute after:inset-0">
+            {title}
+          </a>
+        ) : (
+          title
+        )}
+      </h3>
       <p className="type-body text-ink-muted">{description}</p>
     </div>
   );
@@ -70,7 +79,7 @@ export function MediaBox({ratio, media, priority = false, banner = false, scrim 
         )}
         {children}
       </div>
-      {caption && <Caption title={caption.title} description={caption.description} />}
+      {caption && <Caption {...caption} />}
     </div>
   );
 }

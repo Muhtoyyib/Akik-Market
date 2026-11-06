@@ -7,27 +7,25 @@ import {phonesPage} from "@/lib/content/divisions/phones";
 import {listings, type Listing} from "@/lib/content/listings";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {stories, type Story} from "@/lib/content/stories";
+import {listingsHref, newestListed} from "@/lib/listings";
 
 // Spec (stock, "Items from the listings collection"): at most eight, newest first.
 const MAX_STOCK = 8;
-const LISTINGS_PATH = "/listings";
-
-// Spec (stock, "See all"): the Listings page shows homes and cars, not phones.
-const LISTINGS_FILTER: Record<BusinessKey, string | undefined> = {phones: undefined, engineering: "homes", autos: "cars"};
 
 /** This business's items, newest first, cut to what the page shows. YYYY-MM-DD dates sort as plain text. */
 export function divisionStock(key: BusinessKey, all: readonly Listing[]): Listing[] {
-  return all
-    .filter((item) => item.value.business === key)
-    .sort((a, b) => b.value.listed.localeCompare(a.value.listed))
-    .slice(0, MAX_STOCK);
+  return newestListed(all.filter((item) => item.value.business === key)).slice(0, MAX_STOCK);
 }
 
 /** "See all": the Listings page filtered to this business once it exists and lists it, else WhatsApp to the business. */
 export function seeAllHref(key: BusinessKey, exists: (path: string) => boolean): string {
-  const filter = LISTINGS_FILTER[key];
   const {number, topic} = business(key);
-  return filter && exists(LISTINGS_PATH) ? `${LISTINGS_PATH}?type=${filter}` : whatsappTo(number.value, topic).href;
+  return listingsHref(key, exists) ?? whatsappTo(number.value, topic).href;
+}
+
+/** Spec (offer, "Cards are not links unless a page exists"): each card opens the Listings tab for its business. */
+function offerWithLinks<T extends {cards: readonly {value: object}[]}>(offer: T, href: string | undefined) {
+  return {...offer, cards: offer.cards.map((card) => ({...card, value: {...card.value, href}}))};
 }
 
 /** The first story told about this business, if any. */
@@ -55,7 +53,7 @@ export function divisionPage(key: BusinessKey, exists: (path: string) => boolean
     key,
     path: entry.path,
     hero: {...own.hero, eyebrow: entry.name, whatsappHref: ask},
-    offer: own.offer,
+    offer: offerWithLinks(own.offer, listingsHref(key, exists)),
     stock: {...own.stock, items: divisionStock(key, listings), href: seeAllHref(key, exists)},
     steps: {...own.steps, whatsappHref: ask},
     specific: specificSection(key),

@@ -9,6 +9,8 @@ export const PROJECTS_PATH = "/projects";
 
 export const aboutHead = pageHead({name: "About", description: pageDescriptions.about.value});
 
+export const listingsHead = pageHead({name: "Listings", description: pageDescriptions.listings.value});
+
 export const projectsIndexHead = pageHead({name: "Projects", description: pageDescriptions.projects.value});
 
 export function divisionHead(key: BusinessKey) {

@@ -9,6 +9,7 @@ export const pageDescriptions = {
   phones: placeholder("Original phones, laptops and accessories with warranty, plus trade-ins and repairs, at Akik on Iwo Road, Ibadan."),
   engineering: placeholder("Homes built and sold, land with verified papers, and building and renovation, from Akik on Iwo Road, Ibadan."),
   autos: placeholder("Inspected cars with checked papers and honest prices, with test drives welcome, at Akik on Iwo Road, Ibadan."),
+  listings: real("Homes and cars for sale in Ibadan from Akik, each with photos, details and a price, and one tap to ask on WhatsApp."),
   projects: real("Homes and estates Akik has built and handed over in Ibadan, with the facts and photos of each."),
 };
 // Stryker restore StringLiteral

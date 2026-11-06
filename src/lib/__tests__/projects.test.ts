@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vite-plus/test";
-import {newestFirst, presentTypes, relatedProjects, typeFromSearch} from "@/lib/projects";
+import {newestFirst, presentTypes, relatedProjects} from "@/lib/projects";
 
 const p = (slug: string, type: string, completed: string) => ({slug, type, completed});
 const all = [
@@ -24,20 +24,6 @@ describe("newestFirst", () => {
 describe("presentTypes", () => {
   it("lists only the types that have projects, in the order given", () => {
     expect(presentTypes(all, ["land", "estates", "homes"])).toEqual(["estates", "homes"]);
-  });
-});
-
-describe("typeFromSearch", () => {
-  it("selects the type named in ?type=", () => {
-    expect(typeFromSearch("?type=estates", ["homes", "estates"])).toBe("estates");
-  });
-
-  it("falls back to all for a type with no projects", () => {
-    expect(typeFromSearch("?type=boats", ["homes", "estates"])).toBe("all");
-  });
-
-  it("falls back to all with no ?type=", () => {
-    expect(typeFromSearch("", ["homes", "estates"])).toBe("all");
   });
 });
 

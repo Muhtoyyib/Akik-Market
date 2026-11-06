@@ -15,6 +15,7 @@ import { Route as AboutRouteImport } from "./routes/about"
 import { Route as AutosRouteImport } from "./routes/autos"
 import { Route as DesignSystemRouteImport } from "./routes/design-system"
 import { Route as EngineeringRouteImport } from "./routes/engineering"
+import { Route as ListingsRouteImport } from "./routes/listings"
 import { Route as PhonesAndGadgetsRouteImport } from "./routes/phones-and-gadgets"
 import { Route as ProjectsIndexRouteImport } from "./routes/projects.index"
 import { Route as ProjectsSlugRouteImport } from "./routes/projects.$slug"
@@ -49,6 +50,11 @@ const EngineeringRoute = EngineeringRouteImport.update({
   path: "/engineering",
   getParentRoute: () => rootRouteImport,
 } as any)
+const ListingsRoute = ListingsRouteImport.update({
+  id: "/listings",
+  path: "/listings",
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PhonesAndGadgetsRoute = PhonesAndGadgetsRouteImport.update({
   id: "/phones-and-gadgets",
   path: "/phones-and-gadgets",
@@ -72,6 +78,7 @@ export interface FileRoutesByFullPath {
   "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
+  "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
   "/projects/$slug": typeof ProjectsSlugRoute
   "/projects/": typeof ProjectsIndexRoute
@@ -83,6 +90,7 @@ export interface FileRoutesByTo {
   "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
+  "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
   "/projects/$slug": typeof ProjectsSlugRoute
   "/projects": typeof ProjectsIndexRoute
@@ -95,6 +103,7 @@ export interface FileRoutesById {
   "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
+  "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
   "/projects/$slug": typeof ProjectsSlugRoute
   "/projects/": typeof ProjectsIndexRoute
@@ -108,6 +117,7 @@ export interface FileRouteTypes {
     | "/autos"
     | "/design-system"
     | "/engineering"
+    | "/listings"
     | "/phones-and-gadgets"
     | "/projects/$slug"
     | "/projects/"
@@ -119,6 +129,7 @@ export interface FileRouteTypes {
     | "/autos"
     | "/design-system"
     | "/engineering"
+    | "/listings"
     | "/phones-and-gadgets"
     | "/projects/$slug"
     | "/projects"
@@ -130,6 +141,7 @@ export interface FileRouteTypes {
     | "/autos"
     | "/design-system"
     | "/engineering"
+    | "/listings"
     | "/phones-and-gadgets"
     | "/projects/$slug"
     | "/projects/"
@@ -142,6 +154,7 @@ export interface RootRouteChildren {
   AutosRoute: typeof AutosRoute
   DesignSystemRoute: typeof DesignSystemRoute
   EngineeringRoute: typeof EngineeringRoute
+  ListingsRoute: typeof ListingsRoute
   PhonesAndGadgetsRoute: typeof PhonesAndGadgetsRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
   ProjectsIndexRoute: typeof ProjectsIndexRoute
@@ -191,6 +204,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof EngineeringRouteImport
       parentRoute: typeof rootRouteImport
     }
+    "/listings": {
+      id: "/listings"
+      path: "/listings"
+      fullPath: "/listings"
+      preLoaderRoute: typeof ListingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     "/phones-and-gadgets": {
       id: "/phones-and-gadgets"
       path: "/phones-and-gadgets"
@@ -222,6 +242,7 @@ const rootRouteChildren: RootRouteChildren = {
   AutosRoute: AutosRoute,
   DesignSystemRoute: DesignSystemRoute,
   EngineeringRoute: EngineeringRoute,
+  ListingsRoute: ListingsRoute,
   PhonesAndGadgetsRoute: PhonesAndGadgetsRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,
   ProjectsIndexRoute: ProjectsIndexRoute,

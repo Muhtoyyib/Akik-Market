@@ -1,7 +1,10 @@
 import {cn} from "cn";
 import {MediaBox} from "@/components/media-box/media-box";
 
-type CardRowItem = {title: string; line: string; image: {src: string; alt: string; width: number; height: number}};
+type CardRowItem = {title: string; line: string; image: {src: string; alt: string; width: number; height: number}; href?: string};
+
+// A linked card is one link (its title's ::after covers the card), so the focus ring goes round the whole card.
+const LINKED = "group relative rounded-md outline-offset-4 outline-brand-navy has-focus-visible:outline-2 has-focus-visible:outline-solid";
 type CardRowProps = {label: string; items: readonly CardRowItem[]};
 
 // Four fit in a row at 1024px; five or six wrap to rows of three.
@@ -25,8 +28,12 @@ export function CardRow({label, items}: CardRowProps) {
       )}
     >
       {items.map((item) => (
-        <li key={item.title} className="w-4/5 shrink-0 snap-start md:w-2/5 lg:w-auto">
-          <MediaBox ratio="4:5" media={{kind: "image", ...item.image}} caption={{title: item.title, description: item.line}} />
+        <li key={item.title} className={cn("w-4/5 shrink-0 snap-start md:w-2/5 lg:w-auto", item.href && LINKED)}>
+          <MediaBox
+            ratio="4:5"
+            media={{kind: "image", ...item.image}}
+            caption={{title: item.title, description: item.line, href: item.href}}
+          />
         </li>
       ))}
     </ul>

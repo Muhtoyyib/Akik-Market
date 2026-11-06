@@ -63,19 +63,37 @@ describe("a division page", () => {
     );
   });
 
-  it("shows the offer cards as content, not links, while no page lists a category", () => {
+  it("links each Autos offer card, named after its category, to the Cars listings", () => {
     renderPage(autos);
+    const offer = screen.getByRole("region", {name: autos.offer.heading.value});
+    const links = within(offer).getAllByRole("link");
+    expect(links.map((link) => [link.textContent, link.getAttribute("href")])).toEqual(
+      autos.offer.cards.map((card) => [card.value.title, "/listings?type=cars"])
+    );
+  });
+
+  it("shows the offer cards as content, not links, while no page lists the business", () => {
+    renderPage(divisionPage("autos", () => false));
     const offer = screen.getByRole("region", {name: autos.offer.heading.value});
     expect([within(offer).getAllByRole("listitem").length, within(offer).queryAllByRole("link")]).toEqual([4, []]);
   });
 
-  it("asks about every stock item on this business's WhatsApp, with See all to WhatsApp before the Listings page", () => {
+  it("leaves the Phones offer cards unlinked, since the Listings page doesn't list phones", () => {
+    renderPage(phones);
+    const offer = screen.getByRole("region", {name: phones.offer.heading.value});
+    expect(within(offer).queryAllByRole("link")).toEqual([]);
+  });
+
+  it("asks about every stock item on this business's WhatsApp, with See all to the Homes listings", () => {
     renderPage(engineering);
     const stock = screen.getByRole("region", {name: engineering.stock.heading.value});
     const hrefs = within(stock)
       .getAllByRole("link")
       .map((link) => link.getAttribute("href"));
-    expect(hrefs.every((href) => href?.startsWith("https://wa.me/2348161894229?"))).toBe(true);
+    expect([hrefs.slice(0, -1).every((href) => href?.startsWith("https://wa.me/2348161894229?")), hrefs.at(-1)]).toEqual([
+      true,
+      "/listings?type=homes",
+    ]);
   });
 
   it("announces the buying steps as an ordered list", () => {

@@ -48,8 +48,12 @@ describe("homeContent", () => {
     expect(items.every((item) => item.placeholder)).toBe(true);
   });
 
-  it("sends each See all to its business's page now the pages are built", () => {
-    expect(homeContent.featured.tabs.map((tab) => tab.link.href)).toEqual(["/phones-and-gadgets", "/engineering", "/autos"]);
+  it("sends See all for homes and cars to their Listings tab, and phones to the Phones page", () => {
+    expect(homeContent.featured.tabs.map((tab) => tab.link.href)).toEqual([
+      "/phones-and-gadgets",
+      "/listings?type=homes",
+      "/listings?type=cars",
+    ]);
   });
 
   it("names each business in its See all action", () => {

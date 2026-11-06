@@ -4,6 +4,7 @@ import type {Listing} from "@/lib/content/listings";
 import type {Post} from "@/lib/content/news";
 import type {Story} from "@/lib/content/stories";
 import {featuredTabs} from "@/lib/featured";
+import {listingsHref} from "@/lib/listings";
 import {latestPosts} from "@/lib/news";
 import {onwardLink} from "@/lib/onward-link";
 import {pageExists} from "@/lib/site-pages";
@@ -16,13 +17,20 @@ const ON_HOME: Record<BusinessKey, {label: string; action: string}> = {
 };
 // Stryker restore StringLiteral,ObjectLiteral
 
+/** "See all": the Listings tab for homes and cars once that page exists (listings page spec, "Links in"), else the
+ * business's own page. */
+function seeAll(entry: (typeof businesses)[number]) {
+  const listing = listingsHref(entry.key, pageExists);
+  return listing ? {href: listing} : onwardLink(entry.path, whatsappTo(entry.number.value, entry.topic));
+}
+
 /** Featured now: one tab per business with items, in growth order, each cut to what Home shows. */
 export function homeFeatured(items: readonly Listing[]) {
   return featuredTabs(
     businesses.map((entry) => ({
       key: entry.key,
       ...ON_HOME[entry.key],
-      link: onwardLink(entry.path, whatsappTo(entry.number.value, entry.topic)),
+      link: seeAll(entry),
       items: items.filter((item) => item.value.business === entry.key),
     }))
   );

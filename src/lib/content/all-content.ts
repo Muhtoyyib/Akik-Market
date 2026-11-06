@@ -9,6 +9,7 @@ import {phonesPage} from "@/lib/content/divisions/phones";
 import {founderPhotos} from "@/lib/content/founder";
 import {homeContent} from "@/lib/content/home";
 import {listings} from "@/lib/content/listings";
+import {listingsIndex, listingsNextSteps} from "@/lib/content/listings-page";
 import {notFoundContent} from "@/lib/content/not-found";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {projects} from "@/lib/content/projects";
@@ -23,6 +24,7 @@ export const allContent = {
   "News posts": {posts},
   "Customer stories": {stories, leadQuote, quotes},
   Projects: {projects},
+  "Listings page": {listingsIndex, listingsNextSteps},
   "Projects banner": {projectsBanner},
   Founder: {founderPhotos},
   Home: homeContent,

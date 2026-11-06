@@ -107,6 +107,8 @@ describe("SiteHeader in a browser", () => {
     renderPage();
     await userEvent.click(rowMenuButton());
     await screen.findByRole("dialog");
+    // axe reads colours as drawn, so a menu still fading in reads as low contrast.
+    await Promise.all(document.getAnimations().map((animation) => animation.finished));
     expect(await axeViolations(document.body)).toEqual([]);
   });
 });
