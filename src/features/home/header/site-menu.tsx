@@ -6,9 +6,9 @@ import {ROUND_ICON_BUTTON} from "@/components/button/round-icon-button";
 import {Frame} from "@/features/home/frame";
 import {jumpToSection, sectionHash, sectionHeading} from "@/features/home/header/jump-to-section";
 import {NavLinks} from "@/features/home/header/nav-links";
-import type {NavLink} from "@/lib/site-nav";
+import type {NavLink} from "@/lib/home-sections";
 
-type SiteMenuProps = {handle: Dialog.Handle<unknown>; links: NavLink[]; currentPath: string; whatsappHref: string};
+type SiteMenuProps = {handle: Dialog.Handle<unknown>; links: NavLink[]; whatsappHref: string};
 
 /**
  * The page list as a full-width panel (navigation spec, "Menu on small screens"). Base UI's modal dialog closes it on
@@ -17,7 +17,7 @@ type SiteMenuProps = {handle: Dialog.Handle<unknown>; links: NavLink[]; currentP
  * A section link waits for the menu to finish closing: the modal locks page scroll while open, and focus belongs on the
  * section's heading (Base UI's final focus), not back on the menu button.
  */
-export function SiteMenu({handle, links, currentPath, whatsappHref}: SiteMenuProps) {
+export function SiteMenu({handle, links, whatsappHref}: SiteMenuProps) {
   const pending = useRef<string | null>(null);
   const choose = (event: MouseEvent<HTMLAnchorElement>) => {
     pending.current = sectionHash(event);
@@ -45,13 +45,7 @@ export function SiteMenu({handle, links, currentPath, whatsappHref}: SiteMenuPro
               </Dialog.Close>
             </div>
             <nav aria-label="Menu">
-              <NavLinks
-                links={links}
-                currentPath={currentPath}
-                listClassName="mt-8 flex flex-col gap-4"
-                linkClassName="type-h2"
-                onNavigate={choose}
-              />
+              <NavLinks links={links} listClassName="mt-8 flex flex-col gap-4" linkClassName="type-h2" onNavigate={choose} />
             </nav>
             <div className="mt-10">
               <Button href={whatsappHref}>Chat on WhatsApp</Button>

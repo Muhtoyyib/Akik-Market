@@ -1,5 +1,6 @@
-// Home's sections that the header can jump to while Home is the only built page (navigation spec, "Section links").
-import type {NavLink} from "@/lib/site-nav";
+// Home's header links: jumps to Home's own sections, never links to other pages (navigation spec, "Section links").
+
+export type NavLink = {label: string; href: string};
 
 /** The `id` of each linkable Home section; the section components set these on their <section>. */
 export const SECTION_IDS = {
@@ -24,9 +25,4 @@ const SECTIONS: {key: SectionKey; label: string}[] = [
 /** Links to the sections that are on the page; a section left out for having no content gets no link. */
 export function sectionLinks(present: Record<SectionKey, boolean>): NavLink[] {
   return SECTIONS.filter(({key}) => present[key]).map(({key, label}) => ({label, href: `#${SECTION_IDS[key]}`}));
-}
-
-/** Page links once any other page is built; until then, the jumps to Home's sections. */
-export function headerLinks(pages: NavLink[], sections: NavLink[]): NavLink[] {
-  return pages.length > 0 ? pages : sections;
 }

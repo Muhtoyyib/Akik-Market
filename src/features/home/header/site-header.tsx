@@ -9,13 +9,12 @@ import {jumpOnClick} from "@/features/home/header/jump-to-section";
 import {NavLinks} from "@/features/home/header/nav-links";
 import {SiteMenu} from "@/features/home/header/site-menu";
 import {WordmarkLink} from "@/features/home/header/wordmark-link";
-import type {NavLink} from "@/lib/site-nav";
+import type {NavLink} from "@/lib/home-sections";
 
 type SiteHeaderProps = {
   announcement: {text: string; href: string} | null;
   whatsappHref: string;
   links: NavLink[];
-  currentPath: string;
 };
 
 /** Whether the full header row has scrolled out of view, which is when the floating pill takes over. */
@@ -33,7 +32,7 @@ function useOutOfView() {
 }
 
 // With no built pages to list there is no menu at all, rather than a button that opens an empty panel.
-export function SiteHeader({announcement, whatsappHref, links, currentPath}: SiteHeaderProps) {
+export function SiteHeader({announcement, whatsappHref, links}: SiteHeaderProps) {
   const {ref, outOfView} = useOutOfView();
   const [menu] = useState(() => Dialog.createHandle());
   const hasMenu = links.length > 0;
@@ -48,7 +47,6 @@ export function SiteHeader({announcement, whatsappHref, links, currentPath}: Sit
             <nav aria-label="Main" className="hidden lg:block">
               <NavLinks
                 links={links}
-                currentPath={currentPath}
                 listClassName="flex items-center gap-4 xl:gap-6"
                 linkClassName="type-small whitespace-nowrap"
                 onNavigate={jumpOnClick}
@@ -62,7 +60,7 @@ export function SiteHeader({announcement, whatsappHref, links, currentPath}: Sit
         </div>
       </Frame>
       <FloatingPill visible={outOfView} whatsappHref={whatsappHref} menu={hasMenu ? <MenuButton handle={menu} /> : null} />
-      {hasMenu && <SiteMenu handle={menu} links={links} currentPath={currentPath} whatsappHref={whatsappHref} />}
+      {hasMenu && <SiteMenu handle={menu} links={links} whatsappHref={whatsappHref} />}
     </header>
   );
 }

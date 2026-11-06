@@ -27,7 +27,7 @@ Pages 2 to 8 only depend on `site-shell`, so they can be built in any order or i
 
 - **TDD:** write the test, watch it fail for the right reason, then implement (`.agents/rules/tdd.md`).
 - **Content:** every business fact lives in the content source and is marked `real(...)` or `placeholder(...)`. Never put a fact straight into a component.
-- **Links to unbuilt pages:** use `onwardLink` and `pageExists`. A link to a page that isn't built falls back to WhatsApp or Instagram, or is left out (Home design D3). Adding a path to `src/lib/site-pages.ts` flips every link to it automatically. The header navigation and footer columns already work this way.
+- **Links to unbuilt pages:** use `onwardLink` and `pageExists`. A link to a page that isn't built falls back to WhatsApp or Instagram, or is left out (Home design D3). Adding a path to `src/lib/site-pages.ts` flips every link to it automatically. The footer columns already work this way. Home's header only jumps to Home's sections; the page links for other pages' headers are specified in `site-shell` ("Page layout").
 - **Checks before each commit:**
   - `vp run typecheck`, `vp run lint`, `vp test --run` and `vp run test:browser`
   - Stryker on changed `src/lib` files (`bunx stryker run --mutate <file>`). Run it fresh, because incremental runs have shown stale results.

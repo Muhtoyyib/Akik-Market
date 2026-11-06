@@ -12,8 +12,7 @@ import {Trust} from "@/features/home/trust/trust";
 import {SiteHeader} from "@/features/home/header/site-header";
 import {SkipLink} from "@/features/home/skip-link";
 import {homeContent} from "@/lib/home-content";
-import {headerLinks, sectionLinks} from "@/lib/home-sections";
-import {siteNav} from "@/lib/site-nav";
+import {sectionLinks} from "@/lib/home-sections";
 
 export function HomeView() {
   const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news, founder, visit, footer} = homeContent;
@@ -28,12 +27,7 @@ export function HomeView() {
   return (
     <>
       <SkipLink />
-      <SiteHeader
-        announcement={announcement.value}
-        whatsappHref={whatsapp.main.href}
-        links={headerLinks(siteNav, sections)}
-        currentPath="/"
-      />
+      <SiteHeader announcement={announcement.value} whatsappHref={whatsapp.main.href} links={sections} />
       <main id="main" tabIndex={-1} className="pt-4 pb-24 outline-none md:pb-36">
         <Hero
           media={hero.media.value}

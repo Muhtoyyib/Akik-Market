@@ -2,27 +2,17 @@ import {render, screen, waitFor} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
 import {SiteHeader} from "@/features/home/header/site-header";
+import {sectionLinks} from "@/lib/home-sections";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 
-const pages = [
-  {label: "About", href: "/about"},
-  {label: "Autos", href: "/autos"},
-];
-const everyPage = [
-  {label: "About", href: "/about"},
-  {label: "Phones & Gadgets", href: "/phones-and-gadgets"},
-  {label: "Engineering & Real Estate", href: "/engineering"},
-  {label: "Autos", href: "/autos"},
-  {label: "Projects", href: "/projects"},
-  {label: "News", href: "/news"},
-  {label: "Contact", href: "/contact"},
-];
+const everySection = sectionLinks({divisions: true, featured: true, stories: true, news: true, visit: true});
+const pages = everySection.slice(0, 2);
 // A tall page below the header, so the header can scroll out of view.
 const renderPage = (links = pages) =>
   render(
     <>
-      <SiteHeader announcement={null} whatsappHref="https://wa.me/2347065470198" links={links} currentPath="/" />
+      <SiteHeader announcement={null} whatsappHref="https://wa.me/2347065470198" links={links} />
       <main className="h-screen" />
       <main className="h-screen" aria-hidden />
     </>
@@ -35,15 +25,15 @@ const rowMenuButton = () => menuButtons()[0]!;
 const mainNav = () => document.querySelector<HTMLElement>('nav[aria-label="Main"]')!;
 
 describe("SiteHeader in a browser", () => {
-  it("shows the page links in the header row on desktop, with no menu button", async () => {
+  it("shows the links in the header row on desktop, with no menu button", async () => {
     await page.viewport(1440, 900);
     renderPage();
     expect([mainNav().checkVisibility(), rowMenuButton().checkVisibility()]).toEqual([true, false]);
   });
 
-  it("fits every sitemap page in the header row at 1024px, the narrowest desktop width", async () => {
+  it("fits every section link in the header row at 1024px, the narrowest desktop width", async () => {
     await page.viewport(1024, 768);
-    const {container} = renderPage(everyPage);
+    const {container} = renderPage(everySection);
     const row = mainNav().parentElement!;
     expect([
       row.scrollWidth <= row.clientWidth,
@@ -51,7 +41,7 @@ describe("SiteHeader in a browser", () => {
     ]).toEqual([true, 1]);
   });
 
-  it("moves the page links into the menu on a phone", async () => {
+  it("moves the links into the menu on a phone", async () => {
     await page.viewport(390, 844);
     renderPage();
     expect([mainNav().checkVisibility(), rowMenuButton().checkVisibility()]).toEqual([false, true]);

@@ -3,40 +3,28 @@ import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {SiteHeader} from "@/features/home/header/site-header";
 
-const pages = [
-  {label: "About", href: "/about"},
-  {label: "Autos", href: "/autos"},
+const sections = [
+  {label: "Businesses", href: "#divisions"},
+  {label: "News", href: "#news"},
 ];
-const renderHeader = (links = pages, currentPath = "/autos") =>
-  render(<SiteHeader announcement={null} whatsappHref="https://wa.me/2347065470198" links={links} currentPath={currentPath} />);
+const renderHeader = (links = sections) =>
+  render(<SiteHeader announcement={null} whatsappHref="https://wa.me/2347065470198" links={links} />);
 const menuButton = () => screen.getAllByRole("button", {name: "Menu"})[0]!;
 
 describe("SiteHeader", () => {
-  it("shows no page links and no menu while Home is the only page", () => {
+  it("shows no navigation and no menu when there is nothing to link", () => {
     renderHeader([]);
     expect([screen.queryByRole("navigation"), screen.queryByRole("button", {name: "Menu"})]).toEqual([null, null]);
   });
 
-  it("links the built pages in the main navigation", () => {
+  it("lists its links in the main navigation", () => {
     renderHeader();
     const nav = screen.getByRole("navigation", {name: "Main"});
     expect(
       within(nav)
         .getAllByRole("link")
         .map((link) => link.textContent)
-    ).toEqual(["About", "Autos"]);
-  });
-
-  it("marks the link to the current page as current", () => {
-    renderHeader();
-    const nav = screen.getByRole("navigation", {name: "Main"});
-    expect(within(nav).getByRole("link", {name: "Autos"})).toHaveAttribute("aria-current", "page");
-  });
-
-  it("doesn't mark the other links as current", () => {
-    renderHeader();
-    const nav = screen.getByRole("navigation", {name: "Main"});
-    expect(within(nav).getByRole("link", {name: "About"})).not.toHaveAttribute("aria-current");
+    ).toEqual(["Businesses", "News"]);
   });
 
   it("announces the menu button as collapsed until it is opened", async () => {
@@ -58,7 +46,7 @@ describe("SiteHeader", () => {
   it("closes the menu when a link is chosen", async () => {
     renderHeader();
     await userEvent.click(menuButton());
-    await userEvent.click(within(screen.getByRole("dialog")).getByRole("link", {name: "About"}));
+    await userEvent.click(within(screen.getByRole("dialog")).getByRole("link", {name: "News"}));
     await waitFor(() => expect(screen.queryByRole("dialog")).not.toBeInTheDocument());
   });
 

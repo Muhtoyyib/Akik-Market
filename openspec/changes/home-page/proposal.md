@@ -54,7 +54,7 @@ Matic is the first choice and sets the house style; two sections use lookup-site
 
 - `home/page-shell`: route, section order, landmarks, skip link, metadata, content source and placeholder report.
 - `home/header/announcement-bar`: one-line news link above the header.
-- `home/header/navigation`: wordmark, page links, WhatsApp pill and the mobile menu.
+- `home/header/navigation`: wordmark, links to Home's sections, WhatsApp pill and the mobile menu.
 - `home/header/floating-pill`: the compact header that appears on scroll.
 - `home/hero`: video box, page heading, actions and reassurance line.
 - `home/divisions`: the three-business card row.

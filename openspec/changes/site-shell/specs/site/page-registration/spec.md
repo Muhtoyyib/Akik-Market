@@ -13,7 +13,7 @@ Every shipped page SHALL be in the prerender list, and the build SHALL produce s
 #### Scenario: Adding the About page
 
 - **WHEN** `/about` is added to the list
-- **THEN** the build outputs its HTML, and the header, footer and Home's "Read our story" link start pointing to it
+- **THEN** the build outputs its HTML, and the other pages' headers, the footer and Home's "Read our story" link start pointing to it
 
 ### Requirement: Collection pages from their items
 
