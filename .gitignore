@@ -1,0 +1,31 @@
+# deps
+/node_modules
+
+# test & build
+/coverage
+/.vitest/
+/.stryker-tmp
+/reports
+/.output
+/.nitro
+/dist
+*.tsbuildinfo
+.tanstack
+.wrangler
+
+# misc
+.DS_Store
+*.pem
+bun-debug.log*
+.env*.local
+
+# editors
+.idea/
+.vscode/
+
+# Claude Code (personal)
+.claude
+.agents/settings.local.json
+
+# Vite+ hook dispatcher (generated)
+/.vite-hooks/_/

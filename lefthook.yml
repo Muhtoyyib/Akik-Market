@@ -1,0 +1,23 @@
+pre-commit:
+  parallel: true
+  commands:
+    check:
+      glob: "*.{js,ts,jsx,tsx}"
+      run: vp check --fix {staged_files}
+      stage_fixed: true
+    format:
+      glob: "*.{json,md,yaml,yml,css}"
+      run: vp fmt --write {staged_files}
+      stage_fixed: true
+    test:
+      glob: "*.{ts,tsx}"
+      run: vp test related {staged_files} --run --bail=1
+
+pre-push:
+  parallel: true
+  commands:
+    typecheck:
+      run: vp run typecheck
+    react-doctor:
+      glob: "*.{jsx,tsx}"
+      run: vpx react-doctor -y --verbose --scope changed < /dev/null

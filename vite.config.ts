@@ -1,0 +1,79 @@
+import {defineConfig, lazyPlugins} from "vite-plus";
+import {tanstackStart} from "@tanstack/react-start/plugin/vite";
+import react from "@vitejs/plugin-react";
+import tailwindcss from "@tailwindcss/vite";
+import {prerenderPathnames} from "./src/lib/site-pages.ts";
+
+export default defineConfig({
+  fmt: {
+    printWidth: 140,
+    tabWidth: 2,
+    useTabs: false,
+    semi: true,
+    singleQuote: false,
+    trailingComma: "es5",
+    arrowParens: "always",
+    bracketSpacing: false,
+    bracketSameLine: false,
+    endOfLine: "lf",
+    ignorePatterns: ["routeTree.gen.ts"],
+  },
+  lint: {
+    plugins: ["react", "react-perf", "typescript", "jsx-a11y"],
+    rules: {
+      "react/react-in-jsx-scope": "off",
+      "jsx-a11y/prefer-tag-over-role": "off",
+      "typescript/no-explicit-any": "error",
+      "eslint/complexity": ["error", {max: 10}],
+      "eslint/max-lines-per-function": ["error", {max: 50, skipComments: true}],
+      "eslint/max-lines": ["error", {max: 250, skipBlankLines: true, skipComments: true}],
+      "eslint/max-params": ["error", 3],
+      "eslint/max-depth": ["error", 3],
+      "eslint/max-statements": ["error", 25],
+      "eslint/max-classes-per-file": ["error", 1],
+      "oxc/branches-sharing-code": "warn",
+      "vite-plus/prefer-vite-plus-imports": "error",
+      "shadcn/no-raw-colors": "error",
+      "shadcn/no-arbitrary-values": [
+        "error",
+        {
+          // Marketing layouts and per-element letter-spacing/line-height are bespoke by design.
+          allow: ["layout", "tracking-*", "leading-*"],
+        },
+      ],
+      "shadcn/no-inline-styles": "error",
+      "shadcn/no-unknown-classes": "error",
+    },
+    ignorePatterns: ["*.html", "public", "__tests__", "*.test.ts", "*.test.tsx", "*.config.ts", "routeTree.gen.ts"],
+    options: {
+      typeAware: true,
+      typeCheck: true,
+    },
+    jsPlugins: [
+      {name: "vite-plus", specifier: "vite-plus/oxlint-plugin"},
+      {name: "shadcn", specifier: "@shadcn/lint"},
+    ],
+  },
+  plugins: lazyPlugins(async () => [
+    tailwindcss(),
+    tanstackStart({
+      prerender: {
+        enabled: true,
+        autoStaticPathsDiscovery: false,
+        crawlLinks: false,
+        autoSubfolderIndex: false,
+      },
+      router: {
+        quoteStyle: "double",
+      },
+      pages: prerenderPathnames.map((path) => ({path})),
+    }),
+    react({compiler: true}),
+  ]),
+  resolve: {
+    tsconfigPaths: true,
+  },
+  server: {
+    port: 5180,
+  },
+});

@@ -1,0 +1,18 @@
+schema: spec-driven
+
+context: |
+  Akik landing: the marketing hub for a business with three divisions
+  (Phones & Gadgets, Engineering & Real Estate, Autos). Marketing only; the
+  division shops are separate apps and out of scope.
+  Stack: TanStack Start (prerendered), React 19, Tailwind 4, Vite+ (vp), Bun,
+  Vitest + Testing Library + Browser Mode, Stryker, Oxlint with complexity caps.
+  Rules: AGENTS.md and .agents/rules/. Page list: docs/marketing-sitemap.md.
+
+rules:
+  proposal:
+    - Always include a Non-goals section
+    - Name the source for every business fact (the owner, or a document he supplied)
+  design:
+    - Record each questionable choice as Chosen, Alternatives considered, Dropped and Evidence
+  tasks:
+    - Each task names the test or artifact that proves it
