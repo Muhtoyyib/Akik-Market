@@ -1,6 +1,6 @@
 ## Context
 
-See [proposal.md](./proposal.md). The site is prerendered static HTML on Cloudflare with no server code. Home's D5 made WhatsApp the main action for the same reason.
+See [proposal.md](./proposal.md). The site is prerendered static HTML on Vercel with no server code. Home's D5 made WhatsApp the main action for the same reason.
 
 ## Goals / Non-Goals
 
@@ -13,9 +13,9 @@ See [proposal.md](./proposal.md). The site is prerendered static HTML on Cloudfl
 ### D1. The form composes a WhatsApp message
 
 - **Chosen:** the form checks its fields in the browser, then opens WhatsApp to the chosen business's number with the visitor's name, topic and message written into the prefilled text. A secondary "Send by email instead" opens the visitor's mail app to akikmarket@gmail.com with the same text. The site stores nothing.
-- **Alternatives considered:** a Cloudflare Worker that emails the enquiry to the owner (needs an email provider, a bot check such as Turnstile, a privacy notice covering stored data, and someone to own the inbox); a third-party form service.
+- **Alternatives considered:** a serverless function that emails the enquiry to the owner (needs an email provider, a bot check such as Turnstile, a privacy notice covering stored data, and someone to own the inbox); a third-party form service.
 - **Dropped for now:** both. They add a backend, a data processor and running costs for a business that already answers on WhatsApp. Revisit if the owner wants enquiries in email or a dashboard.
-- **Evidence:** no server code exists (`wrangler.jsonc` serves static assets only); Home D5.
+- **Evidence:** no server code exists (`vercel.json` serves static files only); Home D5.
 
 ### D2. Field style from Matic's footer field
 

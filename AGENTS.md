@@ -32,7 +32,7 @@ Agreed page list: `docs/marketing-sitemap.md`. Design direction: maticrobots.com
 - Oxlint (complexity caps, `--max-warnings=0`) + Oxfmt
 - Vitest + Testing Library, Vitest Browser Mode with Playwright, Stryker for mutation testing
 - Lefthook for git hooks
-- Cloudflare Workers static assets for hosting (`wrangler.jsonc`)
+- Vercel static hosting for the prerendered output (`vercel.json`)
 
 ## Commands
 

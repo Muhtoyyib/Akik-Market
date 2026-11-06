@@ -9,7 +9,7 @@ type Collection = {base: string; slugs: readonly string[]};
 // Lowercase words or numbers joined by single hyphens.
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-/** Prerendered as 404.html, which the host serves on unknown paths (wrangler.jsonc); no page links to it. */
+/** Prerendered as 404.html, which the host serves on unknown paths (vercel.json); no page links to it. */
 export const NOT_FOUND_PATH = "/404";
 
 const STATIC_PAGES = [

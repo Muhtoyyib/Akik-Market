@@ -30,4 +30,4 @@ What's inferred, not proven:
 - In the unthrottled load, LCP painted at about 0.6 s, after the scripts had already run. The simulator replays everything that happened before LCP on the slow network, so it charges the full JavaScript download and CPU cost (168 KB gzipped) to LCP.
 - If that's right, cutting JavaScript is what would lower the simulated number. Lighthouse estimates 198 KB of unused JavaScript.
 
-**Next step:** run PageSpeed Insights on the deployed Cloudflare URL. If the field-like LCP is over 2.5 s there, reduce the JavaScript Home loads; start with the Base UI chunks and the code that only the design-system route needs.
+**Next step:** run PageSpeed Insights on the deployed Vercel URL. If the field-like LCP is over 2.5 s there, reduce the JavaScript Home loads; start with the Base UI chunks and the code that only the design-system route needs.

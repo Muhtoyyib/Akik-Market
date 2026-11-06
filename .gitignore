@@ -11,7 +11,6 @@
 /dist
 *.tsbuildinfo
 .tanstack
-.wrangler
 
 # misc
 .DS_Store
@@ -32,3 +31,4 @@ bun-debug.log*
 
 # Third-party reference screenshots (kept local, not redistributed)
 /docs/design-reference/screenshots/
+.vercel
