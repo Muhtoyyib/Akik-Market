@@ -1,6 +1,6 @@
 // Who Akik is and how to reach it: the facts every page shares (site content-source spec, "One home for each fact").
 // Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder report.
-import {placeholder, real} from "@/lib/content-facts";
+import {type Fact, placeholder, real} from "@/lib/content-facts";
 import {photo, SIZES} from "@/lib/responsive-image";
 import {whatsappHref} from "@/lib/whatsapp";
 
@@ -49,3 +49,20 @@ export type BusinessKey = (typeof businesses)[number]["key"];
 export function business(key: BusinessKey) {
   return businesses.find((entry) => entry.key === key)!;
 }
+
+// About design D3: the phones chapter is the site start year, so Home, the footer and About can't disagree. The later
+// years are stand-ins until the owner says when each business began.
+export const businessYears = {
+  phones: startYear,
+  engineering: placeholder(2024),
+  autos: placeholder(2025),
+} satisfies Record<BusinessKey, Fact<number>>;
+
+/** Every business's WhatsApp, number and hours, for the closing contact block on Home and About. */
+export const shopContacts = businesses.map((entry) => ({
+  key: entry.key,
+  name: entry.name,
+  number: entry.number,
+  whatsappHref: whatsappTo(entry.number.value, entry.topic).href,
+  hours,
+}));

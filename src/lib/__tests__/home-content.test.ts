@@ -169,8 +169,8 @@ describe("homeContent", () => {
     expect([story.split(/\s+/).length <= 60, story.includes("began in 2023")]).toEqual([true, true]);
   });
 
-  it("leaves out Read our story until the About page exists", () => {
-    expect(homeContent.founder.link).toBeUndefined();
+  it("links Read our story to the About page now that it exists", () => {
+    expect(homeContent.founder.link).toEqual({label: "Read our story", href: "/about"});
   });
 
   it("shows three to five founder photos, each described and on disk", () => {

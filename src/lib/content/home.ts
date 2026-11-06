@@ -2,7 +2,8 @@
 // from their collections. Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder
 // report. Approved for the pitch build by the client lead on 2026-11-06.
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
-import {address, businesses, hours, shopPhoto, social, startYear, whatsappTo, type BusinessKey} from "@/lib/content/business";
+import {address, businesses, shopContacts, shopPhoto, social, startYear, whatsappTo, type BusinessKey} from "@/lib/content/business";
+import {founderPhotos} from "@/lib/content/founder";
 import {homeFeatured, homeNews, homeStories} from "@/lib/content/home-collections";
 import {listings} from "@/lib/content/listings";
 import {posts} from "@/lib/content/news";
@@ -71,19 +72,7 @@ export const homeContent = {
   // Spec (founder): the founder's own photos and story replace these; the story is invented apart from the order of
   // the businesses, so it stays a placeholder even once the start year is confirmed.
   founder: {
-    photos: placeholder([
-      photo(
-        "/placeholders/founder/founder-phones.jpg",
-        {alt: "A tablet and sales papers on a shop desk", width: 512, height: 640},
-        SIZES.stackedPhoto
-      ),
-      photo(
-        "/placeholders/founder/founder-building.jpg",
-        {alt: "A building going up at sunset, with a crane above it", width: 800, height: 1000},
-        SIZES.stackedPhoto
-      ),
-      photo("/placeholders/founder/founder-road.jpg", {alt: "An open road at sunrise", width: 800, height: 1000}, SIZES.stackedPhoto),
-    ]),
+    photos: founderPhotos,
     heading: placeholder("From one phone shop to three businesses"),
     story: placeholder(
       `Akik began in ${startYear.value} as a small shop selling original phones and gadgets. Customers kept coming back and asked for more, so we started building homes and selling land with clean papers. Then came inspected cars. Three businesses now, one promise: what we sell is what you get.`
@@ -95,13 +84,7 @@ export const homeContent = {
     heading: placeholder("Come and see us at Iwo Road"),
     address,
     image: shopPhoto,
-    contacts: businesses.map((entry) => ({
-      key: entry.key,
-      name: entry.name,
-      number: entry.number,
-      whatsappHref: whatsappTo(entry.number.value, entry.topic).href,
-      hours,
-    })),
+    contacts: shopContacts,
   },
   // Spec (buy-with-confidence, "Promises are owner-approved"): every claim waits for the owner's sign-off.
   trust: {

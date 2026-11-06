@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from "./routes/__root"
 import { Route as IndexRouteImport } from "./routes/index"
 import { Route as R404RouteImport } from "./routes/404"
+import { Route as AboutRouteImport } from "./routes/about"
 import { Route as AutosRouteImport } from "./routes/autos"
 import { Route as DesignSystemRouteImport } from "./routes/design-system"
 import { Route as EngineeringRouteImport } from "./routes/engineering"
@@ -24,6 +25,11 @@ const IndexRoute = IndexRouteImport.update({
 const R404Route = R404RouteImport.update({
   id: "/404",
   path: "/404",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: "/about",
+  path: "/about",
   getParentRoute: () => rootRouteImport,
 } as any)
 const AutosRoute = AutosRouteImport.update({
@@ -50,6 +56,7 @@ const PhonesAndGadgetsRoute = PhonesAndGadgetsRouteImport.update({
 export interface FileRoutesByFullPath {
   "/": typeof IndexRoute
   "/404": typeof R404Route
+  "/about": typeof AboutRoute
   "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
@@ -58,6 +65,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   "/": typeof IndexRoute
   "/404": typeof R404Route
+  "/about": typeof AboutRoute
   "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
@@ -67,6 +75,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   "/": typeof IndexRoute
   "/404": typeof R404Route
+  "/about": typeof AboutRoute
   "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
@@ -77,6 +86,7 @@ export interface FileRouteTypes {
   fullPaths:
     | "/"
     | "/404"
+    | "/about"
     | "/autos"
     | "/design-system"
     | "/engineering"
@@ -85,6 +95,7 @@ export interface FileRouteTypes {
   to:
     | "/"
     | "/404"
+    | "/about"
     | "/autos"
     | "/design-system"
     | "/engineering"
@@ -93,6 +104,7 @@ export interface FileRouteTypes {
     | "__root__"
     | "/"
     | "/404"
+    | "/about"
     | "/autos"
     | "/design-system"
     | "/engineering"
@@ -102,6 +114,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R404Route: typeof R404Route
+  AboutRoute: typeof AboutRoute
   AutosRoute: typeof AutosRoute
   DesignSystemRoute: typeof DesignSystemRoute
   EngineeringRoute: typeof EngineeringRoute
@@ -122,6 +135,13 @@ declare module "@tanstack/react-router" {
       path: "/404"
       fullPath: "/404"
       preLoaderRoute: typeof R404RouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/about": {
+      id: "/about"
+      path: "/about"
+      fullPath: "/about"
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     "/autos": {
@@ -158,6 +178,7 @@ declare module "@tanstack/react-router" {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R404Route: R404Route,
+  AboutRoute: AboutRoute,
   AutosRoute: AutosRoute,
   DesignSystemRoute: DesignSystemRoute,
   EngineeringRoute: EngineeringRoute,

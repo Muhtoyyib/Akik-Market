@@ -28,7 +28,7 @@ describe("Footer", () => {
 
   it("heads each link column", () => {
     renderFooter();
-    expect(screen.getAllByRole("heading", {level: 2}).map((heading) => heading.textContent)).toEqual(["Businesses", "Follow"]);
+    expect(screen.getAllByRole("heading", {level: 2}).map((heading) => heading.textContent)).toEqual(["Businesses", "Company", "Follow"]);
   });
 
   it("opens Instagram in a new tab without handing it this page", () => {
