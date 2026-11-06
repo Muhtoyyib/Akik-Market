@@ -3,6 +3,7 @@
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
 import {featuredTabs} from "@/lib/featured";
 import {onwardLink} from "@/lib/onward-link";
+import {pageExists} from "@/lib/site-pages";
 import {whatsappHref} from "@/lib/whatsapp";
 
 // Placeholder start year, chosen by the client lead; the owner's Instagram goes back to May 2020.
@@ -10,7 +11,8 @@ const startYear = placeholder(2023);
 
 // Both numbers are on the owner's 2023 flyer; which business each belongs to is still unknown.
 const mainNumber = placeholder("2347065470198");
-const secondNumber = placeholder("2348161894229");
+// Confirmed as Akik's by the client lead on 2026-11-06; still placed on Engineering & Real Estate by guess.
+const secondNumber = real("2348161894229");
 const greeting = real("Hello Akik, I'd like to ask about");
 
 function whatsappTo(number: string, topic: string) {
@@ -66,6 +68,17 @@ function featuredItem(number: string, {name, detail, price, photo}: FeaturedItem
 const [phones, engineering, autos] = divisions;
 
 // Stryker disable StringLiteral,ObjectLiteral,ArrayDeclaration : stand-in stock the owner will replace; tests pin the rules (links, order, photos on disk), not the copy.
+const projectsPath = "/projects";
+
+// Spec (projects-banner, "Link target"): until the Projects page exists the heading says where the card really goes.
+const projects = {
+  eyebrow: real(engineering.name),
+  heading: pageExists(projectsPath) ? placeholder("Homes we've built and handed over") : real("Ask about our projects on WhatsApp"),
+  link: onwardLink(projectsPath, whatsappTo(engineering.number.value, "your projects")),
+  // Not an Akik building; alt stays empty so the page doesn't claim it is. Source in docs/placeholder-media.md.
+  image: placeholder({src: "/placeholders/projects-house.jpg", alt: "", width: 1024, height: 768}),
+};
+
 const featuredGroups = [
   {
     key: phones.key,
@@ -121,6 +134,8 @@ export const homeContent = {
   whatsapp: {
     main: {number: mainNumber, href: whatsappHref(mainNumber.value, greeting.value)},
   },
+  // Confirmed by the client lead on 2026-11-06.
+  email: real("akikmarket@gmail.com"),
   announcement: placeholder({text: "New phones arrive every week. See what just came in", href: "https://www.instagram.com/akikmarket/"}),
   hero: {
     media: placeholder({poster: "/placeholders/hero-montage-poster.jpg", src: "/placeholders/hero-montage.webm"}),
@@ -198,6 +213,7 @@ export const homeContent = {
       },
     ],
   },
+  projects,
   featured: {
     eyebrow: real("Featured now"),
     heading: placeholder("Just in at Akik"),

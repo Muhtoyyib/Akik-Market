@@ -25,7 +25,7 @@
 - [x] 4.4 Proof section. Proof: tests for quote markup, emphasis and column order.
 - [ ] 4.5 Customer stories. Proof: tests that switching tabs stops playback and that photo-only stories have no play button.
   - Photo-only stories, tabs and markup built and tested. Open: play with sound, captions and stop-on-switch need the owner's footage; building them now would be code nothing calls.
-- [ ] 4.6 Projects banner. Proof: test of the WhatsApp fallback link and its accessible name.
+- [x] 4.6 Projects banner. Proof: test of the WhatsApp fallback link and its accessible name.
 - [ ] 4.7 Buy with confidence. Proof: tests for row order and hidden icons.
 - [ ] 4.8 News. Proof: tests for newest-first, date markup and the Instagram fallback.
 - [ ] 4.9 Founder. Proof: tests for arrow names and the start year in the paragraph; browser test under reduced motion.

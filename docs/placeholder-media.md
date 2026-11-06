@@ -50,3 +50,11 @@ Stills (1600x900) taken from the 1080p files of Mixkit clips; the spec asks for 
 | `stories/story-cars.jpg`   | Hands on a steering wheel at the dashboard | [Mixkit 72](https://mixkit.co/free-stock-video/dashboard-of-a-car-72/)                           | Mixkit Stock Video Free License (checked 2026-11-06) |
 
 The house-keys clip (15064) and the suburban and beach-house clips (48394, 27543) were Restricted, so they were not used.
+
+## Projects banner
+
+| File                 | Shows                                                  | Source                                                                                         | Licence                                                   |
+| -------------------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `projects-house.jpg` | Two-storey house with a tiled roof and a formal garden | [rawpixel](https://www.rawpixel.com/image/5941076/free-public-domain-cc0-photo), via Openverse | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+
+Only a 1024x768 copy was available (Openverse and rawpixel both cap downloads at 1024px), so it is a little soft on high-density screens. It is not an Akik building; its alt text is empty so the page doesn't claim it is.

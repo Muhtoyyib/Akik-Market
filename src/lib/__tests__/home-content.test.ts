@@ -108,4 +108,25 @@ describe("homeContent", () => {
   it("points every story photo at a file in public/", () => {
     expect(homeContent.stories.tabs.filter((tab) => !existsSync(`public${tab.story.value.image.src}`))).toEqual([]);
   });
+
+  it("sends the projects banner to WhatsApp for real estate and says so until the Projects page exists", () => {
+    const {heading, link} = homeContent.projects;
+    expect([heading.value, link.href]).toEqual([
+      "Ask about our projects on WhatsApp",
+      "https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20your%20projects",
+    ]);
+  });
+
+  it("points the projects photo at a file in public/", () => {
+    expect(existsSync(`public${homeContent.projects.image.value.src}`)).toBe(true);
+  });
+
+  it("keeps the confirmed contact email and second number out of the placeholder report", () => {
+    const paths = listPlaceholders(homeContent).map((entry) => entry.path);
+    expect([homeContent.email.value, paths.includes("email"), paths.some((path) => path.endsWith("divisions.cards.1.number"))]).toEqual([
+      "akikmarket@gmail.com",
+      false,
+      false,
+    ]);
+  });
 });
