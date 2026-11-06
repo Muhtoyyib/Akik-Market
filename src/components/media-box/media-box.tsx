@@ -58,8 +58,9 @@ function Caption({title, description}: {title: string; description: string}) {
 }
 
 export function MediaBox({ratio, media, priority = false, banner = false, scrim = false, caption, children}: MediaBoxProps) {
+  // w-full: the box's media is absolutely placed, so without it a box in a flex column shrinks to nothing.
   return (
-    <div>
+    <div className="w-full">
       <div className={cn("relative overflow-hidden bg-card", RATIO_CLASS[ratio], banner ? "rounded-lg" : "rounded-md")}>
         <MediaElement media={media} priority={priority} />
         {scrim && (

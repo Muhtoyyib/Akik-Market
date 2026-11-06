@@ -21,5 +21,5 @@
 
 ## 4. Review
 
-- [ ] 4.1 Build a hidden `/design-system` preview route that renders every token and component, for the client lead to review; it is not linked or listed in the sitemap. Proof: screenshots at 1440 and 390px attached to the PR.
-- [ ] 4.2 Mutation testing on any helpers in `src/lib`. Proof: Stryker score at or above the break threshold.
+- [x] 4.1 Build a hidden `/design-system` preview route that renders every token and component, for the client lead to review; it is not linked or listed in the sitemap. Proof: screenshots at 1440 and 390px attached to the PR.
+- [x] 4.2 Mutation testing on any helpers in `src/lib`. Proof: Stryker score at or above the break threshold.

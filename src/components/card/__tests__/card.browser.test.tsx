@@ -64,6 +64,18 @@ describe("Card in a browser", () => {
     expect(getComputedStyle(screen.getByText("Engineering")).color).toBe(ENGINEERING_RGB);
   });
 
+  it("spans the division card's image across the full card width", async () => {
+    await page.viewport(1440, 900);
+    render(
+      <div className="w-80">
+        <Card variant="division" division="autos" image={site} heading="Autos" description="Cars." href="/autos" />
+      </div>
+    );
+    const card = document.querySelector("[data-card]")!.getBoundingClientRect();
+    const media = screen.getByRole("img").parentElement!.getBoundingClientRect();
+    expect([Math.round(media.width), Math.round(media.height)]).toEqual([Math.round(card.width), Math.round(card.width * 1.25)]);
+  });
+
   it("pads content cards 32px on desktop and 24px on a phone", async () => {
     await page.viewport(1440, 900);
     render(<Card heading="Inspected" description="Checked by our mechanic." />);
