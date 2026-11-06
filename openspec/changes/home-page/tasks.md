@@ -34,7 +34,7 @@
 
 ## 5. Quality
 
-- [ ] 5.1 axe in browser tests for Home at 1440 and 390px. Proof: zero violations.
-- [ ] 5.2 Lighthouse mobile run on the built page. Proof: LCP at most 2.5s and CLS below 0.1, report attached to the PR.
-- [ ] 5.3 Stryker on changed `src/lib` code. Proof: score at or above the break threshold.
+- [x] 5.1 axe in browser tests for Home at 1440 and 390px. Proof: zero violations.
+- [ ] 5.2 Lighthouse mobile run on the built page. Proof: LCP at most 2.5s and CLS below 0.1, report attached to the PR. Note (2026-11-06): CLS passes; LCP is 1.7 s under applied throttling and 3.3 s in the simulated estimate, so this stays open until measured on the deployed URL (`docs/performance.md`).
+- [x] 5.3 Stryker on changed `src/lib` code. Proof: score at or above the break threshold.
 - [ ] 5.4 Screenshots of Home at 1440 and 390px and the placeholder report attached to the PR for the client lead.

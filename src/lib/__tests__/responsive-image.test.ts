@@ -21,6 +21,12 @@ describe("variantPath", () => {
   });
 });
 
+describe("variantPath with unusual names", () => {
+  it("replaces only the file's own extension, whatever its case", () => {
+    expect(variantPath("/placeholders/v1.2/shop.JPG", 960)).toBe("/placeholders/v1.2/shop-960.webp");
+  });
+});
+
 describe("photo", () => {
   const image = photo("/placeholders/visit-shop.jpg", {alt: "", width: 1024, height: 768}, "100vw");
 
