@@ -3,6 +3,7 @@ import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {HomeView} from "@/features/home/view";
 import {homeContent} from "@/lib/content/home";
+import {quoteWall} from "@/lib/content/quote-wall";
 import {siteContent} from "@/lib/content/site";
 import {SITE_PAGES} from "@/lib/page-nav";
 import {pageExists} from "@/lib/site-pages";
@@ -19,8 +20,15 @@ describe("Home page shell", () => {
     expect(document.activeElement).toHaveAccessibleName("Skip to content");
   });
 
-  it("shows the sections in the spec's order, from the hero to Visit us", () => {
+  it("shows every customer on the photo wall, once its chunk has loaded", async () => {
     render(<HomeView />);
+    const buttons = await screen.findAllByRole("button", {name: /^Read .+'s quote$/});
+    expect(buttons).toHaveLength(quoteWall.quotes.length);
+  });
+
+  it("shows the sections in the spec's order, from the hero to Visit us", async () => {
+    render(<HomeView />);
+    await screen.findByRole("region", {name: "What customers say"});
     const main = screen.getByRole("main");
     const names = [...main.querySelectorAll(":scope > section")].map((section) => section.getAttribute("aria-labelledby"));
     const headings = names.map((id) => document.getElementById(id ?? "")?.textContent);
@@ -28,7 +36,7 @@ describe("Home page shell", () => {
       homeContent.hero.heading.value,
       homeContent.divisions.heading.value,
       homeContent.featured.heading.value,
-      homeContent.proof.heading.value,
+      "What customers say",
       homeContent.stories.heading.value,
       "Our projects",
       homeContent.trust.heading.value,

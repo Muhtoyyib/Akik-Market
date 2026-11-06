@@ -1,10 +1,10 @@
 import {useState} from "react";
 import {Frame} from "@/components/frame/frame";
 import {LeadQuote} from "@/components/lead-quote/lead-quote";
-import {CustomerTile, FillerTile} from "@/features/testimonials/wall-tile";
-import type {testimonialsWall} from "@/lib/content/testimonials-page";
+import {CustomerTile, FillerTile} from "@/components/quote-wall/wall-tile";
+import type {quoteWall} from "@/lib/content/quote-wall";
 
-type QuoteWallProps = typeof testimonialsWall;
+type QuoteWallProps = typeof quoteWall;
 
 const HEADING_ID = "wall-heading";
 

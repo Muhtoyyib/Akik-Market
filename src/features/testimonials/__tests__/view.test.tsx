@@ -2,9 +2,10 @@ import {render, screen, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {TestimonialsView} from "@/features/testimonials/view";
-import {testimonialsStories, testimonialsWall} from "@/lib/content/testimonials-page";
+import {quoteWall} from "@/lib/content/quote-wall";
+import {testimonialsStories} from "@/lib/content/testimonials-page";
 
-const renderPage = (stories = testimonialsStories) => render(<TestimonialsView stories={stories} wall={testimonialsWall} />);
+const renderPage = (stories = testimonialsStories) => render(<TestimonialsView stories={stories} wall={quoteWall} />);
 const wall = () => screen.getByRole("group", {name: "Customers"});
 const card = () => document.querySelector("[aria-live='polite'] figure")!;
 
@@ -36,9 +37,7 @@ describe("the Testimonials page", () => {
 
   it("offers a button per customer, in wall order", () => {
     renderPage();
-    const order = testimonialsWall.rows
-      .flat()
-      .flatMap((tile) => (tile.kind === "customer" ? [testimonialsWall.quotes[tile.index]!.name] : []));
+    const order = quoteWall.rows.flat().flatMap((tile) => (tile.kind === "customer" ? [quoteWall.quotes[tile.index]!.name] : []));
     expect(
       within(wall())
         .getAllByRole("button")
@@ -67,7 +66,7 @@ describe("the Testimonials page", () => {
   it("hides the muted tiles from assistive technology", () => {
     renderPage();
     const hidden = wall().querySelectorAll(":scope > div > [aria-hidden='true']");
-    expect(hidden.length).toBe(34 - testimonialsWall.quotes.length);
+    expect(hidden.length).toBe(34 - quoteWall.quotes.length);
   });
 
   it("asks for stories on WhatsApp", () => {

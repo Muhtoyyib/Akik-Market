@@ -1,43 +1,30 @@
 ## Purpose
 
-Shows that real customers trust Akik, with one big quote and one short quote for each business.
+Shows that real customers trust Akik: the same photo wall of quotes as the Testimonials page.
 
-Source: Matic P5 (large quote with highlighted phrase, then three columns).
+Source: the testimonials quote-wall spec (the user's Alvo landing page, rebuilt in the house style). The user asked on 2026-11-06 for Home to use the same wall; it replaces the earlier Matic P5 lead quote with three columns.
 
 ## ADDED Requirements
 
-### Requirement: Lead quote
+### Requirement: The Testimonials photo wall
 
-The section SHALL open with one customer quote in the `quote` style, centred, at most about 25 words, with one phrase in `brand-red`, followed by the customer's name and business in `label` style. The quote, name and business are placeholders and SHALL NOT name a real person until the owner supplies a real quote with permission.
+The section SHALL be the wall the testimonials quote-wall spec describes, with the same lead quote, tiles, quotes and behaviour, named "What customers say" for assistive technology. Its quotes are placeholders and SHALL NOT name a real person until the owner supplies real quotes with permission.
 
-#### Scenario: Placeholder quote
+#### Scenario: Same wall as Testimonials
+
+- **WHEN** Home renders
+- **THEN** the wall shows a tile for every customer on the Testimonials wall, and choosing one shows that customer's quote
+
+#### Scenario: Placeholder quotes
 
 - **WHEN** the section renders with placeholder content
-- **THEN** the quote and name are listed in the placeholder report
+- **THEN** the lead quote and every wall quote are listed in the placeholder report
 
-### Requirement: Highlight is not colour alone
+### Requirement: Loaded after the page
 
-The highlighted phrase SHALL also be marked so assistive technology and colour-blind visitors don't lose it (for example as emphasis).
+The wall SHALL be in Home's prerendered HTML, and its script SHALL load after the rest of the page, so the wall's quotes don't count against Home's script budget (measured 2026-11-06: 173.6 KB loaded up front against the 172 KB budget, 170.4 loaded late).
 
-#### Scenario: Screen reader
+#### Scenario: Before the wall's script arrives
 
-- **WHEN** a screen reader reads the quote
-- **THEN** the highlighted phrase is announced as emphasised
-
-### Requirement: Three columns
-
-Below the lead quote, three equal columns (one per business, in growth order) SHALL each show a 1px `line` top border, a short quote in `h3` style and a `label` caption naming the business and the year, for example `PHONES & GADGETS · CUSTOMER SINCE 2023`. On mobile they SHALL stack.
-
-#### Scenario: Mobile
-
-- **WHEN** the section renders on a 390px screen
-- **THEN** the three columns stack with 32px between them
-
-### Requirement: Quotes are quotes
-
-Each quote SHALL be marked up as a quotation with its source.
-
-#### Scenario: Markup check
-
-- **WHEN** the section's markup is inspected
-- **THEN** each quote is a quotation element with its attribution in a caption
+- **WHEN** Home is opened and the wall's script hasn't loaded yet
+- **THEN** the prerendered wall is already on screen, and it responds to choices once hydrated

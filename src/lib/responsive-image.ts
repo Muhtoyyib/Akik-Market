@@ -34,3 +34,14 @@ export function photo(src: string, image: Image, sizes: string) {
     sizes,
   };
 }
+
+// Every copy the optimiser writes includes this width.
+const SMALLEST_WIDTH = 480;
+
+/**
+ * A photo drawn at most 112px wide (a photo wall tile): only the 480 copy, which covers it on screens up to 4x. A
+ * srcset would never pick another copy, and each one costs the page bytes (measured on Home's wall).
+ */
+export function tilePhoto(src: string, {alt, width, height}: Image) {
+  return {alt, src: variantPath(src, SMALLEST_WIDTH), width: SMALLEST_WIDTH, height: Math.round((height * SMALLEST_WIDTH) / width)};
+}

@@ -2,6 +2,8 @@ import {existsSync} from "node:fs";
 import {describe, expect, it} from "vite-plus/test";
 import {listPlaceholders} from "@/lib/content-facts";
 import {homeContent} from "@/lib/content/home";
+import {allContent} from "@/lib/content/all-content";
+import {quoteWall} from "@/lib/content/quote-wall";
 import {siteContent} from "@/lib/content/site";
 import {email} from "@/lib/content/business";
 
@@ -73,20 +75,16 @@ describe("homeContent", () => {
   });
 
   it("puts the start year in the phones customer's caption and marks it a placeholder", () => {
-    expect(homeContent.proof.columns[0]?.source).toEqual({value: "PHONES & GADGETS · CUSTOMER SINCE 2023", placeholder: true});
+    expect(quoteWall.quotes[0]?.source).toEqual({value: "PHONES & GADGETS · CUSTOMER SINCE 2023", placeholder: true});
   });
 
   it("lists the lead customer quote in the placeholder report", () => {
-    expect(listPlaceholders(homeContent).map((entry) => entry.path)).toContain("proof.lead");
+    expect(listPlaceholders(allContent).map((entry) => entry.path)).toContain("Customer stories.leadQuote");
   });
 
   it("keeps the lead quote to about 25 words", () => {
-    const {before, highlight} = homeContent.proof.lead.value;
+    const {before, highlight} = quoteWall.lead.value;
     expect(`${before} ${highlight}`.split(" ").length).toBeLessThanOrEqual(25);
-  });
-
-  it("orders the proof columns as the business grew", () => {
-    expect(homeContent.proof.columns.map((column) => column.key)).toEqual(["phones", "engineering", "autos"]);
   });
 
   it("tells one customer story per business, in growth order", () => {

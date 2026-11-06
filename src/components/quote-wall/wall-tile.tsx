@@ -1,7 +1,7 @@
 import {cn} from "cn";
 import type {BusinessKey} from "@/lib/content/business";
 
-type TileImage = {src: string; alt: string; width: number; height: number; srcSet: string; sizes: string};
+type TileImage = {src: string; alt: string; width: number; height: number};
 
 // Three sizes so eight tiles fit a 360px phone and the wall fills most of the section on desktop (quote-wall spec).
 const SIZE = "size-9 md:size-20 lg:size-28";

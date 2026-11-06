@@ -5,7 +5,7 @@
 // Invented stand-ins: no real customer is named until the owner supplies quotes with permission.
 import {type Fact, fromFacts, placeholder} from "@/lib/content-facts";
 import {startYear, type BusinessKey} from "@/lib/content/business";
-import {photo} from "@/lib/responsive-image";
+import {tilePhoto} from "@/lib/responsive-image";
 
 // Stryker disable StringLiteral,ObjectLiteral,ArrayDeclaration : stand-in copy the owner will replace; tests pin the rules.
 // The one quote that speaks for all three businesses.
@@ -31,13 +31,11 @@ type QuoteInput = {
 };
 
 export function quote({text, photo: [path, width, height], ...input}: QuoteInput) {
-  return {...input, quote: placeholder(text), photo: photo(path, {alt: "", width, height}, WALL_TILE)};
+  return {...input, quote: placeholder(text), photo: tilePhoto(path, {alt: "", width, height})};
 }
 
 export type Quote = ReturnType<typeof quote>;
 
-// A wall tile is drawn at most 112px wide (testimonials quote-wall spec).
-const WALL_TILE = "112px";
 export const since = (business: string, year: number | string) => placeholder(`${business} · CUSTOMER SINCE ${year}`);
 
 export const quotes: Quote[] = [

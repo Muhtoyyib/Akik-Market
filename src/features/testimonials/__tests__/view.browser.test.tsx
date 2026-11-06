@@ -2,11 +2,12 @@ import {render} from "@testing-library/react";
 import {beforeEach, describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
 import {TestimonialsView} from "@/features/testimonials/view";
-import {testimonialsStories, testimonialsWall} from "@/lib/content/testimonials-page";
+import {quoteWall} from "@/lib/content/quote-wall";
+import {testimonialsStories} from "@/lib/content/testimonials-page";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 
-const renderPage = () => render(<TestimonialsView stories={testimonialsStories} wall={testimonialsWall} />);
+const renderPage = () => render(<TestimonialsView stories={testimonialsStories} wall={quoteWall} />);
 const wall = () => document.querySelector<HTMLElement>("[data-wall]")!;
 const customerTiles = () => [...wall().querySelectorAll<HTMLElement>("button")];
 const fitsPage = () => document.documentElement.scrollWidth <= window.innerWidth;

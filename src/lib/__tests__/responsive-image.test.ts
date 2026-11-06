@@ -1,5 +1,5 @@
 import {describe, expect, it} from "vite-plus/test";
-import {photo, variantPath, variantWidths} from "@/lib/responsive-image";
+import {photo, tilePhoto, variantPath, variantWidths} from "@/lib/responsive-image";
 
 describe("variantWidths", () => {
   it("offers the standard widths below the original, then the original itself", () => {
@@ -42,5 +42,11 @@ describe("photo", () => {
 
   it("keeps the alt text, the original's shape and the layout hint", () => {
     expect([image.alt, image.width, image.height, image.sizes]).toEqual(["", 1024, 768, "100vw"]);
+  });
+});
+
+describe("tilePhoto", () => {
+  it("points at the 480 copy only, keeping the photo's shape", () => {
+    expect(tilePhoto("/a/b.jpg", {alt: "", width: 1024, height: 682})).toEqual({alt: "", src: "/a/b-480.webp", width: 480, height: 320});
   });
 });

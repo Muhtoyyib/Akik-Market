@@ -37,7 +37,7 @@ Akik's pitch is that people buy a phone, then a car, then a house from the same 
 
 - `testimonials/page`: route, section order, metadata and consent rules for real quotes.
 - `testimonials/stories`: the story box with tabs.
-- `testimonials/quote-wall`: the lead quote, the three columns and the full wall of quotes.
+- `testimonials/quote-wall`: the lead quote and the photo wall of every quote, shared with Home.
 - `testimonials/share`: the invitation to share a story.
 
 ### Modified Capabilities

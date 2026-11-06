@@ -3,12 +3,13 @@ import {Frame} from "@/components/frame/frame";
 import {PageLayout} from "@/components/page-layout/page-layout";
 import {SectionHeader} from "@/components/section-header/section-header";
 import {Stories} from "@/components/stories/stories";
-import {QuoteWall} from "@/features/testimonials/quote-wall";
-import {testimonialsIndex, testimonialsShare, testimonialsStories, testimonialsWall} from "@/lib/content/testimonials-page";
+import {QuoteWall} from "@/components/quote-wall/quote-wall";
+import {testimonialsIndex, testimonialsShare, testimonialsStories} from "@/lib/content/testimonials-page";
+import type {quoteWall} from "@/lib/content/quote-wall";
 import {pageNav} from "@/lib/page-nav";
 import {pageExists} from "@/lib/site-pages";
 
-type TestimonialsViewProps = {stories: typeof testimonialsStories; wall: typeof testimonialsWall};
+type TestimonialsViewProps = {stories: typeof testimonialsStories; wall: typeof quoteWall};
 
 /** Testimonials: the h1 header, every story, the photo wall of quotes, then the invitation to share a story. */
 export function TestimonialsView({stories, wall}: TestimonialsViewProps) {

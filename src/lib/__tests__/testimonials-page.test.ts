@@ -3,12 +3,13 @@ import {describe, expect, it} from "vite-plus/test";
 import {listPlaceholders} from "@/lib/content-facts";
 import {allContent} from "@/lib/content/all-content";
 import {stories} from "@/lib/content/stories";
-import {storyTabs, testimonialsShare, testimonialsStories, testimonialsWall} from "@/lib/content/testimonials-page";
+import {quoteWall} from "@/lib/content/quote-wall";
+import {storyTabs, testimonialsShare, testimonialsStories} from "@/lib/content/testimonials-page";
 import {testimonialsHead} from "@/lib/page-heads";
 import {pageExists} from "@/lib/site-pages";
 import {missingPermission} from "@/lib/testimonials";
 
-const {quotes, rows} = testimonialsWall;
+const {quotes, rows} = quoteWall;
 const tiles = rows.flat();
 
 describe("the Testimonials content", () => {
@@ -28,9 +29,14 @@ describe("the Testimonials content", () => {
     expect(quotes.filter((item) => item.quote.placeholder && item.name.includes(" "))).toEqual([]);
   });
 
-  it("gives each of the nine customers one tile, among 34", () => {
+  it("gives each of the 29 customers one tile, so customers fill 85% of the 34", () => {
     const customers = tiles.flatMap((tile) => (tile.kind === "customer" ? [tile.index] : []));
-    expect([tiles.length, [...customers].sort((a, b) => a - b)]).toEqual([34, [0, 1, 2, 3, 4, 5, 6, 7, 8]]);
+    expect([tiles.length, [...customers].sort((a, b) => a - b)]).toEqual([34, Array.from({length: 29}, (_, index) => index)]);
+  });
+
+  it("shows a different photo and first name for every customer", () => {
+    const distinct = (values: string[]) => new Set(values).size === values.length;
+    expect([distinct(quotes.map((item) => item.photo.src)), distinct(quotes.map((item) => item.name))]).toEqual([true, true]);
   });
 
   it("names each quote's business, for the card's accent", () => {
@@ -52,13 +58,13 @@ describe("the Testimonials content", () => {
     expect(withImage.filter(([kind, image]) => (kind === "filler") !== image)).toEqual([]);
   });
 
-  it("crops every filler photo 3:2 and loads each wall photo at tile size", () => {
+  it("crops every filler photo 3:2 and loads only the smallest copy of each wall photo", () => {
     const fillers = tiles.flatMap((tile) => ("image" in tile ? [tile.image] : []));
     const photos = [...quotes.map((item) => item.photo), ...fillers];
     expect([
       fillers.filter((image) => image.height !== Math.floor((image.width * 2) / 3)),
-      [...new Set(photos.map((image) => image.sizes))],
-    ]).toEqual([[], ["112px"]]);
+      photos.filter((image) => !image.src.endsWith("-480.webp")),
+    ]).toEqual([[], []]);
   });
 
   it("names each tab after its customer when a business has two stories", () => {
@@ -83,7 +89,7 @@ describe("the Testimonials content", () => {
   it("lists the page's copy and the wall's extra quotes in the placeholder report", () => {
     const paths = listPlaceholders(allContent).map((entry) => entry.path);
     expect(
-      ["Testimonials page.testimonialsIndex.heading", "Testimonials page.moreQuotes.0.quote"].filter((path) => !paths.includes(path))
+      ["Testimonials page.testimonialsIndex.heading", "Customer stories.moreQuotes.0.quote"].filter((path) => !paths.includes(path))
     ).toEqual([]);
   });
 });

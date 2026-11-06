@@ -14,7 +14,8 @@ import {listings} from "@/lib/content/listings";
 import {listingsIndex, listingsNextSteps} from "@/lib/content/listings-page";
 import {newsBodies} from "@/lib/content/news-bodies";
 import {newsIndex} from "@/lib/content/news-page";
-import {moreQuotes, testimonialsIndex, testimonialsShare} from "@/lib/content/testimonials-page";
+import {moreQuotes} from "@/lib/content/quote-wall";
+import {testimonialsIndex, testimonialsShare} from "@/lib/content/testimonials-page";
 import {notFoundContent} from "@/lib/content/not-found";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {projects} from "@/lib/content/projects";
@@ -28,10 +29,10 @@ export const allContent = {
   "Site-wide": {...siteContent, business: {startYear, social, email, address, hours, shopPhoto}},
   Listings: {listings},
   "News posts": {posts, bodies: newsBodies},
-  "Customer stories": {stories, leadQuote, quotes},
+  "Customer stories": {stories, leadQuote, quotes, moreQuotes},
   Projects: {projects},
   "News page": {newsIndex},
-  "Testimonials page": {testimonialsIndex, testimonialsShare, moreQuotes},
+  "Testimonials page": {testimonialsIndex, testimonialsShare},
   "Contact page": {contactIndex, contactLocation},
   "Legal pages": {privacy, terms},
   "Listings page": {listingsIndex, listingsNextSteps},
