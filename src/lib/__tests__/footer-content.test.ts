@@ -21,17 +21,18 @@ describe("footer content", () => {
     expect(footer.counters[0]?.placeholder).toBe(siteContent.startYear.placeholder);
   });
 
-  it("shows the Businesses, Company and Follow columns once those pages are built, and leaves out Legal", () => {
-    expect(footer.columns.map((column) => column.heading)).toEqual(["Businesses", "Company", "Follow"]);
+  it("shows the Businesses, Company, Follow and Legal columns now every page is built", () => {
+    expect(footer.columns.map((column) => column.heading)).toEqual(["Businesses", "Company", "Follow", "Legal"]);
   });
 
-  it("lists only the built pages under Company", () => {
+  it("lists every company page under Company, Contact last", () => {
     expect(footer.columns.find((column) => column.heading === "Company")?.links).toEqual([
       {label: "About", href: "/about"},
       {label: "Projects", href: "/projects"},
       {label: "Listings", href: "/listings"},
       {label: "Testimonials", href: "/testimonials"},
       {label: "News", href: "/news"},
+      {label: "Contact", href: "/contact"},
     ]);
   });
 

@@ -1,26 +1,21 @@
 ## Purpose
 
-Keeping stand-in legal text off the public site.
+Making stand-in legal text read as a draft.
 
-Source: design D1.
+Source: design D1 (changed 2026-11-06: the preview shows every page).
 
 ## ADDED Requirements
 
-### Requirement: Published only when real
+### Requirement: Drafts are marked
 
-A legal page SHALL be listed for prerendering only when its text is marked real in the content source. While it's a placeholder, the page SHALL NOT be built and no link to it SHALL appear (the footer's Legal column stays hidden).
+Both legal pages SHALL be listed for prerendering. While a page's text is a placeholder, a notice under the date SHALL say it is a draft for review and that the final text will come from Akik's lawyer, and the placeholder report SHALL list it. Once the text is marked real, the notice SHALL go.
 
 #### Scenario: Before the lawyer's text
 
 - **WHEN** the privacy text is a placeholder
-- **THEN** `/privacy` isn't built, the footer has no Legal column, and the placeholder report lists it as missing
+- **THEN** `/privacy` is built with the draft notice, the footer's Legal column shows Privacy, and the placeholder report lists the text
 
 #### Scenario: Text arrives
 
 - **WHEN** the privacy text is supplied and marked real
-- **THEN** `/privacy` is built and the footer's Legal column shows Privacy
-
-#### Scenario: Placeholder listed by mistake
-
-- **WHEN** a placeholder legal page is added to the prerender list
-- **THEN** a unit test fails naming the page
+- **THEN** `/privacy` shows no draft notice

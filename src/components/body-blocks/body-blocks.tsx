@@ -1,6 +1,6 @@
 import type {Block} from "@/lib/content/news-bodies";
 
-/** One block of a post, in the house type styles (article spec, "Body"). Sub-headings are h2 under the post's h1. */
+/** One block of text, in the house type styles (news article spec, "Body"; legal document spec). Sub-headings are h2 under the page's h1. */
 function BodyBlock({block}: {block: Block}) {
   if (block.kind === "paragraph") return <p>{block.text}</p>;
   if (block.kind === "heading") return <h2 className="mt-4 type-h3 text-ink">{block.text}</h2>;
@@ -22,7 +22,7 @@ function BodyBlock({block}: {block: Block}) {
 }
 
 /** The body at the readable line length, its blocks in order. */
-export function PostBody({blocks}: {blocks: readonly Block[]}) {
+export function BodyBlocks({blocks}: {blocks: readonly Block[]}) {
   return (
     <div data-post-body className="flex max-w-prose flex-col gap-5 type-body-lg text-ink">
       {blocks.map((block, index) => (

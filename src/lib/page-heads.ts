@@ -16,6 +16,10 @@ export const newsIndexHead = pageHead({name: "News", description: pageDescriptio
 
 export const testimonialsHead = pageHead({name: "Testimonials", description: pageDescriptions.testimonials.value});
 
+export const privacyHead = pageHead({name: "Privacy policy", description: pageDescriptions.privacy.value});
+
+export const termsHead = pageHead({name: "Terms", description: pageDescriptions.terms.value});
+
 export const projectsIndexHead = pageHead({name: "Projects", description: pageDescriptions.projects.value});
 
 export function divisionHead(key: BusinessKey) {

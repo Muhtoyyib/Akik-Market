@@ -5,7 +5,7 @@ Every action on the site opens WhatsApp, which is how Akik already sells. Some v
 ## What Changes
 
 - A new page at `/contact`: page header, channels per business (WhatsApp, phone, hours) plus email, an enquiry form routed by business, and the shop's location.
-- Form field components (text field, text area, choice group, error message) added to the shared components, since no page has needed them yet.
+- Form field components (text field, text area, choice group, error message), kept with the Contact page until a second page needs them.
 - The header and footer start linking to `/contact`.
 
 ## Sources per section
@@ -52,5 +52,5 @@ None.
 ## Impact
 
 - `src/routes/contact.tsx`, `src/features/contact/`, `src/lib/content/contact.ts`.
-- `src/components/form/` for the field components; tokens unchanged.
+- `src/features/contact/` for the field components, since only Contact uses them (code-style: shared components start at the second use); tokens unchanged.
 - A pure helper that turns a valid enquiry into a WhatsApp link, with unit tests.

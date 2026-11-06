@@ -28,7 +28,7 @@ describe("pageExists", () => {
   });
 
   it("knows a page that has not shipped", () => {
-    expect(pageExists("/contact")).toBe(false);
+    expect(pageExists("/careers")).toBe(false);
   });
 });
 

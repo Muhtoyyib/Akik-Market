@@ -4,17 +4,17 @@ See [proposal.md](./proposal.md). Placeholders are allowed elsewhere for the pit
 
 ## Goals / Non-Goals
 
-**Goals:** the layout and routes ready, so the owner's text ships the day it arrives; no stand-in legal text ever reaches the public site.
+**Goals:** the layout and routes ready, so the owner's text ships the day it arrives; stand-in text always reads as a draft.
 
 **Non-goals:** see the proposal.
 
 ## Decisions
 
-### D1. Unpublished until real
+### D1. Built as marked drafts on the preview
 
-- **Chosen:** each legal document in the content source has a status. While its text is a placeholder, its path is left out of the prerender list, so `pageExists` is false and the footer's Legal column (filtered by `pageExists`) stays hidden. A unit test fails if a placeholder legal page is listed.
-- **Alternatives considered:** publishing placeholder text marked "draft"; using a generated policy template.
-- **Dropped:** both. A visible draft still reads as a commitment, and a generated template may not fit Nigerian law or Akik's actual practices.
+- **Chosen:** both pages are built now, so the client lead can review the whole site on the preview (the user, 2026-11-06: "I want everything on vercel ... it's just for him to see"). While a document's text is a placeholder, a notice under the `h1` says it is a draft awaiting the owner's lawyer, and the placeholder report lists it. The draft text describes only what the site does (no cookies, no stored form data, WhatsApp and email) and makes no promise about the shops.
+- **Superseded:** the earlier rule kept placeholder pages out of the build. It assumed the first deploy was public; the preview is not.
+- **Before public launch:** both documents must be marked real (the launch checklist and placeholder report name them).
 
 ### D2. Text as typed sections
 
@@ -22,7 +22,7 @@ See [proposal.md](./proposal.md). Placeholders are allowed elsewhere for the pit
 
 ## Risks / Trade-offs
 
-- **Launch without legal pages.** Mitigation: the placeholder report lists both as missing, and the launch checklist names them.
+- **A draft mistaken for a commitment.** Mitigation: the draft notice on the page, and the placeholder report lists both until marked real.
 - **Applicable law.** Assumed, not verified: the Nigeria Data Protection Act 2023 likely applies. The owner's lawyer should confirm what the privacy page must say.
 
 ## Open Questions

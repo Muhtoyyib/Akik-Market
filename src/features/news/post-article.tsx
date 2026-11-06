@@ -1,7 +1,7 @@
 import {BackLink} from "@/components/back-link/back-link";
 import {Frame} from "@/components/frame/frame";
 import {MediaBox} from "@/components/media-box/media-box";
-import {PostBody} from "@/features/news/post-body";
+import {BodyBlocks} from "@/components/body-blocks/body-blocks";
 import {business} from "@/lib/content/business";
 import type {Post} from "@/lib/content/news";
 import type {Block} from "@/lib/content/news-bodies";
@@ -28,7 +28,7 @@ export function PostArticle({post, body}: {post: Post; body: readonly Block[]}) 
             <MediaBox ratio="3:2" media={{kind: "image", ...image.value}} priority />
           </div>
           <div className="mt-8 md:mt-12">
-            <PostBody blocks={body} />
+            <BodyBlocks blocks={body} />
           </div>
         </div>
       </Frame>

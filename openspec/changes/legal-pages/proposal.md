@@ -5,7 +5,7 @@ The sitemap lists a privacy policy and terms. The site itself stores no personal
 ## What Changes
 
 - Two pages, `/privacy` and `/terms`, sharing one document layout: heading, last-updated date, a contents list and the text in sections.
-- A publication rule: a legal page is built only once its text is marked real. Until then it isn't listed for prerendering, and the footer's Legal column stays hidden.
+- A draft rule: while a page's text is a placeholder, it shows a draft notice and is listed in the placeholder report (design D1, changed 2026-11-06 so the preview shows every page).
 
 ## Sources per section
 
@@ -25,8 +25,8 @@ The sitemap lists a privacy policy and terms. The site itself stores no personal
 
 | Fact                                                     | Status                            | Source                                                                     |
 | -------------------------------------------------------- | --------------------------------- | -------------------------------------------------------------------------- |
-| Privacy policy text                                      | Not supplied                      | Owner or his lawyer                                                        |
-| Terms text                                               | Not supplied                      | Owner or his lawyer                                                        |
+| Privacy policy text                                      | Placeholder draft                 | Owner or his lawyer to supply; draft describes the site only               |
+| Terms text                                               | Placeholder draft                 | Owner or his lawyer to supply                                              |
 | Registered company number shown in the logo (RC 3067479) | Real, needs confirming before use | Owner's flyer logo; confirm the legal entity name before the terms name it |
 
 ## Capabilities
@@ -36,7 +36,7 @@ The sitemap lists a privacy policy and terms. The site itself stores no personal
 - `legal/document`: the shared layout for a legal page.
 - `legal/privacy`: what the privacy page must cover.
 - `legal/terms`: what the terms page must cover.
-- `legal/publication`: the rule that keeps a legal page unpublished until its text is real.
+- `legal/publication`: the draft notice on a legal page until its text is real.
 
 ### Modified Capabilities
 
@@ -45,4 +45,4 @@ None.
 ## Impact
 
 - `src/routes/privacy.tsx`, `src/routes/terms.tsx`, `src/features/legal/`, `src/lib/content/legal.ts`.
-- The prerender list reads the publication rule.
+- `/privacy` and `/terms` in the prerender list; the footer's Legal column appears.

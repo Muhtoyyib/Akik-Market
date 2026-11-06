@@ -1,7 +1,7 @@
 import {render, screen, within} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {NewsIndexView} from "@/features/news/index-view";
-import {PostBody} from "@/features/news/post-body";
+import {BodyBlocks} from "@/components/body-blocks/body-blocks";
 import {PostView} from "@/features/news/post-view";
 import type {Block} from "@/lib/content/news-bodies";
 import {businessBanner, newsGrid, postPage} from "@/lib/content/news-page";
@@ -104,7 +104,7 @@ describe("a post's body", () => {
       {kind: "heading", text: "Middle"},
       {kind: "list", items: ["One", "Two"]},
     ];
-    const {container} = render(<PostBody blocks={blocks} />);
+    const {container} = render(<BodyBlocks blocks={blocks} />);
     expect([...container.firstElementChild!.children].map((element) => [element.tagName, element.textContent])).toEqual([
       ["P", "First"],
       ["H2", "Middle"],
@@ -113,7 +113,7 @@ describe("a post's body", () => {
   });
 
   it("shows a photo with its alt text and caption", () => {
-    render(<PostBody blocks={[photoBlock]} />);
+    render(<BodyBlocks blocks={[photoBlock]} />);
     expect([screen.getByRole("img").getAttribute("alt"), screen.getByRole("figure").textContent]).toEqual([
       photoBlock.image.alt,
       photoBlock.caption,
@@ -121,7 +121,7 @@ describe("a post's body", () => {
   });
 
   it("shows a photo with no caption as a figure without one", () => {
-    render(<PostBody blocks={[{...photoBlock, caption: undefined}]} />);
+    render(<BodyBlocks blocks={[{...photoBlock, caption: undefined}]} />);
     expect(screen.getByRole("figure").querySelector("figcaption")).toBeNull();
   });
 });

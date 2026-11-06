@@ -13,10 +13,13 @@ import { Route as IndexRouteImport } from "./routes/index"
 import { Route as R404RouteImport } from "./routes/404"
 import { Route as AboutRouteImport } from "./routes/about"
 import { Route as AutosRouteImport } from "./routes/autos"
+import { Route as ContactRouteImport } from "./routes/contact"
 import { Route as DesignSystemRouteImport } from "./routes/design-system"
 import { Route as EngineeringRouteImport } from "./routes/engineering"
 import { Route as ListingsRouteImport } from "./routes/listings"
 import { Route as PhonesAndGadgetsRouteImport } from "./routes/phones-and-gadgets"
+import { Route as PrivacyRouteImport } from "./routes/privacy"
+import { Route as TermsRouteImport } from "./routes/terms"
 import { Route as TestimonialsRouteImport } from "./routes/testimonials"
 import { Route as NewsIndexRouteImport } from "./routes/news.index"
 import { Route as NewsSlugRouteImport } from "./routes/news.$slug"
@@ -43,6 +46,11 @@ const AutosRoute = AutosRouteImport.update({
   path: "/autos",
   getParentRoute: () => rootRouteImport,
 } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: "/contact",
+  path: "/contact",
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignSystemRoute = DesignSystemRouteImport.update({
   id: "/design-system",
   path: "/design-system",
@@ -61,6 +69,16 @@ const ListingsRoute = ListingsRouteImport.update({
 const PhonesAndGadgetsRoute = PhonesAndGadgetsRouteImport.update({
   id: "/phones-and-gadgets",
   path: "/phones-and-gadgets",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PrivacyRoute = PrivacyRouteImport.update({
+  id: "/privacy",
+  path: "/privacy",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TermsRoute = TermsRouteImport.update({
+  id: "/terms",
+  path: "/terms",
   getParentRoute: () => rootRouteImport,
 } as any)
 const TestimonialsRoute = TestimonialsRouteImport.update({
@@ -94,10 +112,13 @@ export interface FileRoutesByFullPath {
   "/404": typeof R404Route
   "/about": typeof AboutRoute
   "/autos": typeof AutosRoute
+  "/contact": typeof ContactRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/privacy": typeof PrivacyRoute
+  "/terms": typeof TermsRoute
   "/testimonials": typeof TestimonialsRoute
   "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
@@ -109,10 +130,13 @@ export interface FileRoutesByTo {
   "/404": typeof R404Route
   "/about": typeof AboutRoute
   "/autos": typeof AutosRoute
+  "/contact": typeof ContactRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/privacy": typeof PrivacyRoute
+  "/terms": typeof TermsRoute
   "/testimonials": typeof TestimonialsRoute
   "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
@@ -125,10 +149,13 @@ export interface FileRoutesById {
   "/404": typeof R404Route
   "/about": typeof AboutRoute
   "/autos": typeof AutosRoute
+  "/contact": typeof ContactRoute
   "/design-system": typeof DesignSystemRoute
   "/engineering": typeof EngineeringRoute
   "/listings": typeof ListingsRoute
   "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
+  "/privacy": typeof PrivacyRoute
+  "/terms": typeof TermsRoute
   "/testimonials": typeof TestimonialsRoute
   "/news/$slug": typeof NewsSlugRoute
   "/projects/$slug": typeof ProjectsSlugRoute
@@ -142,10 +169,13 @@ export interface FileRouteTypes {
     | "/404"
     | "/about"
     | "/autos"
+    | "/contact"
     | "/design-system"
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/privacy"
+    | "/terms"
     | "/testimonials"
     | "/news/$slug"
     | "/projects/$slug"
@@ -157,10 +187,13 @@ export interface FileRouteTypes {
     | "/404"
     | "/about"
     | "/autos"
+    | "/contact"
     | "/design-system"
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/privacy"
+    | "/terms"
     | "/testimonials"
     | "/news/$slug"
     | "/projects/$slug"
@@ -172,10 +205,13 @@ export interface FileRouteTypes {
     | "/404"
     | "/about"
     | "/autos"
+    | "/contact"
     | "/design-system"
     | "/engineering"
     | "/listings"
     | "/phones-and-gadgets"
+    | "/privacy"
+    | "/terms"
     | "/testimonials"
     | "/news/$slug"
     | "/projects/$slug"
@@ -188,10 +224,13 @@ export interface RootRouteChildren {
   R404Route: typeof R404Route
   AboutRoute: typeof AboutRoute
   AutosRoute: typeof AutosRoute
+  ContactRoute: typeof ContactRoute
   DesignSystemRoute: typeof DesignSystemRoute
   EngineeringRoute: typeof EngineeringRoute
   ListingsRoute: typeof ListingsRoute
   PhonesAndGadgetsRoute: typeof PhonesAndGadgetsRoute
+  PrivacyRoute: typeof PrivacyRoute
+  TermsRoute: typeof TermsRoute
   TestimonialsRoute: typeof TestimonialsRoute
   NewsSlugRoute: typeof NewsSlugRoute
   ProjectsSlugRoute: typeof ProjectsSlugRoute
@@ -229,6 +268,13 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof AutosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    "/contact": {
+      id: "/contact"
+      path: "/contact"
+      fullPath: "/contact"
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     "/design-system": {
       id: "/design-system"
       path: "/design-system"
@@ -255,6 +301,20 @@ declare module "@tanstack/react-router" {
       path: "/phones-and-gadgets"
       fullPath: "/phones-and-gadgets"
       preLoaderRoute: typeof PhonesAndGadgetsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/privacy": {
+      id: "/privacy"
+      path: "/privacy"
+      fullPath: "/privacy"
+      preLoaderRoute: typeof PrivacyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/terms": {
+      id: "/terms"
+      path: "/terms"
+      fullPath: "/terms"
+      preLoaderRoute: typeof TermsRouteImport
       parentRoute: typeof rootRouteImport
     }
     "/testimonials": {
@@ -300,10 +360,13 @@ const rootRouteChildren: RootRouteChildren = {
   R404Route: R404Route,
   AboutRoute: AboutRoute,
   AutosRoute: AutosRoute,
+  ContactRoute: ContactRoute,
   DesignSystemRoute: DesignSystemRoute,
   EngineeringRoute: EngineeringRoute,
   ListingsRoute: ListingsRoute,
   PhonesAndGadgetsRoute: PhonesAndGadgetsRoute,
+  PrivacyRoute: PrivacyRoute,
+  TermsRoute: TermsRoute,
   TestimonialsRoute: TestimonialsRoute,
   NewsSlugRoute: NewsSlugRoute,
   ProjectsSlugRoute: ProjectsSlugRoute,

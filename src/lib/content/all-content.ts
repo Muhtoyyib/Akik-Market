@@ -2,6 +2,8 @@
 // collections come first, so a value a page reuses is listed once, where the owner replaces it. A new page module
 // adds its line here (site content-source spec, "Placeholders marked and reported").
 import {aboutContent} from "@/lib/content/about";
+import {contactIndex, contactLocation} from "@/lib/content/contact";
+import {privacy, terms} from "@/lib/content/legal";
 import {address, email, hours, shopPhoto, social, startYear} from "@/lib/content/business";
 import {autosPage} from "@/lib/content/divisions/autos";
 import {engineeringPage} from "@/lib/content/divisions/engineering";
@@ -30,6 +32,8 @@ export const allContent = {
   Projects: {projects},
   "News page": {newsIndex},
   "Testimonials page": {testimonialsIndex, testimonialsShare, moreQuotes},
+  "Contact page": {contactIndex, contactLocation},
+  "Legal pages": {privacy, terms},
   "Listings page": {listingsIndex, listingsNextSteps},
   "Projects banner": {projectsBanner},
   Founder: {founderPhotos},
