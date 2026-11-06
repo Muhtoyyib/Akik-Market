@@ -1,7 +1,17 @@
-// The three businesses and how to reach each one. Split from home-content.ts, which reads them for every section.
+// The three businesses, when Akik began and how to reach it. Split from home-content.ts so the footer content can
+// share these facts without importing the whole page.
 // Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder report.
 import {placeholder, real} from "@/lib/content-facts";
 import {whatsappHref} from "@/lib/whatsapp";
+
+// Placeholder start year, chosen by the client lead; the owner's Instagram goes back to May 2020.
+export const startYear = placeholder(2023);
+
+// Confirmed from the platforms' own profile data on 2026-11-06.
+export const social = {
+  instagram: real("https://www.instagram.com/akikmarket/"),
+  tiktok: real("https://www.tiktok.com/@akikmarket"),
+};
 
 // Both numbers are on the owner's 2023 flyer; which business each belongs to is still unknown.
 export const mainNumber = placeholder("2347065470198");

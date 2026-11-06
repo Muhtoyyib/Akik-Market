@@ -1,5 +1,6 @@
 import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisions";
 import {Featured} from "@/features/home/featured/featured";
+import {Footer} from "@/features/home/footer/footer";
 import {Founder} from "@/features/home/founder/founder";
 import {Hero} from "@/features/home/hero/hero";
 import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
@@ -13,7 +14,7 @@ import {SkipLink} from "@/features/home/skip-link";
 import {homeContent} from "@/lib/home-content";
 
 export function HomeView() {
-  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news, founder, visit} = homeContent;
+  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news, founder, visit, footer} = homeContent;
   return (
     <>
       <SkipLink />
@@ -41,6 +42,12 @@ export function HomeView() {
         <Founder photos={founder.photos.value} heading={founder.heading.value} story={founder.story.value} link={founder.link} />
         <Visit heading={visit.heading.value} address={visit.address.value} image={visit.image.value} contacts={visit.contacts} />
       </main>
+      <Footer
+        counters={footer.counters.map((counter) => counter.value)}
+        columns={footer.columns}
+        legal={footer.legal.value}
+        wordmark={footer.wordmark.value}
+      />
     </>
   );
 }

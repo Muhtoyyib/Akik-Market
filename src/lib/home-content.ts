@@ -2,14 +2,12 @@
 // so it shows up in the placeholder report. Approved for the pitch build by the client lead on 2026-11-06.
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
 import {featuredTabs} from "@/lib/featured";
+import {footer} from "@/lib/home-footer";
 import {latestPosts} from "@/lib/news";
 import {onwardLink} from "@/lib/onward-link";
 import {pageExists} from "@/lib/site-pages";
 import {whatsappHref} from "@/lib/whatsapp";
-import {divisions, greeting, mainNumber, whatsappTo} from "@/lib/home-divisions";
-
-// Placeholder start year, chosen by the client lead; the owner's Instagram goes back to May 2020.
-const startYear = placeholder(2023);
+import {divisions, greeting, mainNumber, social, startYear, whatsappTo} from "@/lib/home-divisions";
 
 type FeaturedItemInput = {name: string; detail: string; price?: number; photo: string};
 
@@ -39,7 +37,6 @@ const projects = {
 };
 
 const newsPath = "/news";
-const instagram = real("https://www.instagram.com/akikmarket/");
 
 // Spec (news, "Links"): cards link to their posts only once the News page exists; until then the action is Instagram.
 function newsPost({slug, ...post}: {slug: string; date: string; title: string; photo: string}) {
@@ -62,7 +59,7 @@ const news = {
       {slug: "fresh-car-arrivals", date: "2026-09-22", title: "Fresh car arrivals, inspected and ready", photo: "news-cars"},
     ].map(newsPost)
   ),
-  action: pageExists(newsPath) ? {label: "More news", href: newsPath} : {label: "Follow us on Instagram", href: instagram.value},
+  action: pageExists(newsPath) ? {label: "More news", href: newsPath} : {label: "Follow us on Instagram", href: social.instagram.value},
 };
 
 const featuredGroups = [
@@ -112,17 +109,13 @@ const featuredGroups = [
 
 export const homeContent = {
   startYear,
-  social: {
-    // Confirmed from the platforms' own profile data on 2026-11-06.
-    instagram,
-    tiktok: real("https://www.tiktok.com/@akikmarket"),
-  },
+  social,
   whatsapp: {
     main: {number: mainNumber, href: whatsappHref(mainNumber.value, greeting.value)},
   },
   // Confirmed by the client lead on 2026-11-06.
   email: real("akikmarket@gmail.com"),
-  announcement: placeholder({text: "New phones arrive every week. See what just came in", href: instagram.value}),
+  announcement: placeholder({text: "New phones arrive every week. See what just came in", href: social.instagram.value}),
   hero: {
     media: placeholder({poster: "/placeholders/hero-montage-poster.jpg", src: "/placeholders/hero-montage.webm"}),
     heading: placeholder("Phones, homes and cars from one name you trust."),
@@ -244,6 +237,7 @@ export const homeContent = {
       placeholder({icon: "key" as const, title: "Handover you can see", line: "Visit the site or the car before you commit."}),
     ],
   },
+  footer,
   featured: {
     eyebrow: real("Featured now"),
     heading: placeholder("Just in at Akik"),

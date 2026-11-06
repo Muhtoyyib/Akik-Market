@@ -3,6 +3,7 @@ import {tanstackStart} from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import {prerenderPathnames} from "./src/lib/site-pages.ts";
+import {sharedViteConfig} from "./vitest.shared.ts";
 
 export default defineConfig({
   fmt: {
@@ -70,6 +71,7 @@ export default defineConfig({
     }),
     react({compiler: true}),
   ]),
+  define: sharedViteConfig.define,
   resolve: {
     tsconfigPaths: true,
   },

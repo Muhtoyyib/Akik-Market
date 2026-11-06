@@ -1,6 +1,10 @@
 import {resolve} from "node:path";
 
 export const sharedViteConfig = {
+  // Spec (footer link-columns, "Legal line"): the copyright year is fixed when the site is built, not read in the browser.
+  define: {
+    __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
+  },
   resolve: {
     alias: {
       "@": resolve(import.meta.dirname, "./src"),
