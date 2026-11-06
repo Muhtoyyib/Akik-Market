@@ -1,6 +1,7 @@
 // What the Autos page says that is its own. Every promise and claim is a stand-in until the owner confirms it
 // (division-pages proposal, "Business facts and placeholders"). Photos: docs/placeholder-media.md.
 import {placeholder, real, type Fact} from "@/lib/content-facts";
+import {pageDescriptions} from "@/lib/content/page-descriptions";
 import {photo, SIZES} from "@/lib/responsive-image";
 
 // Design D4: financing appears only with the owner's own terms, never as a stand-in. Not offered until they say so.
@@ -8,7 +9,7 @@ const financing: Fact<{heading: string; terms: string}> | undefined = undefined;
 
 // Stryker disable StringLiteral,ObjectLiteral,ArrayDeclaration : stand-in copy the owner will replace; tests pin the rules.
 export const autosPage = {
-  description: placeholder("Inspected cars with checked papers and honest prices, with test drives welcome, at Akik on Iwo Road, Ibadan."),
+  description: pageDescriptions.autos,
   hero: {
     media: placeholder(photo("/placeholders/news/news-cars.jpg", {alt: "", width: 960, height: 640}, SIZES.fullWidth)),
     heading: placeholder("Inspected cars, honest prices"),

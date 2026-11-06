@@ -11,6 +11,8 @@ import {homeContent} from "@/lib/content/home";
 import {listings} from "@/lib/content/listings";
 import {notFoundContent} from "@/lib/content/not-found";
 import {projectsBanner} from "@/lib/content/projects-banner";
+import {projects} from "@/lib/content/projects";
+import {projectEnquiry, projectsIndex} from "@/lib/content/projects-page";
 import {posts} from "@/lib/content/news";
 import {siteContent} from "@/lib/content/site";
 import {leadQuote, quotes, stories} from "@/lib/content/stories";
@@ -20,6 +22,7 @@ export const allContent = {
   Listings: {listings},
   "News posts": {posts},
   "Customer stories": {stories, leadQuote, quotes},
+  Projects: {projects},
   "Projects banner": {projectsBanner},
   Founder: {founderPhotos},
   Home: homeContent,
@@ -27,5 +30,6 @@ export const allContent = {
   "Engineering & Real Estate": engineeringPage,
   Autos: autosPage,
   About: aboutContent,
+  "Projects page": {projectsIndex, projectEnquiry},
   "Not found": notFoundContent,
 };

@@ -1,7 +1,8 @@
 import {existsSync} from "node:fs";
 import {describe, expect, it} from "vite-plus/test";
 import {placeholderFacts} from "@/lib/content-facts";
-import {aboutContent, aboutHead} from "@/lib/content/about";
+import {aboutContent} from "@/lib/content/about";
+import {aboutHead} from "@/lib/page-heads";
 import {businesses, startYear} from "@/lib/content/business";
 import {founderPhotos} from "@/lib/content/founder";
 import {homeContent} from "@/lib/content/home";

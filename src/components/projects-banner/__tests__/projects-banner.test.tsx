@@ -20,9 +20,9 @@ describe("Projects banner", () => {
     expect(screen.getByRole("region", {name: "Our projects"})).toBeInTheDocument();
   });
 
-  it("names the card's link for where it goes until the Projects page exists", () => {
+  it("links the card to the Projects page, named by its heading", () => {
     renderBanner();
-    expect(screen.getByRole("link", {name: "Ask about our projects on WhatsApp"})).toHaveAttribute("href", projects.link.href);
+    expect(screen.getByRole("link", {name: "Homes we've built and handed over"})).toHaveAttribute("href", "/projects");
   });
 
   it("shows the real estate eyebrow in that business's accent", () => {

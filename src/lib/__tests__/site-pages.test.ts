@@ -12,11 +12,13 @@ function routeFileToPathname(file: string): string {
 }
 
 describe("prerenderPathnames", () => {
-  it("prerenders every static route file", () => {
-    const routePathnames = readdirSync(routesDir)
-      .filter((file) => file.endsWith(".tsx") && !file.startsWith("__") && !file.includes("$"))
-      .map(routeFileToPathname);
-    expect([...prerenderPathnames].sort()).toEqual(routePathnames.sort());
+  it("prerenders every static route file, and item pages only under a $slug route", () => {
+    const files = readdirSync(routesDir).filter((file) => file.endsWith(".tsx") && !file.startsWith("__"));
+    const routePathnames = files.filter((file) => !file.includes("$")).map(routeFileToPathname);
+    // "projects.$slug.tsx" serves every path under "/projects/".
+    const itemBases = files.filter((file) => file.includes("$")).map((file) => `/${file.split(".$")[0]!.replaceAll(".", "/")}/`);
+    const pages = prerenderPathnames.filter((path) => !itemBases.some((base) => path.startsWith(base)));
+    expect(pages.sort()).toEqual(routePathnames.sort());
   });
 });
 

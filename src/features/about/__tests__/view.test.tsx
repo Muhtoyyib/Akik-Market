@@ -71,10 +71,9 @@ describe("the About page", () => {
     ]);
   });
 
-  it("says the projects banner opens WhatsApp while there is no Projects page", () => {
+  it("leads into the Projects page from the banner", () => {
     render(<AboutView content={aboutContent} />);
-    const banner = screen.getByRole("link", {name: /Ask about our projects on WhatsApp/});
-    expect(banner.getAttribute("href")).toMatch(/^https:\/\/wa\.me\//);
+    expect(screen.getByRole("link", {name: "Homes we've built and handed over"}).getAttribute("href")).toBe("/projects");
   });
 
   it("ends with every business's contacts", () => {

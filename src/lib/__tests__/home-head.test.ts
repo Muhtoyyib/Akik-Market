@@ -3,24 +3,24 @@ import {homeContent} from "@/lib/content/home";
 import {homeHead, localBusiness} from "@/lib/home-head";
 import {siteContent} from "@/lib/content/site";
 
-const business = localBusiness(homeContent);
+const business = localBusiness();
 
 describe("homeHead", () => {
   it("titles Home for search and sharing", () => {
-    expect(homeHead(homeContent).meta).toContainEqual({title: "Akik · Phones, homes and cars in Ibadan"});
+    expect(homeHead().meta).toContainEqual({title: "Akik · Phones, homes and cars in Ibadan"});
   });
 
   it("gives search engines and WhatsApp previews a description", () => {
-    const description = homeHead(homeContent).meta.find((tag) => "name" in tag && tag.name === "description");
+    const description = homeHead().meta.find((tag) => "name" in tag && tag.name === "description");
     expect(description).toEqual({name: "description", content: expect.stringContaining("Ibadan")});
   });
 
   it("gives link previews the same title as the page", () => {
-    expect(homeHead(homeContent).meta).toContainEqual({property: "og:title", content: "Akik · Phones, homes and cars in Ibadan"});
+    expect(homeHead().meta).toContainEqual({property: "og:title", content: "Akik · Phones, homes and cars in Ibadan"});
   });
 
   it("marks Home as a website with a text-only preview card until there is a share image", () => {
-    const meta = homeHead(homeContent).meta;
+    const meta = homeHead().meta;
     expect([meta, meta.length]).toEqual([
       expect.arrayContaining([
         {property: "og:type", content: "website"},
@@ -32,7 +32,7 @@ describe("homeHead", () => {
   });
 
   it("embeds the structured data as JSON-LD", () => {
-    const [script] = homeHead(homeContent).scripts;
+    const [script] = homeHead().scripts;
     expect([script?.type, JSON.parse(script?.children ?? "{}")]).toEqual(["application/ld+json", business]);
   });
 });

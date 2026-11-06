@@ -1,11 +1,12 @@
 // What the Engineering & Real Estate page says that is its own. Every promise, service and claim is a stand-in until
 // the owner confirms it (division-pages proposal, "Business facts and placeholders"). Photos: docs/placeholder-media.md.
 import {placeholder, real} from "@/lib/content-facts";
+import {pageDescriptions} from "@/lib/content/page-descriptions";
 import {photo, SIZES} from "@/lib/responsive-image";
 
 // Stryker disable StringLiteral,ObjectLiteral,ArrayDeclaration : stand-in copy the owner will replace; tests pin the rules.
 export const engineeringPage = {
-  description: placeholder("Homes built and sold, land with verified papers, and building and renovation, from Akik on Iwo Road, Ibadan."),
+  description: pageDescriptions.engineering,
   hero: {
     media: placeholder(photo("/placeholders/news/news-homes.jpg", {alt: "", width: 960, height: 640}, SIZES.fullWidth)),
     heading: placeholder("Homes built well, land with clean papers"),

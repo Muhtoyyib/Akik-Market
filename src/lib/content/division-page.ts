@@ -7,7 +7,6 @@ import {phonesPage} from "@/lib/content/divisions/phones";
 import {listings, type Listing} from "@/lib/content/listings";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {stories, type Story} from "@/lib/content/stories";
-import {pageHead} from "@/lib/page-head";
 
 // Spec (stock, "Items from the listings collection"): at most eight, newest first.
 const MAX_STOCK = 8;
@@ -55,7 +54,6 @@ export function divisionPage(key: BusinessKey, exists: (path: string) => boolean
   return {
     key,
     path: entry.path,
-    head: pageHead({name: entry.name, description: own.description.value}),
     hero: {...own.hero, eyebrow: entry.name, whatsappHref: ask},
     offer: own.offer,
     stock: {...own.stock, items: divisionStock(key, listings), href: seeAllHref(key, exists)},

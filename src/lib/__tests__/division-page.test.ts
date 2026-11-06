@@ -3,6 +3,7 @@ import {describe, expect, it} from "vite-plus/test";
 import {type Fact, placeholderFacts} from "@/lib/content-facts";
 import {business, businesses} from "@/lib/content/business";
 import {divisionPage, divisionStock, divisionStory, seeAllHref} from "@/lib/content/division-page";
+import {divisionHead} from "@/lib/page-heads";
 import {autosPage} from "@/lib/content/divisions/autos";
 import {engineeringPage} from "@/lib/content/divisions/engineering";
 import {phonesPage} from "@/lib/content/divisions/phones";
@@ -19,7 +20,7 @@ const own = [phonesPage, engineeringPage, autosPage];
 
 describe("division page content", () => {
   it("titles each page '{business} · Akik'", () => {
-    expect(pages.map((page) => page.head.meta[0])).toEqual([
+    expect(businesses.map((entry) => divisionHead(entry.key).meta[0])).toEqual([
       {title: "Phones & Gadgets · Akik"},
       {title: "Engineering & Real Estate · Akik"},
       {title: "Autos · Akik"},

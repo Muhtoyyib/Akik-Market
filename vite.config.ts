@@ -80,12 +80,13 @@ export default defineConfig({
     ];
   }),
   define: sharedViteConfig.define,
-  // App code that two or more pages share goes in one chunk. Split per module, each new page broke it into more, smaller
-  // files that compress worse: Home reached 179.2 KB across 14 files with About added, 172.5 across 4 grouped (measured).
+  // Components that two or more pages share go in one chunk. Split per module, each new page broke them into more,
+  // smaller files that compress worse (measured with About added: Home 179.2 KB across 14 files, 172.5 across 4).
+  // Content stays out of it: grouped with src/lib, every page loaded every page's copy.
   build: {
     rolldownOptions: {
       output: {
-        codeSplitting: {groups: [{name: "shared", test: /\/src\/(components|lib)\//, minShareCount: 2}]},
+        codeSplitting: {groups: [{name: "shared", test: /\/src\/components\//, minShareCount: 2}]},
       },
     },
   },

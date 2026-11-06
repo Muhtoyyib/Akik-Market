@@ -26,7 +26,10 @@ describe("footer content", () => {
   });
 
   it("lists only the built pages under Company", () => {
-    expect(footer.columns.find((column) => column.heading === "Company")?.links).toEqual([{label: "About", href: "/about"}]);
+    expect(footer.columns.find((column) => column.heading === "Company")?.links).toEqual([
+      {label: "About", href: "/about"},
+      {label: "Projects", href: "/projects"},
+    ]);
   });
 
   it("links each business's page under Businesses", () => {

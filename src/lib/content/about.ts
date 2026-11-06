@@ -4,8 +4,8 @@
 import {placeholder, real} from "@/lib/content-facts";
 import {address, businesses, businessYears, shopContacts, shopPhoto, startYear} from "@/lib/content/business";
 import {founderPhotos} from "@/lib/content/founder";
+import {pageDescriptions} from "@/lib/content/page-descriptions";
 import {projectsBanner} from "@/lib/content/projects-banner";
-import {pageHead} from "@/lib/page-head";
 import {photo, SIZES} from "@/lib/responsive-image";
 
 type Person = {name: string; role: string; photo: {src: string; alt: string; width: number; height: number}};
@@ -37,9 +37,7 @@ const chapterCopy = {
 
 export const aboutContent = {
   // Real: the order the businesses began in and the address are both confirmed.
-  description: real(
-    "How Akik grew from Phones & Gadgets into Engineering & Real Estate, then Autos, all from one shop on Iwo Road, Ibadan."
-  ),
+  description: pageDescriptions.about,
   founder: {
     photos: founderPhotos,
     heading: placeholder("One name for phones, homes and cars"),
@@ -73,5 +71,3 @@ export const aboutContent = {
   visit: {heading: placeholder("Come and meet us at Iwo Road"), address, image: shopPhoto, contacts: shopContacts},
 };
 // Stryker restore StringLiteral,ObjectLiteral,ArrayDeclaration
-
-export const aboutHead = pageHead({name: "About", description: aboutContent.description.value});

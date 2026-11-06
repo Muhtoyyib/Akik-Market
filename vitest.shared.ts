@@ -15,14 +15,15 @@ export const sharedViteConfig = {
 // Asset budget (home-page task 1.4; imagery spec, "Weight"), in KB. Set above what was measured on 2026-11-06:
 // largest photo 155, largest phone copy 64, hero loop 904, all JS gzipped 168 (Home loads 165 of it; the menu's
 // dialog added 18 to the routes chunk). Since the division pages, scripts are budgeted per page (what one page's HTML
-// loads), measured 2026-11-06 at 172.5 for Home, the heaviest, once shared app code was grouped into one chunk.
+// loads), measured 2026-11-06 at 171.7 for Engineering, the heaviest, with shared components in one chunk and
+// page copy kept out of route heads.
 // Budgets only go down: lower one when
 // the site gets lighter, and never raise one to get a change through.
 export const assetBudget = {
   photoKb: 200,
   phonePhotoKb: 80,
   videoKb: 1024,
-  scriptsGzipKb: 175,
+  scriptsGzipKb: 174,
 };
 
 export const sharedTestConfig = {

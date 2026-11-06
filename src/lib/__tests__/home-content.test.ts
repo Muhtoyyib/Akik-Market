@@ -105,12 +105,9 @@ describe("homeContent", () => {
     expect(homeContent.stories.tabs.filter((tab) => !existsSync(`public${tab.story.value.image.src}`))).toEqual([]);
   });
 
-  it("sends the projects banner to WhatsApp for real estate and says so until the Projects page exists", () => {
+  it("sends the projects banner to the Projects page now that it exists", () => {
     const {heading, link} = homeContent.projects;
-    expect([heading.value, link.href]).toEqual([
-      "Ask about our projects on WhatsApp",
-      "https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20your%20projects",
-    ]);
+    expect([heading.value, link.href]).toEqual(["Homes we've built and handed over", "/projects"]);
   });
 
   it("points the projects photo at a file in public/", () => {
