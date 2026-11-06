@@ -36,6 +36,7 @@ Pages 2 to 8 only depend on `site-shell`, so they can be built in any order or i
 
 ## Things learned building Home
 
+- A collection's item pages (`/projects/<slug>`, `/news/<slug>`) are registered in `COLLECTIONS` in `src/lib/site-pages.ts`, with slugs read from the collection. `vite.config.ts` loads that file through Vite's `runnerImport`, so it can import content modules that use the `@` alias.
 - Add any new library entry point used in browser tests (for example `@base-ui/react/dialog`) to `optimizeDeps.include` in `vitest.browser.config.ts`. Otherwise Vite reloads the browser mid-run and every test file fails to import.
 - Testing Library gives an element hidden with `display: none` an empty accessible name, even with `hidden: true`. Browser tests about which copy CSS hides should select by attribute.
 - A Base UI modal dialog hides the rest of the page from assistive technology while open. Keep a reference to the trigger from before you open it.

@@ -1,8 +1,8 @@
+import {runnerImport} from "vite";
 import {defineConfig, lazyPlugins} from "vite-plus";
 import {tanstackStart} from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
-import {prerenderPathnames} from "./src/lib/site-pages.ts";
 import {sharedViteConfig} from "./vitest.shared.ts";
 
 export default defineConfig({
@@ -55,22 +55,30 @@ export default defineConfig({
       {name: "shadcn", specifier: "@shadcn/lint"},
     ],
   },
-  plugins: lazyPlugins(async () => [
-    tailwindcss(),
-    tanstackStart({
-      prerender: {
-        enabled: true,
-        autoStaticPathsDiscovery: false,
-        crawlLinks: false,
-        autoSubfolderIndex: false,
-      },
-      router: {
-        quoteStyle: "double",
-      },
-      pages: prerenderPathnames.map((path) => ({path})),
-    }),
-    react({compiler: true}),
-  ]),
+  plugins: lazyPlugins(async () => {
+    // Loaded through Vite so the page list can import content modules, which use the @ alias the config loader can't
+    // resolve (site-shell task 3.2).
+    const {module: sitePages} = await runnerImport<typeof import("./src/lib/site-pages.ts")>("./src/lib/site-pages.ts", {
+      configFile: false,
+      ...sharedViteConfig,
+    });
+    return [
+      tailwindcss(),
+      tanstackStart({
+        prerender: {
+          enabled: true,
+          autoStaticPathsDiscovery: false,
+          crawlLinks: false,
+          autoSubfolderIndex: false,
+        },
+        router: {
+          quoteStyle: "double",
+        },
+        pages: sitePages.prerenderPathnames.map((path) => ({path})),
+      }),
+      react({compiler: true}),
+    ];
+  }),
   define: sharedViteConfig.define,
   resolve: {
     tsconfigPaths: true,

@@ -14,7 +14,7 @@
 ## 3. Metadata and registration
 
 - [x] 3.1 Shared page head helper (title pattern, description, link-preview tags). Proof: unit tests of the head output for a page and for a collection item.
-- [ ] 3.2 Prerender list from static pages plus collection slugs; `pageExists` reads it. Proof: unit tests that a new item's path is listed and that duplicate slugs fail.
+- [x] 3.2 Prerender list from static pages plus collection slugs; `pageExists` reads it. Proof: unit tests that a new item's path is listed and that duplicate slugs fail.
 
 ## 4. 404
 
