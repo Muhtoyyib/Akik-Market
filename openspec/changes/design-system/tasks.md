@@ -15,7 +15,7 @@
 - [x] 3.1 Button: four variants, link versus button element, focus ring, states, touch target. Proof: Testing Library tests per variant and element; a browser test for the focus ring and 44px target.
 - [x] 3.2 Section header: structure, alignment, eyebrow colour, eyebrow not a heading. Proof: Testing Library tests, including the heading list.
 - [x] 3.3 Media box: shape, image or video, pause control, scrim, caption below, reduced motion. Proof: browser tests for pause and play, reduced-motion emulation and reserved dimensions.
-- [ ] 3.4 Card: three variants, whole-card link, equal heights, hover without movement. Proof: Testing Library tests for the single link and its name; a browser test for equal heights.
+- [x] 3.4 Card: three variants, whole-card link, equal heights, hover without movement. Proof: Testing Library tests for the single link and its name; a browser test for equal heights.
 - [ ] 3.5 Pill tabs: tab semantics, arrow, Home and End keys, sideways track on narrow screens. Proof: Testing Library keyboard tests; a browser test at 360px for no page overflow.
 - [ ] 3.6 Run axe in browser tests for every component. Proof: zero violations.
 
