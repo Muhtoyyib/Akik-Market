@@ -2,15 +2,15 @@ import {PageLayout} from "@/components/page-layout/page-layout";
 import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisions";
 import {Featured} from "@/features/home/featured/featured";
 import {Founder} from "@/features/home/founder/founder";
-import {Hero} from "@/features/home/hero/hero";
+import {Hero} from "@/components/hero/hero";
 import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
 import {News} from "@/features/home/news/news";
 import {Proof} from "@/features/home/proof/proof";
-import {Stories} from "@/components/stories/stories";
+import {Stories} from "@/features/home/stories/stories";
 import {Visit} from "@/components/visit/visit";
 import {Trust} from "@/components/trust/trust";
 import {homeContent} from "@/lib/content/home";
-import {sectionLinks} from "@/lib/home-sections";
+import {SECTION_IDS, sectionLinks} from "@/lib/home-sections";
 import {siteContent} from "@/lib/content/site";
 
 export function HomeView() {
@@ -27,7 +27,7 @@ export function HomeView() {
   return (
     <PageLayout links={sections}>
       <Hero
-        media={hero.media.value}
+        media={{kind: "video", ...hero.media.value}}
         heading={hero.heading.value}
         claims={hero.claims.value}
         whatsappHref={whatsapp.main.href}
@@ -46,7 +46,13 @@ export function HomeView() {
       <Trust heading={trust.heading.value} image={trust.image.value} rows={trust.rows} whatsappHref={whatsapp.main.href} />
       <News eyebrow={news.eyebrow.value} heading={news.heading.value} posts={news.posts} action={news.action} />
       <Founder photos={founder.photos.value} heading={founder.heading.value} story={founder.story.value} link={founder.link} />
-      <Visit heading={visit.heading.value} address={visit.address.value} image={visit.image.value} contacts={visit.contacts} />
+      <Visit
+        heading={visit.heading.value}
+        address={visit.address.value}
+        image={visit.image.value}
+        contacts={visit.contacts}
+        id={SECTION_IDS.visit}
+      />
     </PageLayout>
   );
 }

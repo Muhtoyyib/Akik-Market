@@ -3,7 +3,6 @@ import {MediaBox} from "@/components/media-box/media-box";
 import {Frame} from "@/components/frame/frame";
 import {directionsHref} from "@/lib/maps";
 import {localPhone, telHref} from "@/lib/phone";
-import {SECTION_IDS} from "@/lib/home-sections";
 
 type Contact = {
   key: "phones" | "engineering" | "autos";
@@ -17,6 +16,8 @@ type VisitProps = {
   address: {street: string; city: string};
   image: {src: string; alt: string; width: number; height: number};
   contacts: readonly Contact[];
+  /** The section's own id, for in-page links to it. */
+  id?: string;
 };
 
 const HEADING_ID = "visit-heading";
@@ -43,10 +44,10 @@ function ContactColumn({contact}: {contact: Contact}) {
 }
 
 /** Obvious's closing block: a shop photo with the heading, address and one pill centred over it, then contacts per business. */
-export function Visit({heading, address, image, contacts}: VisitProps) {
+export function Visit({heading, address, image, contacts, id}: VisitProps) {
   const fullAddress = `${address.street}, ${address.city}`;
   return (
-    <section id={SECTION_IDS.visit} aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
+    <section id={id} aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>
         <MediaBox ratio="4:5/16:9" banner media={{kind: "image", ...image}}>
           {/* A full tint, not the bottom scrim: the text sits in the middle of the photo. */}
