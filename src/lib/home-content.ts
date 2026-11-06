@@ -5,6 +5,7 @@ import {featuredTabs} from "@/lib/featured";
 import {footer} from "@/lib/home-footer";
 import {latestPosts} from "@/lib/news";
 import {onwardLink} from "@/lib/onward-link";
+import {photo, SIZES, variantPath} from "@/lib/responsive-image";
 import {pageExists} from "@/lib/site-pages";
 import {whatsappHref} from "@/lib/whatsapp";
 import {divisions, greeting, mainNumber, social, startYear, whatsappTo} from "@/lib/home-divisions";
@@ -12,13 +13,13 @@ import {divisions, greeting, mainNumber, social, startYear, whatsappTo} from "@/
 type FeaturedItemInput = {name: string; detail: string; price?: number; photo: string};
 
 // Every featured item is a stand-in until the owner supplies real stock. Photos are StockSnap CC0, see docs/placeholder-media.md.
-function featuredItem(number: string, {name, detail, price, photo}: FeaturedItemInput) {
+function featuredItem(number: string, {name, detail, price, photo: image}: FeaturedItemInput) {
   return placeholder({
     name,
     detail,
     price,
     href: whatsappHref(number, `Hi Akik, I'm interested in the ${name}`),
-    image: {src: `/placeholders/featured/${photo}.jpg`, alt: "", width: 512, height: 640},
+    image: photo(`/placeholders/featured/${image}.jpg`, {alt: "", width: 512, height: 640}, SIZES.cardRow),
   });
 }
 
@@ -33,7 +34,7 @@ const projects = {
   heading: pageExists(projectsPath) ? placeholder("Homes we've built and handed over") : real("Ask about our projects on WhatsApp"),
   link: onwardLink(projectsPath, whatsappTo(engineering.number.value, "your projects")),
   // Not an Akik building; alt stays empty so the page doesn't claim it is. Source in docs/placeholder-media.md.
-  image: placeholder({src: "/placeholders/projects-house.jpg", alt: "", width: 1024, height: 768}),
+  image: placeholder(photo("/placeholders/projects-house.jpg", {alt: "", width: 1024, height: 768}, SIZES.fullWidth)),
 };
 
 const newsPath = "/news";
@@ -44,7 +45,7 @@ function newsPost({slug, ...post}: {slug: string; date: string; title: string; p
     date: post.date,
     title: placeholder(post.title),
     href: pageExists(newsPath) ? `${newsPath}/${slug}` : undefined,
-    image: placeholder({src: `/placeholders/news/${post.photo}.jpg`, alt: "", width: 960, height: 640}),
+    image: placeholder(photo(`/placeholders/news/${post.photo}.jpg`, {alt: "", width: 960, height: 640}, SIZES.cardRow)),
   };
 }
 
@@ -117,7 +118,7 @@ export const homeContent = {
   email: real("akikmarket@gmail.com"),
   announcement: placeholder({text: "New phones arrive every week. See what just came in", href: social.instagram.value}),
   hero: {
-    media: placeholder({poster: "/placeholders/hero-montage-poster.jpg", src: "/placeholders/hero-montage.webm"}),
+    media: placeholder({poster: variantPath("/placeholders/hero-montage-poster.jpg", 1280), src: "/placeholders/hero-montage.webm"}),
     heading: placeholder("Phones, homes and cars from one name you trust."),
     claims: placeholder(["Original phones", "Inspected cars", "Verified land papers"]),
   },
@@ -167,7 +168,7 @@ export const homeContent = {
           name: "CHIAMAKA",
           since: `CUSTOMER SINCE ${startYear.value}`,
           quote: "My phone from Akik is still going strong two years on. When I upgraded, I didn't look anywhere else.",
-          image: {src: "/placeholders/stories/story-phones.jpg", alt: "", width: 1600, height: 900},
+          image: photo("/placeholders/stories/story-phones.jpg", {alt: "", width: 1600, height: 900}, SIZES.fullWidth),
         }),
       },
       {
@@ -177,7 +178,7 @@ export const homeContent = {
           name: "FEMI",
           since: "CUSTOMER SINCE 2024",
           quote: "Akik checked the land papers, built the house and handed us the keys. We moved in last December.",
-          image: {src: "/placeholders/stories/story-homes.jpg", alt: "", width: 1600, height: 900},
+          image: photo("/placeholders/stories/story-homes.jpg", {alt: "", width: 1600, height: 900}, SIZES.fullWidth),
         }),
       },
       {
@@ -187,7 +188,7 @@ export const homeContent = {
           name: "IFEOMA",
           since: "CUSTOMER SINCE 2025",
           quote: "They sent videos, the inspection report and the papers before I paid. The car had no surprises.",
-          image: {src: "/placeholders/stories/story-cars.jpg", alt: "", width: 1600, height: 900},
+          image: photo("/placeholders/stories/story-cars.jpg", {alt: "", width: 1600, height: 900}, SIZES.fullWidth),
         }),
       },
     ],
@@ -198,14 +199,17 @@ export const homeContent = {
   // the businesses, so it stays a placeholder even once the start year is confirmed.
   founder: {
     photos: placeholder([
-      {src: "/placeholders/founder/founder-phones.jpg", alt: "A tablet and sales papers on a shop desk", width: 512, height: 640},
-      {
-        src: "/placeholders/founder/founder-building.jpg",
-        alt: "A building going up at sunset, with a crane above it",
-        width: 800,
-        height: 1000,
-      },
-      {src: "/placeholders/founder/founder-road.jpg", alt: "An open road at sunrise", width: 800, height: 1000},
+      photo(
+        "/placeholders/founder/founder-phones.jpg",
+        {alt: "A tablet and sales papers on a shop desk", width: 512, height: 640},
+        SIZES.stackedPhoto
+      ),
+      photo(
+        "/placeholders/founder/founder-building.jpg",
+        {alt: "A building going up at sunset, with a crane above it", width: 800, height: 1000},
+        SIZES.stackedPhoto
+      ),
+      photo("/placeholders/founder/founder-road.jpg", {alt: "An open road at sunrise", width: 800, height: 1000}, SIZES.stackedPhoto),
     ]),
     heading: placeholder("From one phone shop to three businesses"),
     story: placeholder(
@@ -217,7 +221,7 @@ export const homeContent = {
   visit: {
     heading: placeholder("Come and see us at Iwo Road"),
     address: real({street: "Iwo Road Shopping Complex", city: "Ibadan", country: "NG"}),
-    image: placeholder({src: "/placeholders/visit-shop.jpg", alt: "", width: 1024, height: 768}),
+    image: placeholder(photo("/placeholders/visit-shop.jpg", {alt: "", width: 1024, height: 768}, SIZES.fullWidth)),
     contacts: divisions.map((division) => ({
       key: division.key,
       name: division.name,
@@ -229,7 +233,7 @@ export const homeContent = {
   // Spec (buy-with-confidence, "Promises are owner-approved"): every claim waits for the owner's sign-off.
   trust: {
     heading: placeholder("Buy with confidence"),
-    image: placeholder({src: "/placeholders/trust-handshake.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder(photo("/placeholders/trust-handshake.jpg", {alt: "", width: 800, height: 1000}, SIZES.halfWidth)),
     rows: [
       placeholder({icon: "shield" as const, title: "Genuine phones", line: "Every device is original, with warranty."}),
       placeholder({icon: "clipboard-check" as const, title: "Inspected cars", line: "Each car is checked before it's listed."}),

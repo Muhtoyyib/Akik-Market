@@ -3,7 +3,7 @@ import {ArrowLeft, ArrowRight} from "lucide-react";
 import {useRef, useState} from "react";
 import {stackDepth, turnStack} from "@/lib/photo-stack";
 
-type Photo = {src: string; alt: string; width: number; height: number};
+type Photo = {src: string; alt: string; width: number; height: number; srcSet?: string; sizes?: string};
 
 // Two photos peek out behind the front one, a little shorter each time (Matic P10); any further back wait unseen.
 const DEPTH = [
@@ -31,6 +31,8 @@ function StackedPhoto({photo, depth}: {photo: Photo; depth: number}) {
     >
       <img
         src={photo.src}
+        srcSet={photo.srcSet}
+        sizes={photo.sizes}
         alt={photo.alt}
         width={photo.width}
         height={photo.height}

@@ -2,6 +2,7 @@
 // share these facts without importing the whole page.
 // Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder report.
 import {placeholder, real} from "@/lib/content-facts";
+import {photo, SIZES} from "@/lib/responsive-image";
 import {whatsappHref} from "@/lib/whatsapp";
 
 // Placeholder start year, chosen by the client lead; the owner's Instagram goes back to May 2020.
@@ -32,7 +33,7 @@ export const divisions = [
     topic: "a phone",
     heading: placeholder("Where Akik began"),
     line: placeholder("Original phones, laptops and accessories, with warranty."),
-    image: placeholder({src: "/placeholders/division-phones-photo.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder(photo("/placeholders/division-phones-photo.jpg", {alt: "", width: 800, height: 1000}, SIZES.cardRow)),
   },
   {
     key: "engineering",
@@ -42,7 +43,7 @@ export const divisions = [
     topic: "a house or land",
     heading: placeholder("Homes built and sold"),
     line: placeholder("We build houses and sell land with clean, verified papers."),
-    image: placeholder({src: "/placeholders/division-engineering-photo.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder(photo("/placeholders/division-engineering-photo.jpg", {alt: "", width: 800, height: 1000}, SIZES.cardRow)),
   },
   {
     key: "autos",
@@ -52,6 +53,6 @@ export const divisions = [
     topic: "a car",
     heading: placeholder("Cars you can trust"),
     line: placeholder("Inspected cars, ready to drive, with honest prices."),
-    image: placeholder({src: "/placeholders/division-autos-photo.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder(photo("/placeholders/division-autos-photo.jpg", {alt: "", width: 800, height: 1000}, SIZES.cardRow)),
   },
 ] as const;
