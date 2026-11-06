@@ -22,7 +22,7 @@
 - [x] 4.1 Hero. Proof: tests for the single `h1`, actions and reassurance wrapping; browser test of 16:9 and 4:5 boxes.
 - [x] 4.2 Divisions. Proof: tests for order, accent per card and WhatsApp fallback; browser test of the swipe row at 390px with no page overflow.
 - [x] 4.3 Featured now: tabs and item cards. Proof: keyboard tests for tabs; tests for the prefilled WhatsApp message, price-on-request and the 8-item cap; browser test for disabled arrows at the ends.
-- [ ] 4.4 Proof section. Proof: tests for quote markup, emphasis and column order.
+- [x] 4.4 Proof section. Proof: tests for quote markup, emphasis and column order.
 - [ ] 4.5 Customer stories. Proof: tests that switching tabs stops playback and that photo-only stories have no play button.
 - [ ] 4.6 Projects banner. Proof: test of the WhatsApp fallback link and its accessible name.
 - [ ] 4.7 Buy with confidence. Proof: tests for row order and hidden icons.

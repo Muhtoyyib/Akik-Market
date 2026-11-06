@@ -135,6 +135,32 @@ export const homeContent = {
       link: onwardLink(division.path, whatsappTo(division.number.value, division.topic)),
     })),
   },
+  proof: {
+    heading: real("What customers say"),
+    // Invented stand-ins: no real customer is named until the owner supplies quotes with permission.
+    lead: placeholder({
+      before: "I bought my phone from Akik, then my car. Now they are building my house.",
+      highlight: "I trust them with everything.",
+      source: "TUNDE A. · CUSTOMER OF ALL THREE BUSINESSES",
+    }),
+    columns: [
+      {
+        key: phones.key,
+        quote: placeholder("Original phone, fair price, and every question answered on WhatsApp."),
+        source: fromFacts([startYear], `PHONES & GADGETS · CUSTOMER SINCE ${startYear.value}`),
+      },
+      {
+        key: engineering.key,
+        quote: placeholder("Our land papers were checked and clean before we paid a kobo."),
+        source: placeholder("ENGINEERING & REAL ESTATE · CUSTOMER SINCE 2024"),
+      },
+      {
+        key: autos.key,
+        quote: placeholder("The car came inspected, with a full report. It drives like new."),
+        source: placeholder("AUTOS · CUSTOMER SINCE 2025"),
+      },
+    ],
+  },
   featured: {
     eyebrow: real("Featured now"),
     heading: placeholder("Just in at Akik"),

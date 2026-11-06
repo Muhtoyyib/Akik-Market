@@ -71,4 +71,21 @@ describe("homeContent", () => {
     const alts = new Set(homeContent.featured.tabs.flatMap((tab) => tab.items.map((item) => item.value.image.alt)));
     expect([...alts]).toEqual([""]);
   });
+
+  it("puts the start year in the phones customer's caption and marks it a placeholder", () => {
+    expect(homeContent.proof.columns[0]?.source).toEqual({value: "PHONES & GADGETS · CUSTOMER SINCE 2023", placeholder: true});
+  });
+
+  it("lists the lead customer quote in the placeholder report", () => {
+    expect(listPlaceholders(homeContent).map((entry) => entry.path)).toContain("proof.lead");
+  });
+
+  it("keeps the lead quote to about 25 words", () => {
+    const {before, highlight} = homeContent.proof.lead.value;
+    expect(`${before} ${highlight}`.split(" ").length).toBeLessThanOrEqual(25);
+  });
+
+  it("orders the proof columns as the business grew", () => {
+    expect(homeContent.proof.columns.map((column) => column.key)).toEqual(["phones", "engineering", "autos"]);
+  });
 });
