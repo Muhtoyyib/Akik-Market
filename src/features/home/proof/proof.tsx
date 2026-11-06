@@ -11,6 +11,8 @@ const HEADING_ID = "proof-heading";
  * keeps the page outline and names the landmark. The highlight is <em> as well as red, so it isn't colour alone.
  */
 export function Proof({heading, lead, columns}: ProofProps) {
+  // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
+  if (columns.length === 0) return null;
   return (
     <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>

@@ -31,6 +31,8 @@ function Row({icon, title, line}: TrustRow) {
 
 /** Matic P8: a 4:5 photo on the left half, the promises and one action on the right; stacked on phones, photo first. */
 export function Trust({heading, image, rows, whatsappHref}: TrustProps) {
+  // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
+  if (rows.length === 0) return null;
   return (
     <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame className="grid gap-10 lg:grid-cols-12 lg:items-center lg:gap-6">

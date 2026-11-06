@@ -16,6 +16,30 @@ describe("Home page shell", () => {
     expect(document.activeElement).toHaveAccessibleName("Skip to content");
   });
 
+  it("shows the sections in the spec's order, from the hero to Visit us", () => {
+    render(<HomeView />);
+    const main = screen.getByRole("main");
+    const names = [...main.querySelectorAll(":scope > section")].map((section) => section.getAttribute("aria-labelledby"));
+    const headings = names.map((id) => document.getElementById(id ?? "")?.textContent);
+    expect(headings).toEqual([
+      homeContent.hero.heading.value,
+      homeContent.divisions.heading.value,
+      homeContent.featured.heading.value,
+      homeContent.proof.heading.value,
+      homeContent.stories.heading.value,
+      "Our projects",
+      homeContent.trust.heading.value,
+      homeContent.news.heading.value,
+      homeContent.founder.heading.value,
+      homeContent.visit.heading.value,
+    ]);
+  });
+
+  it("ends with the footer after main", () => {
+    render(<HomeView />);
+    expect(screen.getByRole("main").nextElementSibling).toBe(screen.getByRole("contentinfo"));
+  });
+
   it("points Skip to content at main", () => {
     render(<HomeView />);
     expect(screen.getByRole("link", {name: "Skip to content"})).toHaveAttribute("href", `#${screen.getByRole("main").id}`);

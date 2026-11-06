@@ -14,6 +14,8 @@ const HEADING_ID = "founder-heading";
 
 /** Matic P10: a small photo stack with arrows, then a centred heading, a short story and a link. */
 export function Founder({photos, heading, story, link}: FounderProps) {
+  // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
+  if (photos.length === 0) return null;
   return (
     <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame className="flex flex-col items-center text-center">

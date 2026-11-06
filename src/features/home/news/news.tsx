@@ -43,6 +43,8 @@ function NewsCard({date, title, href, image}: Post) {
 
 /** Matic P9: centred header, three image cards with the date and title over the photo, then one text link. */
 export function News({eyebrow, heading, posts, action}: NewsProps) {
+  // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
+  if (posts.length === 0) return null;
   return (
     <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>

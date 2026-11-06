@@ -18,6 +18,8 @@ export const DIVISIONS_HEADING_ID = "divisions-heading";
 
 /** Three equal columns on desktop; under 1024px a swipe row that runs to the screen's right edge so the next card peeks in. */
 export function Divisions({eyebrow, heading, cards}: DivisionsProps) {
+  // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
+  if (cards.length === 0) return null;
   return (
     <section id="divisions" aria-labelledby={DIVISIONS_HEADING_ID} className="pt-24 md:pt-36">
       <Frame>

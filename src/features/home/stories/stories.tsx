@@ -27,6 +27,8 @@ function StoryPanel({name, since, quote, image}: Story) {
 
 /** Matic P6: one media box per story with pill tabs floating over its bottom centre. Placeholder stories are photos only. */
 export function Stories({heading, tabs}: StoriesProps) {
+  // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
+  if (tabs.length === 0) return null;
   return (
     <section aria-labelledby={HEADING_ID} className="pt-24 md:pt-36">
       <Frame>
