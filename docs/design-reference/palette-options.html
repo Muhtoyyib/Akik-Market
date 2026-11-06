@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Akik palette options</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;600&family=Geist+Mono:wght@500&family=Inter+Tight:wght@400;600&display=swap" rel="stylesheet" />
+<style>
+  :root { --gutter: 64px; }
+  * { box-sizing: border-box; margin: 0; }
+  body { font-family: "Geist", system-ui, sans-serif; color: #10203a; background: #e9e7e2; padding: 48px 16px; }
+  .wrap { max-width: 1200px; margin: 0 auto; display: grid; gap: 56px; }
+  h1 { font-size: 40px; font-weight: 600; letter-spacing: -0.04em; }
+  .lede { margin-top: 8px; color: #55606f; max-width: 720px; line-height: 1.5; }
+  .eyebrow { font-family: "Geist Mono", monospace; font-size: 13px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .option { border-radius: 32px; padding: 40px; display: grid; gap: 32px; }
+  .option h2 { font-size: 32px; font-weight: 600; letter-spacing: -0.04em; margin-top: 6px; }
+  .option p.why { margin-top: 8px; line-height: 1.5; max-width: 760px; opacity: 0.8; }
+  .swatches { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; }
+  .sw { border-radius: 20px; height: 120px; padding: 14px; display: flex; flex-direction: column; justify-content: flex-end; font-size: 13px; line-height: 1.3; }
+  .sw b { font-weight: 600; font-size: 14px; }
+  .sw .hex { font-family: "Geist Mono", monospace; font-size: 12px; opacity: 0.85; }
+  .mock { display: grid; grid-template-columns: 1.4fr 1fr; gap: 16px; }
+  .hero { border-radius: 24px; min-height: 260px; padding: 28px; display: flex; flex-direction: column; justify-content: flex-end; gap: 14px; }
+  .hero h3 { font-size: 44px; font-weight: 400; letter-spacing: -0.03em; line-height: 1.05; }
+  .pill { display: inline-flex; align-self: flex-start; border-radius: 999px; padding: 12px 22px; font-weight: 600; font-size: 14px; }
+  .cards { display: grid; gap: 12px; }
+  .card { border-radius: 24px; padding: 20px; display: grid; gap: 6px; }
+  .card h4 { font-size: 20px; font-weight: 600; letter-spacing: -0.02em; }
+  .footer { border-radius: 32px; padding: 28px; display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 16px; }
+  .footer .num { font-family: "Geist Mono", monospace; font-size: 40px; letter-spacing: -0.03em; }
+  .fonts { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 16px; }
+  .font { background: #f6f4f0; border-radius: 24px; padding: 28px; display: grid; gap: 10px; }
+  .font .big { font-size: 44px; letter-spacing: -0.04em; line-height: 1.05; }
+  .font .body { line-height: 1.5; color: #55606f; }
+  @media (max-width: 720px) { .mock { grid-template-columns: 1fr; } .option { padding: 24px; } .hero h3 { font-size: 32px; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Akik · design spec input</p>
+    <h1>Palette options</h1>
+    <p class="lede">Both options keep the two colours from Akik's own flyer, navy <code>#003060</code> and red <code>#C00000</code>, and put them on a warm off-white page the way Matic does. They differ in how the three businesses are told apart.</p>
+  </header>
+
+  <!-- OPTION A -->
+  <section class="option" style="background:#f6f4f0">
+    <div>
+      <p class="eyebrow" style="color:#b3122a">Option A · recommended</p>
+      <h2>Navy and red, one accent per business</h2>
+      <p class="why">Navy carries the brand (text, buttons, footer box). The flyer red is kept for small highlights. Each business gets its own calm accent, so the future subdomain sites already have their colour.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#f6f4f0;border:1px solid #dcd8cf"><b>Page</b><span class="hex">#F6F4F0</span></div>
+      <div class="sw" style="background:#ffffff;border:1px solid #dcd8cf"><b>Card</b><span class="hex">#FFFFFF</span></div>
+      <div class="sw" style="background:#0e1b2e;color:#fff"><b>Ink</b><span class="hex">#0E1B2E</span></div>
+      <div class="sw" style="background:#0b3266;color:#fff"><b>Akik navy</b><span class="hex">#0B3266</span></div>
+      <div class="sw" style="background:#b3122a;color:#fff"><b>Akik red</b><span class="hex">#B3122A</span></div>
+      <div class="sw" style="background:#0c7c92;color:#fff"><b>Phones &amp; Gadgets</b><span class="hex">#0C7C92 teal</span></div>
+      <div class="sw" style="background:#a4532d;color:#fff"><b>Engineering</b><span class="hex">#A4532D clay</span></div>
+      <div class="sw" style="background:#3c5a2a;color:#fff"><b>Autos</b><span class="hex">#3C5A2A green</span></div>
+    </div>
+    <div class="mock">
+      <div class="hero" style="background:linear-gradient(160deg,#0b3266,#0e1b2e);color:#fff">
+        <p class="eyebrow" style="opacity:.75">Ibadan · since day one</p>
+        <h3>Phones, homes and cars<br />from one name you trust.</h3>
+        <span class="pill" style="background:#fff;color:#0e1b2e">Chat on WhatsApp</span>
+      </div>
+      <div class="cards">
+        <div class="card" style="background:#fff"><p class="eyebrow" style="color:#0c7c92">Phones &amp; Gadgets</p><h4>Original phones, laptops, accessories</h4></div>
+        <div class="card" style="background:#fff"><p class="eyebrow" style="color:#a4532d">Engineering &amp; Real Estate</p><h4>Homes built and sold, land with papers</h4></div>
+        <div class="card" style="background:#fff"><p class="eyebrow" style="color:#3c5a2a">Autos</p><h4>Clean, inspected cars</h4></div>
+      </div>
+    </div>
+    <div class="footer" style="background:#0b3266;color:#fff">
+      <div><p class="eyebrow" style="opacity:.7">Footer box</p><p class="num">AKIK</p></div>
+      <span class="pill" style="background:#b3122a;color:#fff">Red used only for small highlights</span>
+    </div>
+  </section>
+
+  <!-- OPTION B -->
+  <section class="option" style="background:#f4f1ea">
+    <div>
+      <p class="eyebrow" style="color:#b3122a">Option B</p>
+      <h2>Brand colours only, shades for each business</h2>
+      <p class="why">No extra hues. The businesses are told apart by shades of navy, red and a sand tone. Tighter and more "corporate group", but less distinct when the three subdomain sites stand alone.</p>
+    </div>
+    <div class="swatches">
+      <div class="sw" style="background:#f4f1ea;border:1px solid #dcd6c8"><b>Page</b><span class="hex">#F4F1EA</span></div>
+      <div class="sw" style="background:#ffffff;border:1px solid #dcd6c8"><b>Card</b><span class="hex">#FFFFFF</span></div>
+      <div class="sw" style="background:#0e1b2e;color:#fff"><b>Ink</b><span class="hex">#0E1B2E</span></div>
+      <div class="sw" style="background:#0b3266;color:#fff"><b>Akik navy</b><span class="hex">#0B3266</span></div>
+      <div class="sw" style="background:#b3122a;color:#fff"><b>Akik red</b><span class="hex">#B3122A</span></div>
+      <div class="sw" style="background:#2f5f9e;color:#fff"><b>Phones &amp; Gadgets</b><span class="hex">#2F5F9E light navy</span></div>
+      <div class="sw" style="background:#c9b48a;color:#0e1b2e"><b>Engineering</b><span class="hex">#C9B48A sand</span></div>
+      <div class="sw" style="background:#7a0f1f;color:#fff"><b>Autos</b><span class="hex">#7A0F1F deep red</span></div>
+    </div>
+    <div class="mock">
+      <div class="hero" style="background:#0e1b2e;color:#fff">
+        <p class="eyebrow" style="opacity:.75">Ibadan · since day one</p>
+        <h3>Phones, homes and cars<br />from one name you trust.</h3>
+        <span class="pill" style="background:#b3122a;color:#fff">Chat on WhatsApp</span>
+      </div>
+      <div class="cards">
+        <div class="card" style="background:#fff"><p class="eyebrow" style="color:#2f5f9e">Phones &amp; Gadgets</p><h4>Original phones, laptops, accessories</h4></div>
+        <div class="card" style="background:#fff"><p class="eyebrow" style="color:#8a7346">Engineering &amp; Real Estate</p><h4>Homes built and sold, land with papers</h4></div>
+        <div class="card" style="background:#fff"><p class="eyebrow" style="color:#7a0f1f">Autos</p><h4>Clean, inspected cars</h4></div>
+      </div>
+    </div>
+    <div class="footer" style="background:#0e1b2e;color:#fff">
+      <div><p class="eyebrow" style="opacity:.7">Footer box</p><p class="num">AKIK</p></div>
+      <span class="pill" style="background:#c9b48a;color:#0e1b2e">Sand as the soft accent</span>
+    </div>
+  </section>
+
+  <!-- FONTS -->
+  <section class="option" style="background:#f6f4f0">
+    <div>
+      <p class="eyebrow">Fonts (both free)</p>
+      <h2>Grotesk + mono pairing</h2>
+      <p class="why">Matic pairs a grotesk for everything readable with a mono for labels, prices and numbers. These are free stand-ins.</p>
+    </div>
+    <div class="fonts">
+      <div class="font" style="font-family:'Geist',sans-serif;background:#fff">
+        <p class="eyebrow" style="font-family:'Geist Mono'">1 · Geist + Geist Mono</p>
+        <p class="big">Phones, homes and cars.</p>
+        <p class="body">Original iPhones with warranty, inspected cars and homes with clean papers, all from one shop in Ibadan.</p>
+        <p class="eyebrow" style="font-family:'Geist Mono'">From ₦1,250,000 · 2014 ES350</p>
+      </div>
+      <div class="font" style="font-family:'Inter Tight',sans-serif;background:#fff">
+        <p class="eyebrow" style="font-family:'Geist Mono'">2 · Inter Tight + Geist Mono</p>
+        <p class="big">Phones, homes and cars.</p>
+        <p class="body">Original iPhones with warranty, inspected cars and homes with clean papers, all from one shop in Ibadan.</p>
+        <p class="eyebrow" style="font-family:'Geist Mono'">From ₦1,250,000 · 2014 ES350</p>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>

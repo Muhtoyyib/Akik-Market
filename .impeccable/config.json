@@ -1,0 +1,41 @@
+{
+  "detector": {
+    "ignoreRules": [],
+    "ignoreFiles": [],
+    "ignoreValues": [
+      {
+        "rule": "low-contrast",
+        "value": "*",
+        "files": ["docs/design-reference/palette-options.html"],
+        "createdAt": "2026-11-06T06:03:13.221Z",
+        "reason": "Claude: computed WCAG ratios for every solid text/background pair in this preview, all >= 4.54:1; remaining flags are opacity text over gradients the checker cannot resolve"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist",
+        "createdAt": "2026-11-06T06:06:13.700Z",
+        "reason": "user confirmed Geist on 2026-11-06 (font pairing 1)"
+      },
+      {
+        "rule": "overused-font",
+        "value": "geist mono",
+        "createdAt": "2026-11-06T06:06:13.721Z",
+        "reason": "user confirmed Geist Mono on 2026-11-06 (font pairing 1)"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": ["docs/design-reference/palette-options.html"],
+        "createdAt": "2026-11-06T06:06:20.598Z",
+        "reason": "user confirmed palette A on 2026-11-06: warm off-white page follows the chosen Matic direction"
+      },
+      {
+        "rule": "cream-palette",
+        "value": "*",
+        "files": ["src/styles/**"],
+        "createdAt": "2026-11-06T06:06:20.620Z",
+        "reason": "user confirmed palette A on 2026-11-06: warm off-white page follows the chosen Matic direction"
+      }
+    ]
+  }
+}
