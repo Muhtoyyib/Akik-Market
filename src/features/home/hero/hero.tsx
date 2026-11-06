@@ -7,9 +7,11 @@ type HeroProps = {
   heading: string;
   claims: readonly string[];
   whatsappHref: string;
+  /** Where "See what we do" goes: the divisions heading. */
+  seeMoreHref: string;
 };
 
-export function Hero({media, heading, claims, whatsappHref}: HeroProps) {
+export function Hero({media, heading, claims, whatsappHref, seeMoreHref}: HeroProps) {
   return (
     <section aria-labelledby="hero-heading">
       <Frame>
@@ -20,7 +22,7 @@ export function Hero({media, heading, claims, whatsappHref}: HeroProps) {
           </h1>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-6">
             <Button href={whatsappHref}>Chat on WhatsApp</Button>
-            <Button href="#divisions" variant="link">
+            <Button href={seeMoreHref} variant="link">
               See what we do
             </Button>
           </div>

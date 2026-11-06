@@ -40,4 +40,14 @@ describe("Card", () => {
     render(<Card variant="division" division="engineering" image={site} heading="Engineering" description="Houses." href="/engineering" />);
     expect(screen.getByRole("img", {name: "Duplex under construction"})).toBeInTheDocument();
   });
+
+  it("adds a hint to the link's name when it goes somewhere unexpected", () => {
+    render(<Card heading="Autos" description="Cars." href="https://wa.me/2347065470198" linkHint="chat on WhatsApp" />);
+    expect(screen.getByRole("link")).toHaveAccessibleName("Autos, chat on WhatsApp");
+  });
+
+  it("opens a WhatsApp card in a new tab", () => {
+    render(<Card heading="Autos" description="Cars." href="https://wa.me/2347065470198" />);
+    expect(screen.getByRole("link")).toHaveAttribute("target", "_blank");
+  });
 });

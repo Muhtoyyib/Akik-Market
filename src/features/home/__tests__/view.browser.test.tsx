@@ -56,6 +56,32 @@ describe("Home in a browser", () => {
     expect(document.documentElement.scrollWidth).toBe(360);
   });
 
+  it("moves focus to the divisions heading from See what we do", async () => {
+    render(<HomeView />);
+    await userEvent.click(screen.getByRole("link", {name: "See what we do"}));
+    await expect.poll(() => document.activeElement?.id).toBe("divisions-heading");
+  });
+
+  it("turns the divisions into a swipe row on a phone without scrolling the page sideways", async () => {
+    await page.viewport(390, 844);
+    render(<HomeView />);
+    const row = document.querySelector("#divisions ul")!;
+    expect([row.scrollWidth > row.clientWidth, document.documentElement.scrollWidth]).toEqual([true, 390]);
+  });
+
+  it("lets the next division card peek in on a phone", async () => {
+    await page.viewport(390, 844);
+    render(<HomeView />);
+    const second = document.querySelectorAll("#divisions li")[1]!.getBoundingClientRect();
+    expect(second.left).toBeLessThan(390);
+  });
+
+  it("puts the three division cards in one row on desktop", () => {
+    render(<HomeView />);
+    const tops = [...document.querySelectorAll("#divisions li")].map((item) => Math.round(item.getBoundingClientRect().top));
+    expect(new Set(tops).size).toBe(1);
+  });
+
   it("passes axe on desktop and phone", async () => {
     const {container} = render(<HomeView />);
     const desktop = await axeViolations(container);

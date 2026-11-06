@@ -1,6 +1,7 @@
 import {cn} from "cn";
 import {ArrowRight} from "lucide-react";
 import {MediaBox} from "@/components/media-box/media-box";
+import {opensInNewTab} from "@/lib/links";
 
 type Division = "phones" | "engineering" | "autos";
 type CardImage = {src: string; alt: string; width: number; height: number};
@@ -10,6 +11,8 @@ type CardProps = {
   eyebrow?: string;
   description?: string;
   href?: string;
+  /** Read after the heading when the link isn't the obvious one, e.g. "chat on WhatsApp". */
+  linkHint?: string;
 } & (
   | {variant?: "content" | "inset-link"; division?: never; image?: never}
   // Division cards take an image, never a video: a video's pause button cannot sit inside the card's link.
@@ -38,30 +41,39 @@ function Arrow() {
 
 // A stretched link: the heading carries the only link, and its ::after layer covers the whole card so any click lands on it.
 // The link is named by the heading alone, and axe's label-in-name rule holds because the name is the link's visible text.
-function Heading({heading, href}: {heading: string; href?: string}) {
+function Heading({heading, href, linkHint}: {heading: string; href?: string; linkHint?: string}) {
   if (href === undefined) return <h3 className="type-h3 text-ink">{heading}</h3>;
+  const newTab = opensInNewTab(href);
   return (
     <h3 className="type-h3 text-ink group-hover:underline">
-      <a href={href} className="outline-none after:absolute after:inset-0">
+      <a
+        href={href}
+        target={newTab ? "_blank" : undefined}
+        rel={newTab ? "noopener noreferrer" : undefined}
+        className="outline-none after:absolute after:inset-0"
+      >
         {heading}
+        {linkHint && <span className="sr-only">, {linkHint}</span>}
       </a>
     </h3>
   );
 }
 
-function Text({eyebrow, heading, description, href}: {eyebrow?: string; heading: string; description?: string; href?: string}) {
+type TextProps = {eyebrow?: string; heading: string; description?: string; href?: string; linkHint?: string};
+
+function Text({eyebrow, heading, description, href, linkHint}: TextProps) {
   return (
     <>
       {eyebrow && <p className="mb-3 type-label text-ink-muted in-division:text-accent">{eyebrow}</p>}
-      <Heading heading={heading} href={href} />
+      <Heading heading={heading} href={href} linkHint={linkHint} />
       {description && <p className="mt-2 type-body text-ink-muted">{description}</p>}
       {href !== undefined && <Arrow />}
     </>
   );
 }
 
-export function Card({heading, eyebrow, description, href, variant = "content", division, image}: CardProps) {
-  const text = <Text eyebrow={eyebrow} heading={heading} description={description} href={href} />;
+export function Card({heading, eyebrow, description, href, linkHint, variant = "content", division, image}: CardProps) {
+  const text = <Text eyebrow={eyebrow} heading={heading} description={description} href={href} linkHint={linkHint} />;
   return (
     <div
       data-card

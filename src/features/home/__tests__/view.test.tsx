@@ -1,4 +1,4 @@
-import {render, screen} from "@testing-library/react";
+import {render, screen, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {HomeView} from "@/features/home/view";
@@ -56,9 +56,10 @@ describe("Home hero", () => {
     expect(screen.getAllByRole("heading", {level: 1}).map((heading) => heading.textContent)).toEqual([homeContent.hero.heading.value]);
   });
 
-  it("points See what we do at the divisions section", () => {
+  it("points See what we do at the divisions heading", () => {
     render(<HomeView />);
-    expect(screen.getByRole("link", {name: "See what we do"})).toHaveAttribute("href", "#divisions");
+    const target = screen.getByRole("link", {name: "See what we do"}).getAttribute("href")!.slice(1);
+    expect(document.getElementById(target)).toBe(screen.getByRole("heading", {name: homeContent.divisions.heading.value}));
   });
 
   it("keeps each reassurance claim from breaking inside itself", () => {
@@ -66,5 +67,35 @@ describe("Home hero", () => {
     for (const claim of homeContent.hero.claims.value) {
       expect(screen.getByText(claim)).toHaveClass("whitespace-nowrap");
     }
+  });
+});
+
+describe("Home divisions", () => {
+  it("shows the three businesses in the order they grew", () => {
+    render(<HomeView />);
+    const section = screen.getByRole("region", {name: homeContent.divisions.heading.value});
+    expect(
+      within(section)
+        .getAllByRole("listitem")
+        .map((item) => within(item).getByText(/&|Autos/).textContent)
+    ).toEqual(["Phones & Gadgets", "Engineering & Real Estate", "Autos"]);
+  });
+
+  it("tells a screen reader that a card opens WhatsApp while its page is not built", () => {
+    render(<HomeView />);
+    expect(screen.getByRole("link", {name: "Cars you can trust, chat on WhatsApp"})).toHaveAttribute(
+      "href",
+      homeContent.divisions.cards[2]!.link.href
+    );
+  });
+
+  it("gives each card its division's accent", () => {
+    render(<HomeView />);
+    const section = screen.getByRole("region", {name: homeContent.divisions.heading.value});
+    expect([...section.querySelectorAll("[data-division]")].map((card) => card.getAttribute("data-division"))).toEqual([
+      "phones",
+      "engineering",
+      "autos",
+    ]);
   });
 });

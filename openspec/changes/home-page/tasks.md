@@ -2,7 +2,7 @@
 
 - [ ] 1.1 Create the typed Home content source with a placeholder marker, including start year 2023, division numbers, quotes, stories, featured items, news, counters and the address. Proof: unit tests for the content types and the start year appearing in every field that uses it.
 - [ ] 1.2 Add the placeholder report script and run it in CI as a report. Proof: unit test that a marked value is listed and an unmarked one is not.
-- [ ] 1.3 Add the "page exists" lookup driving link fallbacks (D3). Proof: unit tests that a link flips from WhatsApp or Instagram to the page path when the page is added to `site-pages.ts`.
+- [x] 1.3 Add the "page exists" lookup driving link fallbacks (D3). Proof: unit tests that a link flips from WhatsApp or Instagram to the page path when the page is added to `site-pages.ts`.
 - [ ] 1.4 Add placeholder media to `public/` within the imagery spec's size limits. Proof: build output sizes checked by the bundle and asset budget.
 
 ## 2. Page shell
@@ -20,7 +20,7 @@
 ## 4. Sections
 
 - [x] 4.1 Hero. Proof: tests for the single `h1`, actions and reassurance wrapping; browser test of 16:9 and 4:5 boxes.
-- [ ] 4.2 Divisions. Proof: tests for order, accent per card and WhatsApp fallback; browser test of the swipe row at 390px with no page overflow.
+- [x] 4.2 Divisions. Proof: tests for order, accent per card and WhatsApp fallback; browser test of the swipe row at 390px with no page overflow.
 - [ ] 4.3 Featured now: tabs and item cards. Proof: keyboard tests for tabs; tests for the prefilled WhatsApp message, price-on-request and the 8-item cap; browser test for disabled arrows at the ends.
 - [ ] 4.4 Proof section. Proof: tests for quote markup, emphasis and column order.
 - [ ] 4.5 Customer stories. Proof: tests that switching tabs stops playback and that photo-only stories have no play button.
