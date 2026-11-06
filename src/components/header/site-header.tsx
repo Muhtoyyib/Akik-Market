@@ -5,7 +5,6 @@ import {Frame} from "@/components/frame/frame";
 import {AnnouncementBar} from "@/components/header/announcement-bar";
 import {FloatingPill} from "@/components/header/floating-pill";
 import {MenuButton} from "@/components/header/menu-button";
-import {jumpOnClick} from "@/components/header/jump-to-section";
 import {NavLinks} from "@/components/header/nav-links";
 import {SiteMenu} from "@/components/header/site-menu";
 import {WordmarkLink} from "@/components/header/wordmark-link";
@@ -45,12 +44,7 @@ export function SiteHeader({announcement, whatsappHref, links}: SiteHeaderProps)
           <WordmarkLink />
           {hasMenu && (
             <nav aria-label="Main" className="hidden lg:block">
-              <NavLinks
-                links={links}
-                listClassName="flex items-center gap-4 xl:gap-6"
-                linkClassName="type-small whitespace-nowrap"
-                onNavigate={jumpOnClick}
-              />
+              <NavLinks links={links} listClassName="flex items-center gap-4 xl:gap-6" linkClassName="type-small whitespace-nowrap" />
             </nav>
           )}
           <div className="flex items-center gap-2">

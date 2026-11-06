@@ -26,7 +26,7 @@ See [proposal.md](./proposal.md). Home is built on the design-system change (tok
 
 ### D3. Missing pages: link to something real
 
-- **Chosen:** until a page exists, its links are replaced by the closest real action: WhatsApp to the right business (divisions, featured, projects banner), Instagram (news), or nothing (founder's "Read our story", footer page links). The header never links to pages; it jumps to Home's sections (navigation spec, "Section links").
+- **Chosen:** until a page exists, its links are replaced by the closest real action: WhatsApp to the right business (divisions, featured, projects banner), Instagram (news), or nothing (founder's "Read our story", footer page links). The header links to every built page (navigation spec, "Page links"; changed 2026-11-06 from jumping to Home's sections).
 - **Alternatives considered:** linking to the future paths and returning a 404; hiding the sections.
 - **Dropped:** both. A 404 in a pitch looks broken; hiding sections makes Home look thin.
 - **How:** the content source knows which pages exist (from `src/lib/site-pages.ts`), so a link flips to the real page automatically when that page ships.

@@ -10,22 +10,16 @@ import {Stories} from "@/features/home/stories/stories";
 import {Visit} from "@/components/visit/visit";
 import {Trust} from "@/components/trust/trust";
 import {homeContent} from "@/lib/content/home";
-import {SECTION_IDS, sectionLinks} from "@/lib/home-sections";
+import {SECTION_IDS} from "@/lib/home-sections";
+import {pageNav} from "@/lib/page-nav";
+import {pageExists} from "@/lib/site-pages";
 import {siteContent} from "@/lib/content/site";
 
 export function HomeView() {
   const {whatsapp} = siteContent;
   const {hero, divisions, featured, proof, stories, projects, trust, news, founder, visit} = homeContent;
-  // Each flag mirrors the guard that leaves the section out when it has no content; Visit always renders.
-  const sections = sectionLinks({
-    divisions: divisions.cards.length > 0,
-    featured: featured.tabs.length > 0,
-    stories: stories.tabs.length > 0,
-    news: news.posts.length > 0,
-    visit: true,
-  });
   return (
-    <PageLayout links={sections}>
+    <PageLayout links={pageNav("/", pageExists)}>
       <Hero
         media={{kind: "video", ...hero.media.value}}
         heading={hero.heading.value}

@@ -3,12 +3,11 @@ import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {SiteHeader} from "@/components/header/site-header";
 
-const sections = [
-  {label: "Businesses", href: "#divisions"},
-  {label: "News", href: "#news"},
+const pages = [
+  {label: "About", href: "/about"},
+  {label: "News", href: "/news"},
 ];
-const renderHeader = (links = sections) =>
-  render(<SiteHeader announcement={null} whatsappHref="https://wa.me/2347065470198" links={links} />);
+const renderHeader = (links = pages) => render(<SiteHeader announcement={null} whatsappHref="https://wa.me/2347065470198" links={links} />);
 const menuButton = () => screen.getAllByRole("button", {name: "Menu"})[0]!;
 
 describe("SiteHeader", () => {
@@ -24,7 +23,7 @@ describe("SiteHeader", () => {
       within(nav)
         .getAllByRole("link")
         .map((link) => link.textContent)
-    ).toEqual(["Businesses", "News"]);
+    ).toEqual(["About", "News"]);
   });
 
   it("announces the menu button as collapsed until it is opened", async () => {

@@ -1,5 +1,5 @@
-// The header's page links on every page but Home (site page-layout spec, "Same shell on every page" and "Current
-// page"). Home's header jumps to its own sections instead (home-sections.ts).
+// The header's page links on every page, Home's included (site page-layout spec, "Same shell on every page" and
+// "Current page").
 import {businesses} from "@/lib/content/business";
 
 /** A header link; `current` marks the page being viewed, or the collection it belongs to. */
@@ -10,6 +10,7 @@ export const SITE_PAGES: readonly NavLink[] = [
   {label: "About", href: "/about"},
   ...businesses.map((entry) => ({label: entry.name, href: entry.path})),
   {label: "Projects", href: "/projects"},
+  {label: "Listings", href: "/listings"},
   {label: "News", href: "/news"},
   {label: "Contact", href: "/contact"},
 ];

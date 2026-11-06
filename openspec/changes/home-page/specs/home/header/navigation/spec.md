@@ -8,26 +8,21 @@ Source: Matic P1 (header).
 
 ### Requirement: Contents
 
-The header SHALL show, left to right: the Akik wordmark linking to `/`, the section links (see "Section links") and a `primary` "Chat on WhatsApp" pill. Home's header SHALL NOT link to other pages; visitors reach those from the sections, cards and footer.
+The header SHALL show, left to right: the Akik wordmark linking to `/`, the page links (see "Page links") and a `primary` "Chat on WhatsApp" pill.
 
 #### Scenario: Other pages ship
 
 - **WHEN** the About page is built
-- **THEN** Home's header still shows the section links and no page links
+- **THEN** Home's header links to it
 
-### Requirement: Section links
+### Requirement: Page links
 
-The header SHALL link to Home's own sections, in page order: Businesses, Featured, Stories, News, Visit us. A section left out for having no content SHALL get no link. Choosing a section link SHALL bring that section's top into view below the header and move focus to its heading; from the menu it SHALL close the menu first and leave focus on the heading rather than the menu button.
+The header SHALL link to every built page in sitemap order, the same list as every other page (site page-layout spec, "Same shell on every page"). It SHALL NOT jump to Home's own sections. Changed 2026-11-06 at the user's request: the navbar should list the site's pages.
 
-#### Scenario: A section is empty
+#### Scenario: A page isn't built
 
-- **WHEN** Home has no news posts
-- **THEN** the header has no News link
-
-#### Scenario: Jumping from the menu
-
-- **WHEN** a visitor on a phone opens the menu and chooses News
-- **THEN** the menu closes, the News section is in view below the header and its heading has focus
+- **WHEN** the Contact page isn't built
+- **THEN** the header has no Contact link
 
 ### Requirement: WhatsApp action
 

@@ -4,6 +4,8 @@ import {describe, expect, it} from "vite-plus/test";
 import {HomeView} from "@/features/home/view";
 import {homeContent} from "@/lib/content/home";
 import {siteContent} from "@/lib/content/site";
+import {SITE_PAGES} from "@/lib/page-nav";
+import {pageExists} from "@/lib/site-pages";
 
 describe("Home page shell", () => {
   it("has one banner and one main landmark", () => {
@@ -57,20 +59,26 @@ describe("Home header", () => {
     render(<HomeView />);
     const header = screen.getByRole("banner");
     const hrefs = [...header.querySelectorAll("a[href]")].map((link) => link.getAttribute("href"));
-    expect(hrefs.filter((href) => href?.startsWith("/") && href !== "/")).toEqual([]);
+    expect(hrefs.filter((href) => href?.startsWith("/") && !pageExists(href))).toEqual([]);
   });
 
-  it("links the header to Home's sections, in page order, while Home is the only page", () => {
+  it("links the header to every built page in sitemap order, like every other page", () => {
     render(<HomeView />);
     const nav = screen.getByRole("navigation", {name: "Main"});
     const links = within(nav).getAllByRole("link");
-    expect(links.map((link) => [link.textContent, document.querySelector(link.getAttribute("href")!)?.tagName])).toEqual([
-      ["Businesses", "SECTION"],
-      ["Featured", "SECTION"],
-      ["Stories", "SECTION"],
-      ["News", "SECTION"],
-      ["Visit us", "SECTION"],
-    ]);
+    expect(links.map((link) => link.getAttribute("href"))).toEqual(
+      SITE_PAGES.filter((entry) => pageExists(entry.href)).map((entry) => entry.href)
+    );
+  });
+
+  it("jumps to none of Home's own sections from the header", () => {
+    render(<HomeView />);
+    const nav = screen.getByRole("navigation", {name: "Main"});
+    expect(
+      within(nav)
+        .getAllByRole("link")
+        .filter((link) => link.getAttribute("href")?.startsWith("#"))
+    ).toEqual([]);
   });
 
   it("makes the whole announcement one link with its full text as the name", () => {

@@ -2,12 +2,12 @@ import {render, screen, waitFor} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
 import {SiteHeader} from "@/components/header/site-header";
-import {sectionLinks} from "@/lib/home-sections";
+import {SITE_PAGES} from "@/lib/page-nav";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 
-const everySection = sectionLinks({divisions: true, featured: true, stories: true, news: true, visit: true});
-const pages = everySection.slice(0, 2);
+const everyPage = [...SITE_PAGES];
+const pages = everyPage.slice(0, 2);
 // A tall page below the header, so the header can scroll out of view.
 const renderPage = (links = pages) =>
   render(
@@ -31,9 +31,9 @@ describe("SiteHeader in a browser", () => {
     expect([mainNav().checkVisibility(), rowMenuButton().checkVisibility()]).toEqual([true, false]);
   });
 
-  it("fits every section link in the header row at 1024px, the narrowest desktop width", async () => {
+  it("fits every page link in the header row at 1024px, the narrowest desktop width", async () => {
     await page.viewport(1024, 768);
-    const {container} = renderPage(everySection);
+    const {container} = renderPage(everyPage);
     const row = mainNav().parentElement!;
     expect([
       row.scrollWidth <= row.clientWidth,
