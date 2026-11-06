@@ -2,7 +2,8 @@ import {render, screen, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {HomeView} from "@/features/home/view";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
+import {siteContent} from "@/lib/content/site";
 
 describe("Home page shell", () => {
   it("has one banner and one main landmark", () => {
@@ -74,16 +75,16 @@ describe("Home header", () => {
 
   it("makes the whole announcement one link with its full text as the name", () => {
     render(<HomeView />);
-    expect(screen.getByRole("link", {name: homeContent.announcement.value.text})).toHaveAttribute(
+    expect(screen.getByRole("link", {name: siteContent.announcement.value.text})).toHaveAttribute(
       "href",
-      homeContent.announcement.value.href
+      siteContent.announcement.value.href
     );
   });
 
   it("opens WhatsApp from the header", () => {
     render(<HomeView />);
     const [headerAction] = screen.getAllByRole("link", {name: "Chat on WhatsApp"});
-    expect(headerAction).toHaveAttribute("href", homeContent.whatsapp.main.href);
+    expect(headerAction).toHaveAttribute("href", siteContent.whatsapp.main.href);
   });
 });
 

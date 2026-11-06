@@ -2,7 +2,7 @@ import {render, screen, within} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {Stories} from "@/features/home/stories/stories";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 
 const {stories} = homeContent;
 const renderStories = () => render(<Stories heading={stories.heading.value} tabs={stories.tabs} />);

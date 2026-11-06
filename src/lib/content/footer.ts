@@ -1,12 +1,12 @@
 // The footer's content. Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder report.
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
 import {visibleColumns} from "@/lib/footer-columns";
-import {divisions, social, startYear} from "@/lib/home-divisions";
+import {businesses, social, startYear} from "@/lib/content/business";
 import {pageExists} from "@/lib/site-pages";
 
 // Stryker disable StringLiteral,ObjectLiteral,ArrayDeclaration : page names and labels from the spec; tests pin which survive.
 const columns = [
-  {heading: "Businesses", links: divisions.map((division) => ({label: division.name, href: division.path}))},
+  {heading: "Businesses", links: businesses.map((entry) => ({label: entry.name, href: entry.path}))},
   {
     heading: "Company",
     links: [

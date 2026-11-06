@@ -11,11 +11,13 @@ import {Visit} from "@/features/home/visit/visit";
 import {Trust} from "@/features/home/trust/trust";
 import {SiteHeader} from "@/components/header/site-header";
 import {SkipLink} from "@/components/skip-link/skip-link";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 import {sectionLinks} from "@/lib/home-sections";
+import {siteContent} from "@/lib/content/site";
 
 export function HomeView() {
-  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news, founder, visit, footer} = homeContent;
+  const {announcement, whatsapp, footer} = siteContent;
+  const {hero, divisions, featured, proof, stories, projects, trust, news, founder, visit} = homeContent;
   // Each flag mirrors the guard that leaves the section out when it has no content; Visit always renders.
   const sections = sectionLinks({
     divisions: divisions.cards.length > 0,

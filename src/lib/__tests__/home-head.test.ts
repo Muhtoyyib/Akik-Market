@@ -1,6 +1,7 @@
 import {describe, expect, it} from "vite-plus/test";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 import {homeHead, localBusiness} from "@/lib/home-head";
+import {siteContent} from "@/lib/content/site";
 
 const business = localBusiness(homeContent);
 
@@ -43,7 +44,7 @@ describe("localBusiness", () => {
 
   it("lists each business as a LocalBusiness department, reached on the main number overall", () => {
     expect([business.telephone, business.department.map((department) => department["@type"])]).toEqual([
-      `+${homeContent.whatsapp.main.number.value}`,
+      `+${siteContent.whatsapp.main.number.value}`,
       ["LocalBusiness", "LocalBusiness", "LocalBusiness"],
     ]);
   });

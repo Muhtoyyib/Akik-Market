@@ -1,4 +1,5 @@
-import type {homeContent} from "@/lib/home-content";
+import {email, mainWhatsapp, social} from "@/lib/content/business";
+import type {homeContent} from "@/lib/content/home";
 
 type HomeContent = typeof homeContent;
 
@@ -20,9 +21,9 @@ export function localBusiness(content: HomeContent) {
     name: BUSINESS_NAME,
     description: description(content),
     address: {"@type": "PostalAddress", streetAddress: street, addressLocality: city, addressCountry: country},
-    telephone: `+${content.whatsapp.main.number.value}`,
-    email: content.email.value,
-    sameAs: [content.social.instagram.value, content.social.tiktok.value],
+    telephone: `+${mainWhatsapp.number.value}`,
+    email: email.value,
+    sameAs: [social.instagram.value, social.tiktok.value],
     department: content.visit.contacts.map((contact) => ({
       "@type": "LocalBusiness",
       name: contact.name,

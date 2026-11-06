@@ -1,7 +1,7 @@
 import {render, screen, within} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {Visit} from "@/features/home/visit/visit";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 
 const {visit} = homeContent;
 const renderVisit = () =>

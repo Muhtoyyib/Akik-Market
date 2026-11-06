@@ -2,7 +2,7 @@ import {render, screen} from "@testing-library/react";
 import {beforeEach, describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
 import {Featured} from "@/features/home/featured/featured";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 

@@ -2,11 +2,11 @@ import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page} from "vite-plus/test/browser";
 import {Footer} from "@/components/footer/footer";
-import {homeContent} from "@/lib/home-content";
+import {siteContent} from "@/lib/content/site";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 
-const {footer} = homeContent;
+const {footer} = siteContent;
 const renderFooter = () =>
   render(
     <Footer

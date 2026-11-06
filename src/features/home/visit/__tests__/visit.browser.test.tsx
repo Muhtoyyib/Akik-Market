@@ -2,7 +2,7 @@ import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page} from "vite-plus/test/browser";
 import {Visit} from "@/features/home/visit/visit";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 

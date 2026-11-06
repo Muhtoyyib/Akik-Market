@@ -6,11 +6,13 @@ import {News} from "@/features/home/news/news";
 import {Proof} from "@/features/home/proof/proof";
 import {Stories} from "@/features/home/stories/stories";
 import {Trust} from "@/features/home/trust/trust";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
+import {siteContent} from "@/lib/content/site";
 
 // Spec (page-shell, "Section with no content"): a section whose list is empty is left out entirely, so its
 // neighbours keep one section gap between them (each section carries its own top spacing).
-const {divisions, proof, stories, trust, news, founder, whatsapp} = homeContent;
+const {divisions, proof, stories, trust, news, founder} = homeContent;
+const {whatsapp} = siteContent;
 
 describe("a Home section with nothing to show", () => {
   it("leaves out the divisions with no businesses", () => {

@@ -2,7 +2,7 @@ import {render, screen} from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import {describe, expect, it} from "vite-plus/test";
 import {Founder} from "@/features/home/founder/founder";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 
 const {founder} = homeContent;
 const photos = founder.photos.value;

@@ -23,6 +23,7 @@ See [proposal.md](./proposal.md). Today only Home exists. Its shared parts were 
 - **Alternatives considered:** one big content file (Home's current approach); Markdown or MDX files for posts and projects.
 - **Dropped:** one file, because it already hit the 250-line lint cap on Home alone. Markdown/MDX, because typed modules keep the placeholder marking and the report working the same way for every value, and post bodies are short.
 - **Evidence:** `home-content.ts` reached 259 lines and had to be split (commit 24a79bb).
+- **As built (tasks 2.1, 2.2):** site-wide facts are split three ways to avoid an import cycle: `business.ts` (businesses, numbers, WhatsApp, address, hours, email, social, start year), `footer.ts` (reads `business.ts`) and `site.ts` (what the shell reads: announcement, main WhatsApp, footer). Home's rules over the collections live in `home-collections.ts`. There is no `projects.ts` yet: Home shows no project items, so it arrives with `projects-pages`.
 
 ### D3. Collection pages are prerendered from their content
 

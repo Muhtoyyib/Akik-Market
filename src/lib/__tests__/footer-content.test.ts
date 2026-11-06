@@ -1,8 +1,8 @@
 import {describe, expect, it} from "vite-plus/test";
 import {listPlaceholders} from "@/lib/content-facts";
-import {homeContent} from "@/lib/home-content";
+import {siteContent} from "@/lib/content/site";
 
-const {footer} = homeContent;
+const {footer} = siteContent;
 
 describe("footer content", () => {
   it("counts from the start year, then phones sold and cars delivered", () => {
@@ -18,7 +18,7 @@ describe("footer content", () => {
   });
 
   it("keeps the start year figure a placeholder for as long as the start year is one", () => {
-    expect(footer.counters[0]?.placeholder).toBe(homeContent.startYear.placeholder);
+    expect(footer.counters[0]?.placeholder).toBe(siteContent.startYear.placeholder);
   });
 
   it("shows only the Follow column while Home is the only page", () => {

@@ -1,7 +1,7 @@
 import {existsSync, readdirSync, statSync} from "node:fs";
 import {extname, join} from "node:path";
 import {describe, expect, it} from "vite-plus/test";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
 import {assetBudget} from "../../../vitest.shared";
 
 const PUBLIC_MEDIA = "public/placeholders";

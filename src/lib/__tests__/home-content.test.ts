@@ -1,19 +1,21 @@
 import {existsSync} from "node:fs";
 import {describe, expect, it} from "vite-plus/test";
 import {listPlaceholders} from "@/lib/content-facts";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
+import {siteContent} from "@/lib/content/site";
+import {email} from "@/lib/content/business";
 
 describe("homeContent", () => {
   it("keeps the 2023 start year as a placeholder until the owner confirms it", () => {
-    expect(homeContent.startYear).toEqual({value: 2023, placeholder: true});
+    expect(siteContent.startYear).toEqual({value: 2023, placeholder: true});
   });
 
   it("lists the start year in the placeholder report", () => {
-    expect(listPlaceholders(homeContent)).toContainEqual({path: "startYear", value: 2023});
+    expect(listPlaceholders(siteContent)).toContainEqual({path: "startYear", value: 2023});
   });
 
   it("opens WhatsApp to the main number with a greeting", () => {
-    expect(homeContent.whatsapp.main.href).toBe("https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about");
+    expect(siteContent.whatsapp.main.href).toBe("https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about");
   });
 
   it("shows three reassurance claims in the hero", () => {
@@ -123,7 +125,7 @@ describe("homeContent", () => {
 
   it("keeps the confirmed contact email and second number out of the placeholder report", () => {
     const paths = listPlaceholders(homeContent).map((entry) => entry.path);
-    expect([homeContent.email.value, paths.includes("email"), paths.some((path) => path.endsWith("divisions.cards.1.number"))]).toEqual([
+    expect([email.value, paths.includes("email"), paths.some((path) => path.endsWith("divisions.cards.1.number"))]).toEqual([
       "akikmarket@gmail.com",
       false,
       false,

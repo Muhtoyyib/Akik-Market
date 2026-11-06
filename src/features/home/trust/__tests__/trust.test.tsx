@@ -1,9 +1,11 @@
 import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {Trust} from "@/features/home/trust/trust";
-import {homeContent} from "@/lib/home-content";
+import {homeContent} from "@/lib/content/home";
+import {siteContent} from "@/lib/content/site";
 
-const {trust, whatsapp} = homeContent;
+const {trust} = homeContent;
+const {whatsapp} = siteContent;
 const renderTrust = () =>
   render(<Trust heading={trust.heading.value} image={trust.image.value} rows={trust.rows} whatsappHref={whatsapp.main.href} />);
 
