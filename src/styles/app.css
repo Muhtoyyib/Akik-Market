@@ -61,6 +61,9 @@
   line-gap-override: 0%;
 }
 
+/* Matches anything inside a division section, so a component can follow the accent without knowing about divisions. */
+@custom-variant in-division (:where([data-division]) &);
+
 [data-division="phones"] {
   --color-accent: var(--color-phones);
 }
