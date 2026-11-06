@@ -32,7 +32,7 @@ Every action on the site opens WhatsApp, which is how Akik already sells. Some v
 | Shop at Iwo Road Shopping Complex, Ibadan | Real                                  | Owner's Instagram bio                                                  |
 | Email akikmarket@gmail.com                | Real                                  | Client lead, 2026-11-06                                                |
 | 2348161894229                             | Real number; business mapping assumed | Client lead confirmed the number; Engineering & Real Estate is a guess |
-| 2347065470198                             | Placeholder                           | Owner's 2023 flyer                                                     |
+| 2348161894229                             | Real                                  | The user, 2026-11-06: the WhatsApp number for every business           |
 | Opening hours                             | Placeholder                           | —                                                                      |
 
 ## Capabilities

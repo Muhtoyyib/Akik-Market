@@ -15,7 +15,7 @@ describe("homeContent", () => {
   });
 
   it("opens WhatsApp to the main number with a greeting", () => {
-    expect(siteContent.whatsapp.main.href).toBe("https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about");
+    expect(siteContent.whatsapp.main.href).toBe("https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about");
   });
 
   it("shows three reassurance claims in the hero", () => {
@@ -40,7 +40,7 @@ describe("homeContent", () => {
 
   it("asks about a featured car by name on the cars WhatsApp number", () => {
     const car = homeContent.featured.tabs[2]?.items[0]?.value;
-    expect(car?.href).toBe("https://wa.me/2347065470198?text=Hi%20Akik%2C%20I'm%20interested%20in%20the%202018%20Audi%20A5%20Sportback");
+    expect(car?.href).toBe("https://wa.me/2348161894229?text=Hi%20Akik%2C%20I'm%20interested%20in%20the%202018%20Audi%20A5%20Sportback");
   });
 
   it("marks every featured item as a placeholder until the owner supplies real stock", () => {
@@ -182,9 +182,9 @@ describe("homeContent", () => {
 
   it("lists a contact for each business in growth order, with its number", () => {
     expect(homeContent.visit.contacts.map((contact) => [contact.name, contact.number.value])).toEqual([
-      ["Phones & Gadgets", "2347065470198"],
+      ["Phones & Gadgets", "2348161894229"],
       ["Engineering & Real Estate", "2348161894229"],
-      ["Autos", "2347065470198"],
+      ["Autos", "2348161894229"],
     ]);
   });
 

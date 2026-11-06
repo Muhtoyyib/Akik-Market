@@ -28,8 +28,8 @@ describe("Visit us", () => {
 
   it("calls each business on its own number, written locally and dialled internationally", () => {
     renderVisit();
-    const autos = screen.getByRole("link", {name: "Call Autos 0706 547 0198"});
-    expect([autos.getAttribute("href"), autos.textContent]).toEqual(["tel:+2347065470198", "Call Autos 0706 547 0198"]);
+    const autos = screen.getByRole("link", {name: "Call Autos 0816 189 4229"});
+    expect([autos.getAttribute("href"), autos.textContent]).toEqual(["tel:+2348161894229", "Call Autos 0816 189 4229"]);
   });
 
   it("opens WhatsApp to each business from its column", () => {

@@ -24,7 +24,7 @@ describe("the 404 page", () => {
     render(<NotFoundView />);
     expect(within(screen.getByRole("main")).getByRole("link", {name: /Chat on WhatsApp/})).toHaveAttribute(
       "href",
-      "https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about"
+      "https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about"
     );
   });
 

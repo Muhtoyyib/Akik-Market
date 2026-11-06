@@ -45,7 +45,6 @@ Pages 2 to 8 only depend on `site-shell`, so they can be built in any order or i
 
 ## Facts still owed by the owner
 
-- Which WhatsApp number serves which business
 - The real start year
 - Opening hours
 - Counts for the footer counters

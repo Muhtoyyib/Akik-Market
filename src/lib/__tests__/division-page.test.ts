@@ -139,7 +139,7 @@ describe("divisionStock", () => {
 
 describe("seeAllHref", () => {
   it("opens WhatsApp to the business until the Listings page exists", () => {
-    expect(seeAllHref("autos", none)).toBe("https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20a%20car");
+    expect(seeAllHref("autos", none)).toBe("https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20a%20car");
   });
 
   it("goes to the Listings page with Cars or Homes selected once it exists", () => {

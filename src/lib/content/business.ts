@@ -24,10 +24,8 @@ export const hours = placeholder("Mon to Sat, 9am to 6pm");
 // Not Akik's shop; alt stays empty so the page doesn't claim it is. Source in docs/placeholder-media.md.
 export const shopPhoto = placeholder(photo("/placeholders/visit-shop.jpg", {alt: "", width: 1024, height: 768}, SIZES.fullWidth));
 
-// Both numbers are on the owner's 2023 flyer; which business each belongs to is still unknown.
-export const mainNumber = placeholder("2347065470198");
-// Confirmed as Akik's by the client lead on 2026-11-06; still placed on Engineering & Real Estate by guess.
-const secondNumber = real("2348161894229");
+// The one WhatsApp number for every business: confirmed by the user on 2026-11-06 ("the right number to use everywhere").
+export const mainNumber = real("2348161894229");
 export const greeting = real("Hello Akik, I'd like to ask about");
 
 export function whatsappTo(number: string, topic: string) {
@@ -44,7 +42,7 @@ export const businesses = [
     name: "Engineering & Real Estate",
     tab: "Homes",
     path: "/engineering",
-    number: secondNumber,
+    number: mainNumber,
     topic: "a house or land",
   },
   {key: "autos", name: "Autos", tab: "Cars", path: "/autos", number: mainNumber, topic: "a car"},
