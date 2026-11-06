@@ -60,6 +60,10 @@ Git hooks (`lefthook.yml`): pre-commit runs `vp check --fix`, formatting and rel
 - `.agents/rules/tdd.md`
 - `.agents/rules/testing.md`
 - `.agents/rules/commits.md`
+- `.agents/rules/design-tokens.md`
+- `.agents/rules/spacing.md`
+- `.agents/rules/typography.md`
+- `.agents/rules/icons.md`
 
 Read them before adding structure, content or UI. Numbers that config enforces (lint caps, coverage floors, mutation thresholds) live in config only: `vite.config.ts`, `vitest.shared.ts`, `stryker.config.mjs`.
 

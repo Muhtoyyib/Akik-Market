@@ -8,7 +8,7 @@
 
 ## 2. Rule files
 
-- [ ] 2.1 Write `.agents/rules/design-tokens.md`, `spacing.md`, `typography.md` and `icons.md`, pointing at the specs and `app.css` without repeating values. Proof: the files exist and `AGENTS.md` lists them.
+- [x] 2.1 Write `.agents/rules/design-tokens.md`, `spacing.md`, `typography.md` and `icons.md`, pointing at the specs and `app.css` without repeating values. Proof: the files exist and `AGENTS.md` lists them.
 
 ## 3. Components
 
