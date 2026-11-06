@@ -9,7 +9,7 @@
 
 - [x] 2.1 Move site-wide facts to `src/lib/content/site.ts` and Home's content to `home.ts`. Proof: existing content tests pass against the new modules.
 - [x] 2.2 Move featured items, news posts and stories into shared collections; Home reads them through its existing rules. Proof: unit tests that removing an item removes it from Home's output.
-- [ ] 2.3 Placeholder report across every content module, grouped by page, run in CI as a report (closes Home task 1.2). Proof: unit test that a marked value is listed under its page and an unmarked one is not.
+- [x] 2.3 Placeholder report across every content module, grouped by page, run in CI as a report (closes Home task 1.2). Proof: unit test that a marked value is listed under its page and an unmarked one is not.
 
 ## 3. Metadata and registration
 

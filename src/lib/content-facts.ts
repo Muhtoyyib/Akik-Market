@@ -18,9 +18,14 @@ function isFact(node: object): node is Fact<unknown> {
   return "value" in node && "placeholder" in node && Object.keys(node).length === 2;
 }
 
-/** Every placeholder in a content tree, with its dotted path, for the placeholder report. */
-export function listPlaceholders(node: unknown, path: string[] = []): {path: string; value: unknown}[] {
+/** Every placeholder fact in a content tree, with its dotted path. The fact itself lets a report list a shared one once. */
+export function placeholderFacts(node: unknown, path: string[] = []): {path: string; fact: Fact<unknown>}[] {
   if (typeof node !== "object" || node === null) return [];
-  if (isFact(node)) return node.placeholder ? [{path: path.join("."), value: node.value}] : [];
-  return Object.entries(node).flatMap(([key, child]) => listPlaceholders(child, [...path, key]));
+  if (isFact(node)) return node.placeholder ? [{path: path.join("."), fact: node}] : [];
+  return Object.entries(node).flatMap(([key, child]) => placeholderFacts(child, [...path, key]));
+}
+
+/** Every placeholder in a content tree, with its dotted path, for the placeholder report. */
+export function listPlaceholders(node: unknown): {path: string; value: unknown}[] {
+  return placeholderFacts(node).map(({path, fact}) => ({path, value: fact.value}));
 }
