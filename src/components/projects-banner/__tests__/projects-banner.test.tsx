@@ -1,6 +1,6 @@
 import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
-import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
+import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
 import {homeContent} from "@/lib/content/home";
 
 const {projects} = homeContent;

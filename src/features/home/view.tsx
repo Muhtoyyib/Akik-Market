@@ -3,12 +3,12 @@ import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisio
 import {Featured} from "@/features/home/featured/featured";
 import {Founder} from "@/features/home/founder/founder";
 import {Hero} from "@/features/home/hero/hero";
-import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
+import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
 import {News} from "@/features/home/news/news";
 import {Proof} from "@/features/home/proof/proof";
-import {Stories} from "@/features/home/stories/stories";
-import {Visit} from "@/features/home/visit/visit";
-import {Trust} from "@/features/home/trust/trust";
+import {Stories} from "@/components/stories/stories";
+import {Visit} from "@/components/visit/visit";
+import {Trust} from "@/components/trust/trust";
 import {homeContent} from "@/lib/content/home";
 import {sectionLinks} from "@/lib/home-sections";
 import {siteContent} from "@/lib/content/site";

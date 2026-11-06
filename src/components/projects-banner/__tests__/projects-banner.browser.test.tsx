@@ -1,7 +1,7 @@
 import {render} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page} from "vite-plus/test/browser";
-import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
+import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
 import {homeContent} from "@/lib/content/home";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";

@@ -2,7 +2,7 @@ import {cn} from "cn";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import {useEffect, useState, type ReactNode} from "react";
 import {ROUND_ICON_BUTTON} from "@/components/button/round-icon-button";
-import {ItemCard, type FeaturedItem} from "@/features/home/featured/item-card";
+import {ItemCard, type FeaturedItem} from "@/components/item-carousel/item-card";
 import {rowEnds} from "@/lib/row-ends";
 import {usePrefersReducedMotion} from "@/lib/use-prefers-reduced-motion";
 

@@ -1,6 +1,6 @@
 import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
-import {Trust} from "@/features/home/trust/trust";
+import {Trust} from "@/components/trust/trust";
 import {homeContent} from "@/lib/content/home";
 import {siteContent} from "@/lib/content/site";
 

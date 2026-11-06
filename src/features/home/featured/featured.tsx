@@ -1,8 +1,8 @@
 import {Button} from "@/components/button/button";
 import {PillTabs} from "@/components/pill-tabs/pill-tabs";
 import {SectionHeader} from "@/components/section-header/section-header";
-import type {FeaturedItem} from "@/features/home/featured/item-card";
-import {ItemCarousel} from "@/features/home/featured/item-carousel";
+import type {FeaturedItem} from "@/components/item-carousel/item-card";
+import {ItemCarousel} from "@/components/item-carousel/item-carousel";
 import {Frame} from "@/components/frame/frame";
 import type {OnwardLink} from "@/lib/onward-link";
 import {SECTION_IDS} from "@/lib/home-sections";
