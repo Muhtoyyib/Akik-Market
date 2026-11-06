@@ -88,4 +88,24 @@ describe("homeContent", () => {
   it("orders the proof columns as the business grew", () => {
     expect(homeContent.proof.columns.map((column) => column.key)).toEqual(["phones", "engineering", "autos"]);
   });
+
+  it("tells one customer story per business, in growth order", () => {
+    expect(homeContent.stories.tabs.map((tab) => tab.label)).toEqual(["Phones", "Homes", "Cars"]);
+  });
+
+  it("puts the start year in the phones story and keeps every story a placeholder", () => {
+    const [phones] = homeContent.stories.tabs;
+    expect([phones?.story.value.since, homeContent.stories.tabs.every((tab) => tab.story.placeholder)]).toEqual([
+      "CUSTOMER SINCE 2023",
+      true,
+    ]);
+  });
+
+  it("names placeholder customers by first name only", () => {
+    expect(homeContent.stories.tabs.filter((tab) => tab.story.value.name.includes(" "))).toEqual([]);
+  });
+
+  it("points every story photo at a file in public/", () => {
+    expect(homeContent.stories.tabs.filter((tab) => !existsSync(`public${tab.story.value.image.src}`))).toEqual([]);
+  });
 });

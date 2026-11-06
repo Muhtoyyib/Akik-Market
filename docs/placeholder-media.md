@@ -38,3 +38,15 @@ Item photos in `public/placeholders/featured/`, fetched through the [Openverse](
 | `featured/car-porsche.jpg`      | Silver Porsche 911 in a car park     | [StockSnap](https://stocksnap.io/photo/parking-car-FOS61VCHQR), Alex Iby              | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
 | `featured/car-mustang.jpg`      | Red Ford Mustang front               | [StockSnap](https://stocksnap.io/photo/red-car-8MBNGUYS92), avinash patel             | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
 | `featured/car-sedan.jpg`        | Silver sedan side window             | [StockSnap](https://stocksnap.io/photo/auto-window-SEXSRO0DFS), Matt Bango            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+
+## Customer stories
+
+Stills (1600x900) taken from the 1080p files of Mixkit clips; the spec asks for photo-only stories until the owner supplies real customer footage. No faces are shown, so no one reads as a real customer.
+
+| File                       | Shows                                      | Source                                                                                           | Licence                                              |
+| -------------------------- | ------------------------------------------ | ------------------------------------------------------------------------------------------------ | ---------------------------------------------------- |
+| `stories/story-phones.jpg` | Hands typing on a phone                    | [Mixkit 4915](https://mixkit.co/free-stock-video/hands-of-a-person-typing-on-a-cell-phone-4915/) | Mixkit Stock Video Free License (checked 2026-11-06) |
+| `stories/story-homes.jpg`  | Living room with a grey sofa               | [Mixkit 3110](https://mixkit.co/free-stock-video/minimalist-room-with-gray-sofa-3110/)           | Mixkit Stock Video Free License (checked 2026-11-06) |
+| `stories/story-cars.jpg`   | Hands on a steering wheel at the dashboard | [Mixkit 72](https://mixkit.co/free-stock-video/dashboard-of-a-car-72/)                           | Mixkit Stock Video Free License (checked 2026-11-06) |
+
+The house-keys clip (15064) and the suburban and beach-house clips (48394, 27543) were Restricted, so they were not used.

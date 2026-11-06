@@ -161,6 +161,43 @@ export const homeContent = {
       },
     ],
   },
+  stories: {
+    heading: real("Customer stories"),
+    // Spec (customer-stories, "Placeholder stories"): a photo, a first name only and a marked quote until the owner
+    // supplies real customers and footage. Photos are stills from Mixkit free clips, with no faces.
+    tabs: [
+      {
+        key: phones.key,
+        label: "Phones",
+        story: placeholder({
+          name: "CHIAMAKA",
+          since: `CUSTOMER SINCE ${startYear.value}`,
+          quote: "My phone from Akik is still going strong two years on. When I upgraded, I didn't look anywhere else.",
+          image: {src: "/placeholders/stories/story-phones.jpg", alt: "", width: 1600, height: 900},
+        }),
+      },
+      {
+        key: engineering.key,
+        label: "Homes",
+        story: placeholder({
+          name: "FEMI",
+          since: "CUSTOMER SINCE 2024",
+          quote: "Akik checked the land papers, built the house and handed us the keys. We moved in last December.",
+          image: {src: "/placeholders/stories/story-homes.jpg", alt: "", width: 1600, height: 900},
+        }),
+      },
+      {
+        key: autos.key,
+        label: "Cars",
+        story: placeholder({
+          name: "IFEOMA",
+          since: "CUSTOMER SINCE 2025",
+          quote: "They sent videos, the inspection report and the papers before I paid. The car had no surprises.",
+          image: {src: "/placeholders/stories/story-cars.jpg", alt: "", width: 1600, height: 900},
+        }),
+      },
+    ],
+  },
   featured: {
     eyebrow: real("Featured now"),
     heading: placeholder("Just in at Akik"),

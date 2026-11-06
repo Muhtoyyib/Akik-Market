@@ -12,6 +12,8 @@ type PillTabsProps = {
   surface?: "light" | "dark";
   /** A section header that shares the tabs' row from lg up and sits above them on smaller screens. */
   header?: ReactNode;
+  /** Floats the tabs over the bottom centre of the panel, for panels that are a media box (Matic P6). */
+  overlay?: boolean;
 };
 
 const SURFACE = {
@@ -33,12 +35,26 @@ function revealSelected(list: HTMLElement | null) {
   if (list && selected) list.scrollLeft = scrollLeftToReveal(list, selected);
 }
 
-export function PillTabs({label, tabs, surface = "light", header}: PillTabsProps) {
+function listRow(overlay: boolean) {
+  if (overlay) return "absolute inset-x-0 bottom-4 z-10 flex justify-center px-4 md:bottom-6";
+  return "flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between";
+}
+
+function panelSpacing(header: ReactNode, overlay: boolean) {
+  if (overlay) return undefined;
+  return header ? "mt-8 md:mt-12" : "mt-6";
+}
+
+export function PillTabs({label, tabs, surface = "light", header, overlay = false}: PillTabsProps) {
   const listRef = useRef<HTMLDivElement>(null);
   const look = SURFACE[surface];
   return (
-    <Tabs.Root defaultValue={tabs[0]?.value} onValueChange={() => requestAnimationFrame(() => revealSelected(listRef.current))}>
-      <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
+    <Tabs.Root
+      defaultValue={tabs[0]?.value}
+      onValueChange={() => requestAnimationFrame(() => revealSelected(listRef.current))}
+      className={overlay ? "relative" : undefined}
+    >
+      <div className={listRow(overlay)}>
         {header}
         <Tabs.List
           ref={listRef}
@@ -67,7 +83,7 @@ export function PillTabs({label, tabs, surface = "light", header}: PillTabsProps
         </Tabs.List>
       </div>
       {tabs.map((tab) => (
-        <Tabs.Panel key={tab.value} value={tab.value} className={header ? "mt-8 md:mt-12" : "mt-6"}>
+        <Tabs.Panel key={tab.value} value={tab.value} className={panelSpacing(header, overlay)}>
           {tab.panel}
         </Tabs.Panel>
       ))}

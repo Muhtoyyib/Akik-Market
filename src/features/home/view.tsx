@@ -2,12 +2,13 @@ import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisio
 import {Featured} from "@/features/home/featured/featured";
 import {Hero} from "@/features/home/hero/hero";
 import {Proof} from "@/features/home/proof/proof";
+import {Stories} from "@/features/home/stories/stories";
 import {SiteHeader} from "@/features/home/header/site-header";
 import {SkipLink} from "@/features/home/skip-link";
 import {homeContent} from "@/lib/home-content";
 
 export function HomeView() {
-  const {announcement, hero, whatsapp, divisions, featured, proof} = homeContent;
+  const {announcement, hero, whatsapp, divisions, featured, proof, stories} = homeContent;
   return (
     <>
       <SkipLink />
@@ -23,6 +24,7 @@ export function HomeView() {
         <Divisions eyebrow={divisions.eyebrow.value} heading={divisions.heading.value} cards={divisions.cards} />
         <Featured eyebrow={featured.eyebrow.value} heading={featured.heading.value} tabs={featured.tabs} />
         <Proof heading={proof.heading.value} lead={proof.lead.value} columns={proof.columns} />
+        <Stories heading={stories.heading.value} tabs={stories.tabs} />
       </main>
     </>
   );
