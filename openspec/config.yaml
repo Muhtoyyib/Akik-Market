@@ -7,6 +7,11 @@ context: |
   Stack: TanStack Start (prerendered), React 19, Tailwind 4, Vite+ (vp), Bun,
   Vitest + Testing Library + Browser Mode, Stryker, Oxlint with complexity caps.
   Rules: AGENTS.md and .agents/rules/. Page list: docs/marketing-sitemap.md.
+  Design: Matic (maticrobots.com) is the primary reference; every section starts
+  from a Matic pattern P1-P11 in docs/design-reference/matic-layout-study.md.
+  Lookup sites (stripe, lumalabs, flora, krea, huly, rive, obvious) only where
+  Matic has no pattern; see docs/design-reference/README.md. Tokens and core
+  components: openspec/changes/design-system.
 
 rules:
   proposal:
@@ -14,5 +19,8 @@ rules:
     - Name the source for every business fact (the owner, or a document he supplied)
   design:
     - Record each questionable choice as Chosen, Alternatives considered, Dropped and Evidence
+  specs:
+    - Page specs live at specs/<page>/<section>/spec.md, with a sub-folder per part for large sections
+    - Each section spec names the Matic pattern it uses and any lookup-site component
   tasks:
     - Each task names the test or artifact that proves it
