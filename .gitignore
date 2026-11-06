@@ -29,3 +29,6 @@ bun-debug.log*
 
 # Vite+ hook dispatcher (generated)
 /.vite-hooks/_/
+
+# Third-party reference screenshots (kept local, not redistributed)
+/docs/design-reference/screenshots/
