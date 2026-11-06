@@ -2,6 +2,7 @@
 // so it shows up in the placeholder report. Approved for the pitch build by the client lead on 2026-11-06.
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
 import {featuredTabs} from "@/lib/featured";
+import {latestPosts} from "@/lib/news";
 import {onwardLink} from "@/lib/onward-link";
 import {pageExists} from "@/lib/site-pages";
 import {whatsappHref} from "@/lib/whatsapp";
@@ -79,6 +80,33 @@ const projects = {
   image: placeholder({src: "/placeholders/projects-house.jpg", alt: "", width: 1024, height: 768}),
 };
 
+const newsPath = "/news";
+const instagram = real("https://www.instagram.com/akikmarket/");
+
+// Spec (news, "Links"): cards link to their posts only once the News page exists; until then the action is Instagram.
+function newsPost({slug, ...post}: {slug: string; date: string; title: string; photo: string}) {
+  return {
+    date: post.date,
+    title: placeholder(post.title),
+    href: pageExists(newsPath) ? `${newsPath}/${slug}` : undefined,
+    image: placeholder({src: `/placeholders/news/${post.photo}.jpg`, alt: "", width: 960, height: 640}),
+  };
+}
+
+const news = {
+  eyebrow: real("News"),
+  heading: placeholder("What's new at Akik"),
+  // Placeholder posts, written to match what the owner posts on Instagram: stock arrivals, handovers, cars.
+  posts: latestPosts(
+    [
+      {slug: "new-phones-this-week", date: "2026-10-30", title: "New phones landed this week", photo: "news-phones"},
+      {slug: "jericho-terrace-interiors", date: "2026-10-14", title: "Interiors finished at our Jericho terrace", photo: "news-homes"},
+      {slug: "fresh-car-arrivals", date: "2026-09-22", title: "Fresh car arrivals, inspected and ready", photo: "news-cars"},
+    ].map(newsPost)
+  ),
+  action: pageExists(newsPath) ? {label: "More news", href: newsPath} : {label: "Follow us on Instagram", href: instagram.value},
+};
+
 const featuredGroups = [
   {
     key: phones.key,
@@ -128,7 +156,7 @@ export const homeContent = {
   startYear,
   social: {
     // Confirmed from the platforms' own profile data on 2026-11-06.
-    instagram: real("https://www.instagram.com/akikmarket/"),
+    instagram,
     tiktok: real("https://www.tiktok.com/@akikmarket"),
   },
   whatsapp: {
@@ -136,7 +164,7 @@ export const homeContent = {
   },
   // Confirmed by the client lead on 2026-11-06.
   email: real("akikmarket@gmail.com"),
-  announcement: placeholder({text: "New phones arrive every week. See what just came in", href: "https://www.instagram.com/akikmarket/"}),
+  announcement: placeholder({text: "New phones arrive every week. See what just came in", href: instagram.value}),
   hero: {
     media: placeholder({poster: "/placeholders/hero-montage-poster.jpg", src: "/placeholders/hero-montage.webm"}),
     heading: placeholder("Phones, homes and cars from one name you trust."),
@@ -214,6 +242,7 @@ export const homeContent = {
     ],
   },
   projects,
+  news,
   // Spec (buy-with-confidence, "Promises are owner-approved"): every claim waits for the owner's sign-off.
   trust: {
     heading: placeholder("Buy with confidence"),

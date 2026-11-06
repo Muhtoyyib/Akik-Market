@@ -27,7 +27,7 @@
   - Photo-only stories, tabs and markup built and tested. Open: play with sound, captions and stop-on-switch need the owner's footage; building them now would be code nothing calls.
 - [x] 4.6 Projects banner. Proof: test of the WhatsApp fallback link and its accessible name.
 - [x] 4.7 Buy with confidence. Proof: tests for row order and hidden icons.
-- [ ] 4.8 News. Proof: tests for newest-first, date markup and the Instagram fallback.
+- [x] 4.8 News. Proof: tests for newest-first, date markup and the Instagram fallback.
 - [ ] 4.9 Founder. Proof: tests for arrow names and the start year in the paragraph; browser test under reduced motion.
 - [ ] 4.10 Visit us. Proof: tests for directions link, phone formats and agreement with structured data.
 - [ ] 4.11 Footer: counters, link columns, wordmark. Proof: tests for figure labels, left-out columns, safe social links, build-time year and the wordmark hidden from assistive technology.

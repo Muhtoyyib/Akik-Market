@@ -66,3 +66,13 @@ Only a 1024x768 copy was available (Openverse and rawpixel both cap downloads at
 | `trust-handshake.jpg` | Two hands in a handshake, no faces | Still from [Mixkit 30004](https://mixkit.co/free-stock-video/hands-in-a-handshake-with-a-person-in-a-suit-30004/), cropped to 4:5 at 800x1000 | Mixkit Stock Video Free License (checked 2026-11-06) |
 
 Every handshake, keys and handover clip of a real-estate scene checked on Mixkit (15773, 5889, 13126, 6518, 36136) was Restricted.
+
+## News
+
+Cropped to 3:2 at 960x640.
+
+| File                   | Shows                       | Source                                                                                              | Licence                                                   |
+| ---------------------- | --------------------------- | --------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `news/news-phones.jpg` | Hand holding a phone        | [StockSnap](https://stocksnap.io/photo/iphone-smartphone-ODN23L0AC9), Adrianna Calvo, via Openverse | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `news/news-homes.jpg`  | Bedroom with a lamp at dusk | Still from [Mixkit 3112](https://mixkit.co/free-stock-video/interior-of-a-department-room-3112/)    | Mixkit Stock Video Free License (checked 2026-11-06)      |
+| `news/news-cars.jpg`   | Side of a white car         | [StockSnap](https://stocksnap.io/photo/white-car-QX09ZRX5DA), David Cohen, via Openverse            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |

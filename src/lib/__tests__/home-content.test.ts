@@ -152,4 +152,19 @@ describe("homeContent", () => {
   it("points the trust photo at a file in public/", () => {
     expect(existsSync(`public${homeContent.trust.image.value.src}`)).toBe(true);
   });
+
+  it("shows news newest first", () => {
+    expect(homeContent.news.posts.map((post) => post.date)).toEqual(["2026-10-30", "2026-10-14", "2026-09-22"]);
+  });
+
+  it("leaves news cards unlinked and sends the action to Instagram until the News page exists", () => {
+    expect([homeContent.news.posts.map((post) => post.href), homeContent.news.action]).toEqual([
+      [undefined, undefined, undefined],
+      {label: "Follow us on Instagram", href: "https://www.instagram.com/akikmarket/"},
+    ]);
+  });
+
+  it("points every news photo at a file in public/", () => {
+    expect(homeContent.news.posts.filter((post) => !existsSync(`public${post.image.value.src}`))).toEqual([]);
+  });
 });
