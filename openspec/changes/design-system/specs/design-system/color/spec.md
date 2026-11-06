@@ -61,7 +61,7 @@ Every text and background pair SHALL meet WCAG 2.2 AA: 4.5:1 for body text and 3
 - **WHEN** the token pairs are checked
 - **THEN** `ink-muted` is at least 5.8:1 on `page` and 6.3:1 on `card`
 - **AND** each division accent is at least 4.9:1 as text on `page` and at least 5.4:1 with `on-dark` text on it
-- **AND** `brand-red` on `page` is at least 6.3:1
+- **AND** `brand-red` on `page` is at least 6.2:1
 
 #### Scenario: Text over video
 

@@ -1,10 +1,10 @@
 ## 1. Tokens and fonts
 
-- [ ] 1.1 Add the colour, radius, spacing, type and motion tokens to `src/styles/app.css` as Tailwind theme variables. Proof: a unit test that parses `app.css` and checks every token in the colour spec is defined with its value.
-- [ ] 1.2 Add the `data-division` accent mechanism. Proof: a browser test that a label inside `[data-division="autos"]` computes to `#3C5A2A`.
-- [ ] 1.3 Force the light scheme. Proof: a browser test with `prefers-color-scheme: dark` emulated still computes the body background to `#F6F4F0`.
-- [ ] 1.4 Self-host Geist and Geist Mono with a metric-matched fallback. Proof: built `dist/client` contains the font files and no request goes to a third-party font host (network check in a browser test).
-- [ ] 1.5 Add a contrast test over every text/background token pair named in the colour spec. Proof: the test fails if a token change drops a pair below its ratio.
+- [x] 1.1 Add the colour, radius, spacing, type and motion tokens to `src/styles/app.css` as Tailwind theme variables. Proof: a unit test that parses `app.css` and checks every token in the colour spec is defined with its value.
+- [x] 1.2 Add the `data-division` accent mechanism. Proof: a browser test that a label inside `[data-division="autos"]` computes to `#3C5A2A`.
+- [x] 1.3 Force the light scheme. Proof: a browser test with `prefers-color-scheme: dark` emulated still computes the body background to `#F6F4F0`.
+- [x] 1.4 Self-host Geist and Geist Mono with a metric-matched fallback. Proof: built `dist/client` contains the font files and no request goes to a third-party font host (network check in a browser test).
+- [x] 1.5 Add a contrast test over every text/background token pair named in the colour spec. Proof: the test fails if a token change drops a pair below its ratio.
 
 ## 2. Rule files
 
