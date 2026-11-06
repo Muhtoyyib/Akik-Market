@@ -32,6 +32,10 @@
 
   --breakpoint-2xl: initial;
 
+  /* Media ratios from imagery-and-media/spec.md; 16:9 and 1:1 are Tailwind's aspect-video and aspect-square. */
+  --aspect-portrait: 4 / 5;
+  --aspect-photo: 3 / 2;
+
   --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
   --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   --default-transition-duration: 150ms;

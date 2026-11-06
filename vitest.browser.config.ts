@@ -21,6 +21,12 @@ export default defineConfig({
             // The site is light-only (design-system D3), so every browser test runs with the system set to dark to prove it.
             provider: playwright({contextOptions: {colorScheme: "dark"}}),
             headless: true,
+            commands: {
+              // Lets a test switch the reduced-motion preference, which context options can only set once per run.
+              emulateReducedMotion: async ({page}, reduce: boolean) => {
+                await page.emulateMedia({reducedMotion: reduce ? "reduce" : "no-preference"});
+              },
+            },
             instances: [{browser: "chromium"}],
           },
         },

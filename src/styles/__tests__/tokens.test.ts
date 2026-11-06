@@ -66,4 +66,20 @@ describe("token contrast", () => {
     expect(ratio("on-dark", "brand-navy")).toBeGreaterThanOrEqual(4.5);
     expect(ratio("on-dark", "ink")).toBeGreaterThanOrEqual(4.5);
   });
+
+  it("keeps on-dark text readable where the media scrim is at 60% ink, even over a white frame", () => {
+    // The scrim's lightest readable stop is ink at 60% over the frame; white is the worst-case frame.
+    const blend = (channel: number) => Math.round(0.6 * channel + 0.4 * 255);
+    const ink = token("color-ink");
+    const scrim =
+      "#" +
+      [1, 3, 5]
+        .map((offset) =>
+          blend(parseInt(ink.slice(offset, offset + 2), 16))
+            .toString(16)
+            .padStart(2, "0")
+        )
+        .join("");
+    expect(contrastRatio(token("color-on-dark"), scrim)).toBeGreaterThanOrEqual(4.5);
+  });
 });
