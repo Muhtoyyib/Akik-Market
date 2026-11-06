@@ -1,6 +1,5 @@
 // Home's header links: jumps to Home's own sections, never links to other pages (navigation spec, "Section links").
-
-export type NavLink = {label: string; href: string};
+import type {NavLink} from "@/lib/page-nav";
 
 /** The `id` of each linkable Home section; the section components set these on their <section>. */
 export const SECTION_IDS = {

@@ -9,7 +9,7 @@ import {jumpOnClick} from "@/components/header/jump-to-section";
 import {NavLinks} from "@/components/header/nav-links";
 import {SiteMenu} from "@/components/header/site-menu";
 import {WordmarkLink} from "@/components/header/wordmark-link";
-import type {NavLink} from "@/lib/home-sections";
+import type {NavLink} from "@/lib/page-nav";
 
 type SiteHeaderProps = {
   announcement: {text: string; href: string} | null;
