@@ -23,6 +23,9 @@ jobs:
         with:
           bun-version: 1.4.2
       - run: bun install --frozen-lockfile
+      # What still needs the owner's real content, shown in the job summary. A report, never a failure (home-page D2).
+      - run: bun run placeholders
+        continue-on-error: true
       - run: bun run ci:build
       # Real-browser tests: tokens, focus rings, touch targets and axe. jsdom cannot check these.
       - run: bunx playwright install --with-deps chromium
