@@ -47,6 +47,16 @@ describe("SiteHeader in a browser", () => {
     expect([mainNav().checkVisibility(), rowMenuButton().checkVisibility()]).toEqual([false, true]);
   });
 
+  it("keeps the WhatsApp pill on one line and the header row inside a 390px phone", async () => {
+    await page.viewport(390, 844);
+    renderPage();
+    // Line boxes of the label, not scrollHeight: the pill's 44px touch layer overflows its 40px box by design.
+    const label = document.createRange();
+    label.selectNodeContents(document.querySelector("header a[href^='https://wa.me']")!);
+    const row = mainNav().parentElement!;
+    expect([label.getClientRects().length, row.scrollWidth <= row.clientWidth]).toEqual([1, true]);
+  });
+
   it("closes the menu on Escape and puts focus back on the menu button", async () => {
     await page.viewport(390, 844);
     renderPage();

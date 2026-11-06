@@ -15,9 +15,9 @@ type ButtonProps = {
 const BASE =
   "relative inline-flex items-center justify-center gap-2 type-small font-semibold transition-colors ease-standard outline-offset-2 focus-visible:outline-2 focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50";
 
-// Pills are 40px on phones and 48px from md up; the ::before layer stretches the tappable area to 44px on phones.
+// Pills are 40px on phones and 48px from md up, so their label never wraps; the ::before layer stretches the tappable area to 44px on phones.
 const PILL =
-  "h-10 rounded-full px-5 md:h-12 md:px-6 before:absolute before:inset-x-0 before:top-1/2 before:h-11 before:-translate-y-1/2 md:before:h-12";
+  "h-10 whitespace-nowrap rounded-full px-5 md:h-12 md:px-6 before:absolute before:inset-x-0 before:top-1/2 before:h-11 before:-translate-y-1/2 md:before:h-12";
 
 // `ink` is the darkest token, so hover and press step the fill's opacity rather than move to a darker colour.
 const VARIANTS: Record<Variant, string> = {
