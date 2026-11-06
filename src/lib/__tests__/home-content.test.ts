@@ -30,12 +30,8 @@ describe("homeContent", () => {
     expect(homeContent.divisions.cards.map((card) => card.name)).toEqual(["Phones & Gadgets", "Engineering & Real Estate", "Autos"]);
   });
 
-  it("sends each division card to WhatsApp about that business until its page exists", () => {
-    expect(homeContent.divisions.cards.map((card) => card.link.href)).toEqual([
-      "https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20a%20phone",
-      "https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20a%20house%20or%20land",
-      "https://wa.me/2347065470198?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20a%20car",
-    ]);
+  it("sends each division card to its business's page now the pages are built", () => {
+    expect(homeContent.divisions.cards.map((card) => card.link.href)).toEqual(["/phones-and-gadgets", "/engineering", "/autos"]);
   });
 
   it("puts phones first among the featured tabs, since phones are what Akik is known for", () => {
@@ -52,10 +48,8 @@ describe("homeContent", () => {
     expect(items.every((item) => item.placeholder)).toBe(true);
   });
 
-  it("sends See all properties to WhatsApp for the property business until its page exists", () => {
-    expect(homeContent.featured.tabs[1]?.link.href).toBe(
-      "https://wa.me/2348161894229?text=Hello%20Akik%2C%20I'd%20like%20to%20ask%20about%20a%20house%20or%20land"
-    );
+  it("sends each See all to its business's page now the pages are built", () => {
+    expect(homeContent.featured.tabs.map((tab) => tab.link.href)).toEqual(["/phones-and-gadgets", "/engineering", "/autos"]);
   });
 
   it("names each business in its See all action", () => {

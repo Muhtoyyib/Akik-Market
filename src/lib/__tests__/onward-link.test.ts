@@ -9,6 +9,6 @@ describe("onwardLink", () => {
   });
 
   it("falls back to something real, and says so, while the page is not built", () => {
-    expect(onwardLink("/autos", whatsapp)).toEqual(whatsapp);
+    expect(onwardLink("/contact", whatsapp)).toEqual(whatsapp);
   });
 });

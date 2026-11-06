@@ -12,10 +12,20 @@ type TrustProps = {
   headingId?: string;
   /** Steps that happen in order are announced as an ordered list. */
   ordered?: boolean;
+  /** Stretch the pill across a phone's width (division how-buying-works spec). */
+  wideActionOnPhones?: boolean;
 };
 
 /** Matic P8: a 4:5 photo on the left half, the rows and one action on the right; stacked on phones, photo first. */
-export function Trust({heading, image, rows, whatsappHref, headingId = "trust-heading", ordered = false}: TrustProps) {
+export function Trust({
+  heading,
+  image,
+  rows,
+  whatsappHref,
+  headingId = "trust-heading",
+  ordered = false,
+  wideActionOnPhones = false,
+}: TrustProps) {
   // Spec (page-shell, "Section with no content"): nothing to show, so no section and no gap.
   if (rows.length === 0) return null;
   const List = ordered ? "ol" : "ul";
@@ -34,7 +44,8 @@ export function Trust({heading, image, rows, whatsappHref, headingId = "trust-he
               <IconRow key={row.value.title} {...row.value} />
             ))}
           </List>
-          <div className="mt-10">
+          {/* A grid stretches the pill to the column's width; from md up it sits at its own width. */}
+          <div className={wideActionOnPhones ? "mt-10 grid md:block" : "mt-10"}>
             <Button href={whatsappHref}>Chat on WhatsApp</Button>
           </div>
         </div>

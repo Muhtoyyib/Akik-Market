@@ -21,12 +21,16 @@ describe("footer content", () => {
     expect(footer.counters[0]?.placeholder).toBe(siteContent.startYear.placeholder);
   });
 
-  it("shows only the Follow column while Home is the only page", () => {
-    expect(footer.columns.map((column) => column.heading)).toEqual(["Follow"]);
+  it("shows the Businesses and Follow columns once the division pages are built, and leaves out the rest", () => {
+    expect(footer.columns.map((column) => column.heading)).toEqual(["Businesses", "Follow"]);
+  });
+
+  it("links each business's page under Businesses", () => {
+    expect(footer.columns[0]?.links.map((link) => link.href)).toEqual(["/phones-and-gadgets", "/engineering", "/autos"]);
   });
 
   it("follows Akik on its real Instagram and TikTok accounts", () => {
-    expect(footer.columns[0]?.links).toEqual([
+    expect(footer.columns[1]?.links).toEqual([
       {label: "Instagram", href: "https://www.instagram.com/akikmarket/"},
       {label: "TikTok", href: "https://www.tiktok.com/@akikmarket"},
     ]);

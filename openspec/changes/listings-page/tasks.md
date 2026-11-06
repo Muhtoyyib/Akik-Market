@@ -8,5 +8,6 @@
 ## 2. Links and quality
 
 - [ ] 2.1 "See all" links on Home, Engineering and Autos flip to `/listings?type=…`; Phones links unchanged. Proof: unit tests of the flip.
-- [ ] 2.2 axe at 1440 and 390px. Proof: zero violations.
-- [ ] 2.3 Screenshots and the placeholder report for the client lead.
+- [ ] 2.2 Engineering and Autos offer cards link to `/listings?type=…` for the categories it lists (division-pages offer spec, "Cards are not links" until a destination exists). Proof: Testing Library test that only cards with a destination link.
+- [ ] 2.3 axe at 1440 and 390px. Proof: zero violations.
+- [ ] 2.4 Screenshots and the placeholder report for the client lead.

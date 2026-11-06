@@ -11,7 +11,10 @@
 import { Route as rootRouteImport } from "./routes/__root"
 import { Route as IndexRouteImport } from "./routes/index"
 import { Route as R404RouteImport } from "./routes/404"
+import { Route as AutosRouteImport } from "./routes/autos"
 import { Route as DesignSystemRouteImport } from "./routes/design-system"
+import { Route as EngineeringRouteImport } from "./routes/engineering"
+import { Route as PhonesAndGadgetsRouteImport } from "./routes/phones-and-gadgets"
 
 const IndexRoute = IndexRouteImport.update({
   id: "/",
@@ -23,40 +26,86 @@ const R404Route = R404RouteImport.update({
   path: "/404",
   getParentRoute: () => rootRouteImport,
 } as any)
+const AutosRoute = AutosRouteImport.update({
+  id: "/autos",
+  path: "/autos",
+  getParentRoute: () => rootRouteImport,
+} as any)
 const DesignSystemRoute = DesignSystemRouteImport.update({
   id: "/design-system",
   path: "/design-system",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EngineeringRoute = EngineeringRouteImport.update({
+  id: "/engineering",
+  path: "/engineering",
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhonesAndGadgetsRoute = PhonesAndGadgetsRouteImport.update({
+  id: "/phones-and-gadgets",
+  path: "/phones-and-gadgets",
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
   "/": typeof IndexRoute
   "/404": typeof R404Route
+  "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
+  "/engineering": typeof EngineeringRoute
+  "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
 }
 export interface FileRoutesByTo {
   "/": typeof IndexRoute
   "/404": typeof R404Route
+  "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
+  "/engineering": typeof EngineeringRoute
+  "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   "/": typeof IndexRoute
   "/404": typeof R404Route
+  "/autos": typeof AutosRoute
   "/design-system": typeof DesignSystemRoute
+  "/engineering": typeof EngineeringRoute
+  "/phones-and-gadgets": typeof PhonesAndGadgetsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: "/" | "/404" | "/design-system"
+  fullPaths:
+    | "/"
+    | "/404"
+    | "/autos"
+    | "/design-system"
+    | "/engineering"
+    | "/phones-and-gadgets"
   fileRoutesByTo: FileRoutesByTo
-  to: "/" | "/404" | "/design-system"
-  id: "__root__" | "/" | "/404" | "/design-system"
+  to:
+    | "/"
+    | "/404"
+    | "/autos"
+    | "/design-system"
+    | "/engineering"
+    | "/phones-and-gadgets"
+  id:
+    | "__root__"
+    | "/"
+    | "/404"
+    | "/autos"
+    | "/design-system"
+    | "/engineering"
+    | "/phones-and-gadgets"
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R404Route: typeof R404Route
+  AutosRoute: typeof AutosRoute
   DesignSystemRoute: typeof DesignSystemRoute
+  EngineeringRoute: typeof EngineeringRoute
+  PhonesAndGadgetsRoute: typeof PhonesAndGadgetsRoute
 }
 
 declare module "@tanstack/react-router" {
@@ -75,11 +124,32 @@ declare module "@tanstack/react-router" {
       preLoaderRoute: typeof R404RouteImport
       parentRoute: typeof rootRouteImport
     }
+    "/autos": {
+      id: "/autos"
+      path: "/autos"
+      fullPath: "/autos"
+      preLoaderRoute: typeof AutosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     "/design-system": {
       id: "/design-system"
       path: "/design-system"
       fullPath: "/design-system"
       preLoaderRoute: typeof DesignSystemRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/engineering": {
+      id: "/engineering"
+      path: "/engineering"
+      fullPath: "/engineering"
+      preLoaderRoute: typeof EngineeringRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    "/phones-and-gadgets": {
+      id: "/phones-and-gadgets"
+      path: "/phones-and-gadgets"
+      fullPath: "/phones-and-gadgets"
+      preLoaderRoute: typeof PhonesAndGadgetsRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -88,7 +158,10 @@ declare module "@tanstack/react-router" {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R404Route: R404Route,
+  AutosRoute: AutosRoute,
   DesignSystemRoute: DesignSystemRoute,
+  EngineeringRoute: EngineeringRoute,
+  PhonesAndGadgetsRoute: PhonesAndGadgetsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

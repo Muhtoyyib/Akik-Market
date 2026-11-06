@@ -121,12 +121,9 @@ describe("Home divisions", () => {
     ).toEqual(["Phones & Gadgets", "Engineering & Real Estate", "Autos"]);
   });
 
-  it("tells a screen reader that a card opens WhatsApp while its page is not built", () => {
+  it("sends each division card to its business's page, named by the card's heading alone", () => {
     render(<HomeView />);
-    expect(screen.getByRole("link", {name: "Cars you can trust, chat on WhatsApp"})).toHaveAttribute(
-      "href",
-      homeContent.divisions.cards[2]!.link.href
-    );
+    expect(screen.getByRole("link", {name: "Cars you can trust"})).toHaveAttribute("href", "/autos");
   });
 
   it("gives each card its division's accent", () => {

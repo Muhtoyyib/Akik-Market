@@ -9,7 +9,7 @@ const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 /** Prerendered as 404.html, which the host serves on unknown paths (wrangler.jsonc); no page links to it. */
 export const NOT_FOUND_PATH = "/404";
 
-const STATIC_PAGES = ["/", NOT_FOUND_PATH, "/design-system"];
+const STATIC_PAGES = ["/", "/phones-and-gadgets", "/engineering", "/autos", NOT_FOUND_PATH, "/design-system"];
 
 // A collection's item pages, for each collection whose `$slug` route is built. The News pages add
 // {base: "/news", slugs: posts.map((post) => post.slug)} with their route.
