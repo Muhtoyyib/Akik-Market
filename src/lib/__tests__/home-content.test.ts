@@ -167,4 +167,19 @@ describe("homeContent", () => {
   it("points every news photo at a file in public/", () => {
     expect(homeContent.news.posts.filter((post) => !existsSync(`public${post.image.value.src}`))).toEqual([]);
   });
+
+  it("tells the founder's story in at most 60 words, from the start year", () => {
+    const story = homeContent.founder.story.value;
+    expect([story.split(/\s+/).length <= 60, story.includes("began in 2023")]).toEqual([true, true]);
+  });
+
+  it("leaves out Read our story until the About page exists", () => {
+    expect(homeContent.founder.link).toBeUndefined();
+  });
+
+  it("shows three to five founder photos, each described and on disk", () => {
+    const photos = homeContent.founder.photos.value;
+    const problems = photos.filter((photo) => photo.alt === "" || !existsSync(`public${photo.src}`));
+    expect([photos.length >= 3 && photos.length <= 5, problems]).toEqual([true, []]);
+  });
 });

@@ -76,3 +76,13 @@ Cropped to 3:2 at 960x640.
 | `news/news-phones.jpg` | Hand holding a phone        | [StockSnap](https://stocksnap.io/photo/iphone-smartphone-ODN23L0AC9), Adrianna Calvo, via Openverse | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
 | `news/news-homes.jpg`  | Bedroom with a lamp at dusk | Still from [Mixkit 3112](https://mixkit.co/free-stock-video/interior-of-a-department-room-3112/)    | Mixkit Stock Video Free License (checked 2026-11-06)      |
 | `news/news-cars.jpg`   | Side of a white car         | [StockSnap](https://stocksnap.io/photo/white-car-QX09ZRX5DA), David Cohen, via Openverse            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+
+## Founder
+
+The spec wants the founder himself in these photos; until the owner sends some, three faceless stand-ins follow the story's order (phones, building, cars). Unlike other placeholders these carry alt text, because the spec requires the front photo to be described.
+
+| File                           | Shows                                       | Source                                                                                                                     | Licence                                                   |
+| ------------------------------ | ------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `founder/founder-phones.jpg`   | A tablet and sales papers on a desk         | [StockSnap](https://stocksnap.io/photo/samsung-galaxy-QVKE96OD36), Wilfred Iven, via Openverse                             | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `founder/founder-building.jpg` | A building going up at sunset, with a crane | Still from [Mixkit 3971](https://mixkit.co/free-stock-video/sunset-behind-a-building-under-construction-3971/)             | Mixkit Stock Video Free License (checked 2026-11-06)      |
+| `founder/founder-road.jpg`     | An open road at sunrise                     | Still from [Mixkit 52454](https://mixkit.co/free-stock-video/traveling-along-from-the-driver-point-of-view-over-an-52454/) | Mixkit Stock Video Free License (checked 2026-11-06)      |

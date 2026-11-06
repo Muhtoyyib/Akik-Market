@@ -243,6 +243,25 @@ export const homeContent = {
   },
   projects,
   news,
+  // Spec (founder): the founder's own photos and story replace these; the story is invented apart from the order of
+  // the businesses, so it stays a placeholder even once the start year is confirmed.
+  founder: {
+    photos: placeholder([
+      {src: "/placeholders/founder/founder-phones.jpg", alt: "A tablet and sales papers on a shop desk", width: 512, height: 640},
+      {
+        src: "/placeholders/founder/founder-building.jpg",
+        alt: "A building going up at sunset, with a crane above it",
+        width: 800,
+        height: 1000,
+      },
+      {src: "/placeholders/founder/founder-road.jpg", alt: "An open road at sunrise", width: 800, height: 1000},
+    ]),
+    heading: placeholder("From one phone shop to three businesses"),
+    story: placeholder(
+      `Akik began in ${startYear.value} as a small shop selling original phones and gadgets. Customers kept coming back and asked for more, so we started building homes and selling land with clean papers. Then came inspected cars. Three businesses now, one promise: what we sell is what you get.`
+    ),
+    link: pageExists("/about") ? {label: "Read our story", href: "/about"} : undefined,
+  },
   // Spec (buy-with-confidence, "Promises are owner-approved"): every claim waits for the owner's sign-off.
   trust: {
     heading: placeholder("Buy with confidence"),

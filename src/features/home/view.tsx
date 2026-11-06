@@ -1,5 +1,6 @@
 import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisions";
 import {Featured} from "@/features/home/featured/featured";
+import {Founder} from "@/features/home/founder/founder";
 import {Hero} from "@/features/home/hero/hero";
 import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
 import {News} from "@/features/home/news/news";
@@ -11,7 +12,7 @@ import {SkipLink} from "@/features/home/skip-link";
 import {homeContent} from "@/lib/home-content";
 
 export function HomeView() {
-  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news} = homeContent;
+  const {announcement, hero, whatsapp, divisions, featured, proof, stories, projects, trust, news, founder} = homeContent;
   return (
     <>
       <SkipLink />
@@ -36,6 +37,7 @@ export function HomeView() {
         />
         <Trust heading={trust.heading.value} image={trust.image.value} rows={trust.rows} whatsappHref={whatsapp.main.href} />
         <News eyebrow={news.eyebrow.value} heading={news.heading.value} posts={news.posts} action={news.action} />
+        <Founder photos={founder.photos.value} heading={founder.heading.value} story={founder.story.value} link={founder.link} />
       </main>
     </>
   );
