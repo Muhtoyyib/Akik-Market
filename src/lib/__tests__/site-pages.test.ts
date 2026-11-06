@@ -2,7 +2,7 @@ import {readdirSync} from "node:fs";
 import {resolve} from "node:path";
 import {describe, expect, it} from "vite-plus/test";
 import {posts} from "@/lib/content/news";
-import {collectionPaths, pageExists, prerenderList, prerenderPathnames} from "@/lib/site-pages";
+import {collectionPaths, NOT_FOUND_PATH, pageExists, prerenderList, prerenderPathnames, routedPath} from "@/lib/site-pages";
 
 const routesDir = resolve(import.meta.dirname, "../../routes");
 
@@ -78,5 +78,19 @@ describe("collectionPaths", () => {
         posts.map((post) => post.slug)
       )
     ).toHaveLength(posts.length);
+  });
+});
+
+describe("routedPath", () => {
+  it("routes a path with no page to the 404 page, as the host does", () => {
+    expect(routedPath("/shop/iphone-11")).toBe(NOT_FOUND_PATH);
+  });
+
+  it("leaves a built page's path alone with a trailing slash, as the prerenderer requests it", () => {
+    expect(routedPath("/design-system/")).toBe("/design-system/");
+  });
+
+  it("leaves a built page's path alone", () => {
+    expect(["/", "/design-system", "/404"].map(routedPath)).toEqual(["/", "/design-system", "/404"]);
   });
 });

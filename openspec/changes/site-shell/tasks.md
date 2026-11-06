@@ -18,4 +18,4 @@
 
 ## 4. 404
 
-- [ ] 4.1 404 page and host configuration. Proof: Testing Library test of its heading and links; `wrangler.jsonc` serves it for unknown paths, checked with `wrangler dev` returning 404.
+- [x] 4.1 404 page and host configuration. Proof: Testing Library test of its heading and links; `wrangler.jsonc` serves it for unknown paths, checked with `wrangler dev` returning 404.

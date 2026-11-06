@@ -4,6 +4,7 @@
 import {address, email, hours, social, startYear} from "@/lib/content/business";
 import {homeContent} from "@/lib/content/home";
 import {listings} from "@/lib/content/listings";
+import {notFoundContent} from "@/lib/content/not-found";
 import {posts} from "@/lib/content/news";
 import {siteContent} from "@/lib/content/site";
 import {leadQuote, quotes, stories} from "@/lib/content/stories";
@@ -14,4 +15,5 @@ export const allContent = {
   "News posts": {posts},
   "Customer stories": {stories, leadQuote, quotes},
   Home: homeContent,
+  "Not found": notFoundContent,
 };

@@ -6,7 +6,10 @@ type Collection = {base: string; slugs: readonly string[]};
 // Lowercase words or numbers joined by single hyphens.
 const SLUG = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
-const STATIC_PAGES = ["/", "/design-system"];
+/** Prerendered as 404.html, which the host serves on unknown paths (wrangler.jsonc); no page links to it. */
+export const NOT_FOUND_PATH = "/404";
+
+const STATIC_PAGES = ["/", NOT_FOUND_PATH, "/design-system"];
 
 // A collection's item pages, for each collection whose `$slug` route is built. The News pages add
 // {base: "/news", slugs: posts.map((post) => post.slug)} with their route.
@@ -33,4 +36,14 @@ export const prerenderPathnames: readonly string[] = prerenderList(STATIC_PAGES,
 /** Whether a page has shipped, so links to pages not built yet can fall back to something real. */
 export function pageExists(pathname: string): boolean {
   return prerenderPathnames.includes(pathname);
+}
+
+/**
+ * The route the app renders for a path. On an unknown path the host serves 404.html, which was rendered as the 404
+ * route; the client router must render that same route there, or hydration fails (React error 418).
+ */
+export function routedPath(pathname: string): string {
+  // The prerenderer asks for "/design-system/"; the host serves the same page without the slash.
+  const page = pathname.length > 1 ? pathname.replace(/\/$/, "") : pathname;
+  return pageExists(page) ? pathname : NOT_FOUND_PATH;
 }
