@@ -18,4 +18,4 @@
 
 - [x] 3.1 axe on each page at 1440 and 390px. Proof: zero violations.
 - [x] 3.2 Home's division and featured links point to the new pages. Proof: unit test of the flip once the paths are listed.
-- [ ] 3.3 Screenshots at 1440 and 390px and the placeholder report for the client lead.
+- [x] 3.3 Screenshots at 1440 and 390px and the placeholder report for the client lead. Published as a private review page on 2026-11-06.
