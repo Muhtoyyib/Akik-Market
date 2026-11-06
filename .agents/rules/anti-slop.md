@@ -7,8 +7,8 @@ description: Prevent placeholder-heavy, over-abstracted or misleading code in th
 
 ## What counts as slop here
 
-- placeholder UI or copy committed as if it were production-ready
-- invented facts about the business: figures, years, locations, customer quotes
+- placeholder UI or copy that isn't marked as a placeholder in the content source (see `content.md`)
+- invented facts presented as real: figures, years, locations or customer quotes that are not marked as placeholders
 - abstractions created before a second real use case exists
 - unused helpers, dead files and "just in case" wrappers
 - shop or checkout UI that pretends the division apps already exist

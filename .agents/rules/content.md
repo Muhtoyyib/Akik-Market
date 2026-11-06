@@ -8,7 +8,8 @@ description: Rules for copy, imagery and design references in the Akik landing a
 ## Business facts
 
 - Every figure, date, location, project and testimonial must come from the owner. Note the source in the spec or commit.
-- Until a fact is supplied, leave the section out. Do not ship stand-in numbers or lorem ipsum.
+- Until a fact is supplied, a placeholder may stand in (approved by the client lead on 2026-11-06 for the pitch build). Every placeholder lives in the content source, is marked as a placeholder there, and appears in the placeholder report. Never put a placeholder straight into a component.
+- Placeholders must read as realistic Akik content, not lorem ipsum, and must not name real customers, real figures or press that doesn't exist.
 - Keep each division's facts in config, not scattered through components.
 
 ## Copy
