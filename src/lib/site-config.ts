@@ -13,5 +13,5 @@ export const siteConfig = {
 } as const;
 
 export function getPageTitle(page?: string): string {
-  return page ? `${page} | ${siteConfig.name}` : siteConfig.name;
+  return page ? `${page} · ${siteConfig.name}` : siteConfig.name;
 }

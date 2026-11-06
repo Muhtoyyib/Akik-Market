@@ -10,7 +10,7 @@ describe("siteConfig", () => {
     expect(getPageTitle()).toBe("Akik");
   });
 
-  it("prefixes a page title to the brand name", () => {
-    expect(getPageTitle("Autos")).toBe("Autos | Akik");
+  it("prefixes a page title to the brand name with a middle dot", () => {
+    expect(getPageTitle("Autos")).toBe("Autos · Akik");
   });
 });

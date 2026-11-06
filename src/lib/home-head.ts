@@ -1,4 +1,5 @@
 import {email, mainWhatsapp, social} from "@/lib/content/business";
+import {pageHead} from "@/lib/page-head";
 import type {homeContent} from "@/lib/content/home";
 
 type HomeContent = typeof homeContent;
@@ -32,17 +33,7 @@ export function localBusiness(content: HomeContent) {
   };
 }
 
-/** The head for Home: title, description, link-preview tags and the structured data. */
+/** The head for Home: its own title, the description, link-preview tags and the structured data. */
 export function homeHead(content: HomeContent) {
-  return {
-    meta: [
-      {title: TITLE},
-      {name: "description", content: description(content)},
-      {property: "og:type", content: "website"},
-      {property: "og:title", content: TITLE},
-      {property: "og:description", content: description(content)},
-      {name: "twitter:card", content: "summary"},
-    ],
-    scripts: [{type: "application/ld+json", children: JSON.stringify(localBusiness(content))}],
-  };
+  return pageHead({title: TITLE, description: description(content), structuredData: [localBusiness(content)]});
 }
