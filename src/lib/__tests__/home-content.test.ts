@@ -182,4 +182,21 @@ describe("homeContent", () => {
     const problems = photos.filter((photo) => photo.alt === "" || !existsSync(`public${photo.src}`));
     expect([photos.length >= 3 && photos.length <= 5, problems]).toEqual([true, []]);
   });
+
+  it("lists a contact for each business in growth order, with its number", () => {
+    expect(homeContent.visit.contacts.map((contact) => [contact.name, contact.number.value])).toEqual([
+      ["Phones & Gadgets", "2347065470198"],
+      ["Engineering & Real Estate", "2348161894229"],
+      ["Autos", "2347065470198"],
+    ]);
+  });
+
+  it("keeps the shop address as a real fact and the opening hours as placeholders", () => {
+    const paths = listPlaceholders(homeContent).map((entry) => entry.path);
+    expect([paths.includes("visit.address"), paths.filter((path) => path.endsWith(".hours")).length]).toEqual([false, 3]);
+  });
+
+  it("points the shop photo at a file in public/", () => {
+    expect(existsSync(`public${homeContent.visit.image.value.src}`)).toBe(true);
+  });
 });

@@ -86,3 +86,11 @@ The spec wants the founder himself in these photos; until the owner sends some, 
 | `founder/founder-phones.jpg`   | A tablet and sales papers on a desk         | [StockSnap](https://stocksnap.io/photo/samsung-galaxy-QVKE96OD36), Wilfred Iven, via Openverse                             | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
 | `founder/founder-building.jpg` | A building going up at sunset, with a crane | Still from [Mixkit 3971](https://mixkit.co/free-stock-video/sunset-behind-a-building-under-construction-3971/)             | Mixkit Stock Video Free License (checked 2026-11-06)      |
 | `founder/founder-road.jpg`     | An open road at sunrise                     | Still from [Mixkit 52454](https://mixkit.co/free-stock-video/traveling-along-from-the-driver-point-of-view-over-an-52454/) | Mixkit Stock Video Free License (checked 2026-11-06)      |
+
+## Visit us
+
+Cropped to 4:3 at 1024x768 and heavily blurred, so the store's own advertising and any faces can't be read. Not Akik's shop; replace with a photo of the Iwo Road shop.
+
+| File             | Shows                              | Source                                                                                                            | Licence                                                   |
+| ---------------- | ---------------------------------- | ----------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `visit-shop.jpg` | An electronics shop floor, blurred | [Flickr](https://www.flickr.com/photos/202390793@N05/54402036941), "Airport electronics store" by grandmasterhuon | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |

@@ -6,52 +6,10 @@ import {latestPosts} from "@/lib/news";
 import {onwardLink} from "@/lib/onward-link";
 import {pageExists} from "@/lib/site-pages";
 import {whatsappHref} from "@/lib/whatsapp";
+import {divisions, greeting, mainNumber, whatsappTo} from "@/lib/home-divisions";
 
 // Placeholder start year, chosen by the client lead; the owner's Instagram goes back to May 2020.
 const startYear = placeholder(2023);
-
-// Both numbers are on the owner's 2023 flyer; which business each belongs to is still unknown.
-const mainNumber = placeholder("2347065470198");
-// Confirmed as Akik's by the client lead on 2026-11-06; still placed on Engineering & Real Estate by guess.
-const secondNumber = real("2348161894229");
-const greeting = real("Hello Akik, I'd like to ask about");
-
-function whatsappTo(number: string, topic: string) {
-  return {href: whatsappHref(number, `${greeting.value} ${topic}`), hint: "chat on WhatsApp"};
-}
-
-const divisions = [
-  {
-    key: "phones",
-    name: "Phones & Gadgets",
-    path: "/phones-and-gadgets",
-    number: mainNumber,
-    topic: "a phone",
-    heading: placeholder("Where Akik began"),
-    line: placeholder("Original phones, laptops and accessories, with warranty."),
-    image: placeholder({src: "/placeholders/division-phones-photo.jpg", alt: "", width: 800, height: 1000}),
-  },
-  {
-    key: "engineering",
-    name: "Engineering & Real Estate",
-    path: "/engineering",
-    number: secondNumber,
-    topic: "a house or land",
-    heading: placeholder("Homes built and sold"),
-    line: placeholder("We build houses and sell land with clean, verified papers."),
-    image: placeholder({src: "/placeholders/division-engineering-photo.jpg", alt: "", width: 800, height: 1000}),
-  },
-  {
-    key: "autos",
-    name: "Autos",
-    path: "/autos",
-    number: mainNumber,
-    topic: "a car",
-    heading: placeholder("Cars you can trust"),
-    line: placeholder("Inspected cars, ready to drive, with honest prices."),
-    image: placeholder({src: "/placeholders/division-autos-photo.jpg", alt: "", width: 800, height: 1000}),
-  },
-] as const;
 
 type FeaturedItemInput = {name: string; detail: string; price?: number; photo: string};
 
@@ -261,6 +219,19 @@ export const homeContent = {
       `Akik began in ${startYear.value} as a small shop selling original phones and gadgets. Customers kept coming back and asked for more, so we started building homes and selling land with clean papers. Then came inspected cars. Three businesses now, one promise: what we sell is what you get.`
     ),
     link: pageExists("/about") ? {label: "Read our story", href: "/about"} : undefined,
+  },
+  // Spec (visit-us). The address is real, from the owner's Instagram bio; the structured data reads the same values.
+  visit: {
+    heading: placeholder("Come and see us at Iwo Road"),
+    address: real({street: "Iwo Road Shopping Complex", city: "Ibadan", country: "NG"}),
+    image: placeholder({src: "/placeholders/visit-shop.jpg", alt: "", width: 1024, height: 768}),
+    contacts: divisions.map((division) => ({
+      key: division.key,
+      name: division.name,
+      number: division.number,
+      whatsappHref: whatsappTo(division.number.value, division.topic).href,
+      hours: placeholder("Mon to Sat, 9am to 6pm"),
+    })),
   },
   // Spec (buy-with-confidence, "Promises are owner-approved"): every claim waits for the owner's sign-off.
   trust: {
