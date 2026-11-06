@@ -8,18 +8,18 @@
 ## 2. Page shell
 
 - [ ] 2.1 Compose the twelve sections in order under `/`, leaving out empty ones. Proof: Testing Library test of section order and of an empty section being left out.
-- [ ] 2.2 Landmarks and skip link. Proof: Testing Library landmark test; browser test of the skip link moving focus.
+- [x] 2.2 Landmarks and skip link. Proof: Testing Library landmark test; browser test of the skip link moving focus.
 - [ ] 2.3 Metadata and `LocalBusiness` structured data from the content source. Proof: unit test of the head output and structured data values.
 
 ## 3. Header
 
-- [ ] 3.1 Announcement bar. Proof: tests for present, empty and truncated cases.
+- [x] 3.1 Announcement bar. Proof: tests for present, empty and truncated cases.
 - [ ] 3.2 Navigation, current page, WhatsApp link, mobile menu. Proof: Testing Library tests; browser test for Escape, focus return and focus containment.
 - [ ] 3.3 Floating pill. Proof: browser test that it appears after the header leaves view and isn't focusable when hidden.
 
 ## 4. Sections
 
-- [ ] 4.1 Hero. Proof: tests for the single `h1`, actions and reassurance wrapping; browser test of 16:9 and 4:5 boxes.
+- [x] 4.1 Hero. Proof: tests for the single `h1`, actions and reassurance wrapping; browser test of 16:9 and 4:5 boxes.
 - [ ] 4.2 Divisions. Proof: tests for order, accent per card and WhatsApp fallback; browser test of the swipe row at 390px with no page overflow.
 - [ ] 4.3 Featured now: tabs and item cards. Proof: keyboard tests for tabs; tests for the prefilled WhatsApp message, price-on-request and the 8-item cap; browser test for disabled arrows at the ends.
 - [ ] 4.4 Proof section. Proof: tests for quote markup, emphasis and column order.

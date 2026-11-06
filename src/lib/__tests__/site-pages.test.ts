@@ -1,7 +1,7 @@
 import {readdirSync} from "node:fs";
 import {resolve} from "node:path";
 import {describe, expect, it} from "vite-plus/test";
-import {prerenderPathnames} from "@/lib/site-pages";
+import {pageExists, prerenderPathnames} from "@/lib/site-pages";
 
 const routesDir = resolve(import.meta.dirname, "../../routes");
 
@@ -16,5 +16,15 @@ describe("prerenderPathnames", () => {
       .filter((file) => file.endsWith(".tsx") && !file.startsWith("__") && !file.includes("$"))
       .map(routeFileToPathname);
     expect([...prerenderPathnames].sort()).toEqual(routePathnames.sort());
+  });
+});
+
+describe("pageExists", () => {
+  it("knows a shipped page", () => {
+    expect(pageExists("/")).toBe(true);
+  });
+
+  it("knows a page that has not shipped", () => {
+    expect(pageExists("/autos")).toBe(false);
   });
 });

@@ -176,6 +176,8 @@
   /* Light scheme only (design.md D3): form controls and scrollbars stay light even when the system prefers dark. */
   :root {
     color-scheme: light only;
+    /* Anchor jumps and focus scrolling stop below the floating header pill (home/header/floating-pill spec). */
+    scroll-padding-top: 6rem;
   }
   body {
     background-color: var(--color-page);

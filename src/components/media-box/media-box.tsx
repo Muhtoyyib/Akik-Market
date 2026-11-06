@@ -2,7 +2,8 @@ import {cn} from "cn";
 import type {ReactNode} from "react";
 import {LoopVideo} from "@/components/media-box/loop-video";
 
-type Ratio = "16:9" | "4:5" | "3:2" | "1:1";
+// "4:5/16:9" is portrait on phones and wide from tablets up, for boxes that should fill a phone screen.
+type Ratio = "16:9" | "4:5" | "3:2" | "1:1" | "4:5/16:9";
 
 type Media =
   | {kind: "image"; src: string; alt: string; width: number; height: number; srcSet?: string; sizes?: string}
@@ -26,6 +27,7 @@ const RATIO_CLASS: Record<Ratio, string> = {
   "4:5": "aspect-portrait",
   "3:2": "aspect-photo",
   "1:1": "aspect-square",
+  "4:5/16:9": "aspect-portrait md:aspect-video",
 };
 
 const FILL = "absolute inset-0 size-full object-cover";
