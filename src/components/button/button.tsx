@@ -31,7 +31,7 @@ function LinkArrow() {
   return (
     <span
       aria-hidden
-      className="inline-flex size-6 items-center justify-center rounded-full bg-ink text-on-dark transition-colors group-hover:bg-ink/85"
+      className="inline-flex size-6 items-center justify-center rounded-full bg-ink text-on-dark transition-colors group-hover:bg-ink/85 in-division:bg-accent in-division:group-hover:bg-accent/85"
     >
       <ArrowRight size={16} strokeWidth={1.5} />
     </span>

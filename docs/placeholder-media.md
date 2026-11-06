@@ -14,3 +14,27 @@ Files live in `public/placeholders/` and are referenced from `src/lib/home-conte
 Images are cropped to 4:5 at 800x1000.
 
 Mixkit marks some clips "Restricted" (personal use only). Every car and SUV clip checked on 2026-11-06 was Restricted, so the car shot is made from a licensed photo instead. Check a clip's page licence before adding it. This file keeps the sources so each one can be checked and replaced.
+
+## Featured now
+
+Item photos in `public/placeholders/featured/`, fetched through the [Openverse](https://openverse.org) image proxy on 2026-11-06 (Unsplash's own site now blocks automated requests, and StockSnap's CDN challenged the first burst). Cropped to 4:5 at 512x640 from StockSnap's 960px files. Item names, details and prices in the content source are invented stand-ins; the photos don't show those exact models.
+
+| File                            | Shows                                | Source                                                                                | Licence                                                   |
+| ------------------------------- | ------------------------------------ | ------------------------------------------------------------------------------------- | --------------------------------------------------------- |
+| `featured/phone-iphone.jpg`     | White iPhone on a wooden desk        | [StockSnap](https://stocksnap.io/photo/iphone-mobile-XMVLGZZTW3), Negative Space      | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/phone-samsung.jpg`    | White Android phone on a desk        | [StockSnap](https://stocksnap.io/photo/smartphone-mobile-O4V3KXZI1T), Negative Space  | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/phone-white.jpg`      | White phone beside a notebook        | [StockSnap](https://stocksnap.io/photo/smartphone-mobile-IU6HNPC2NT), Negative Space  | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/laptop-macbook.jpg`   | MacBook and iPad on a desk           | [StockSnap](https://stocksnap.io/photo/macbook-laptop-RMATTE7HXJ), Wilfred Iven       | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/laptop-desk.jpg`      | Laptop, glasses and coffee on a desk | [StockSnap](https://stocksnap.io/photo/macbook-laptop-DWLWL9USBG), Lia Leslie         | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/audio-headphones.jpg` | Headphones on a laptop               | [StockSnap](https://stocksnap.io/photo/headphones-audio-WM2HLLDW0K), Álvaro Bernal    | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/home-duplex.jpg`      | Two-storey house with garage at dusk | [StockSnap](https://stocksnap.io/photo/house-home-LJ515CPAKI), Binyamin Mellish       | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/home-bungalow.jpg`    | Bungalow after rain                  | [StockSnap](https://stocksnap.io/photo/house-home-L9VZ6SOGBB), Binyamin Mellish       | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/home-terrace.jpg`     | Large house by a lake                | [StockSnap](https://stocksnap.io/photo/house-home-JO8UW3FDNJ), Evelyn Paris           | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/home-modern.jpg`      | Wood-clad modern house               | [StockSnap](https://stocksnap.io/photo/woodpaneling-house-582053B25E), Jay Mantri     | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/home-apartment.jpg`   | Living room interior                 | [StockSnap](https://stocksnap.io/photo/interior-design-D0NOMANBA7), Dahl House Design | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/car-audi.jpg`         | Blue Audi from the rear              | [StockSnap](https://stocksnap.io/photo/car-vehicle-0B45312K5M), Mike Birdy            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/car-mercedes.jpg`     | Silver Mercedes front, headlights on | [StockSnap](https://stocksnap.io/photo/cars-silver-4JQNHSXUDH), Mike Birdy            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/car-landrover.jpg`    | White Land Rover Defender            | [StockSnap](https://stocksnap.io/photo/white-suv-39452134C9), Jeff Sheldon            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/car-porsche.jpg`      | Silver Porsche 911 in a car park     | [StockSnap](https://stocksnap.io/photo/parking-car-FOS61VCHQR), Alex Iby              | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/car-mustang.jpg`      | Red Ford Mustang front               | [StockSnap](https://stocksnap.io/photo/red-car-8MBNGUYS92), avinash patel             | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |
+| `featured/car-sedan.jpg`        | Silver sedan side window             | [StockSnap](https://stocksnap.io/photo/auto-window-SEXSRO0DFS), Matt Bango            | [CC0](https://creativecommons.org/publicdomain/zero/1.0/) |

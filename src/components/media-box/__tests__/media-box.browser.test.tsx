@@ -65,8 +65,9 @@ describe("MediaBox in a browser", () => {
   it("plays again when the visitor presses play", async () => {
     render(<MediaBox ratio="16:9" media={clip} />);
     await waitForPlayback(false);
-    await userEvent.click(screen.getByRole("button", {name: "Pause video"}));
-    await userEvent.click(screen.getByRole("button", {name: "Play video"}));
+    // The label follows the video's play event, which can land just after playback starts.
+    await userEvent.click(await screen.findByRole("button", {name: "Pause video"}));
+    await userEvent.click(await screen.findByRole("button", {name: "Play video"}));
     await waitForPlayback(false);
   });
 

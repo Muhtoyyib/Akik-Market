@@ -10,6 +10,8 @@ type PillTabsProps = {
   label: string;
   tabs: PillTab[];
   surface?: "light" | "dark";
+  /** A section header that shares the tabs' row from lg up and sits above them on smaller screens. */
+  header?: ReactNode;
 };
 
 const SURFACE = {
@@ -31,38 +33,41 @@ function revealSelected(list: HTMLElement | null) {
   if (list && selected) list.scrollLeft = scrollLeftToReveal(list, selected);
 }
 
-export function PillTabs({label, tabs, surface = "light"}: PillTabsProps) {
+export function PillTabs({label, tabs, surface = "light", header}: PillTabsProps) {
   const listRef = useRef<HTMLDivElement>(null);
   const look = SURFACE[surface];
   return (
     <Tabs.Root defaultValue={tabs[0]?.value} onValueChange={() => requestAnimationFrame(() => revealSelected(listRef.current))}>
-      <Tabs.List
-        ref={listRef}
-        aria-label={label}
-        activateOnFocus
-        className={cn("relative flex w-max max-w-full overflow-x-auto rounded-full p-1", look.track)}
-      >
-        {tabs.map((tab) => (
-          <Tabs.Tab
-            key={tab.value}
-            value={tab.value}
-            className={cn(
-              "relative z-10 h-10 shrink-0 rounded-full px-5 type-small font-semibold whitespace-nowrap transition-colors ease-standard outline-offset-2 focus-visible:outline-2 focus-visible:outline-solid",
-              look.tab
-            )}
-          >
-            {tab.label}
-          </Tabs.Tab>
-        ))}
-        {/* Placed by an inline script before React loads, so the selected pill's light text never shows on the bare track. */}
-        <Tabs.Indicator
-          renderBeforeHydration
-          data-pill-indicator
-          className={cn("absolute z-0 rounded-full pill-indicator", look.indicator)}
-        />
-      </Tabs.List>
+      <div className="flex flex-col items-start gap-6 lg:flex-row lg:items-end lg:justify-between">
+        {header}
+        <Tabs.List
+          ref={listRef}
+          aria-label={label}
+          activateOnFocus
+          className={cn("relative flex w-max max-w-full overflow-x-auto rounded-full p-1", look.track)}
+        >
+          {tabs.map((tab) => (
+            <Tabs.Tab
+              key={tab.value}
+              value={tab.value}
+              className={cn(
+                "relative z-10 h-10 shrink-0 rounded-full px-5 type-small font-semibold whitespace-nowrap transition-colors ease-standard outline-offset-2 focus-visible:outline-2 focus-visible:outline-solid",
+                look.tab
+              )}
+            >
+              {tab.label}
+            </Tabs.Tab>
+          ))}
+          {/* Placed by an inline script before React loads, so the selected pill's light text never shows on the bare track. */}
+          <Tabs.Indicator
+            renderBeforeHydration
+            data-pill-indicator
+            className={cn("absolute z-0 rounded-full pill-indicator", look.indicator)}
+          />
+        </Tabs.List>
+      </div>
       {tabs.map((tab) => (
-        <Tabs.Panel key={tab.value} value={tab.value} className="mt-6">
+        <Tabs.Panel key={tab.value} value={tab.value} className={header ? "mt-8 md:mt-12" : "mt-6"}>
           {tab.panel}
         </Tabs.Panel>
       ))}

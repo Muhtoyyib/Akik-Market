@@ -172,6 +172,11 @@
   transition-timing-function: var(--ease-standard);
 }
 
+/* Swipe rows with arrow buttons (home design.md D1): the arrows and the peeking card show there is more, so the bar is noise. */
+@utility scrollbar-hidden {
+  scrollbar-width: none;
+}
+
 @layer base {
   /* Light scheme only (design.md D3): form controls and scrollbars stay light even when the system prefers dark. */
   :root {

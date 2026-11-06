@@ -16,12 +16,11 @@ if (typeof window.matchMedia !== "function") {
     removeEventListener: () => {},
   }));
 }
-if (typeof window.IntersectionObserver !== "function") {
-  vi.stubGlobal(
-    "IntersectionObserver",
-    class {
-      observe() {}
-      disconnect() {}
-    }
-  );
+// Both observers only need to exist in jsdom: observing does nothing, and the browser tests cover what they drive.
+class InertObserver {
+  observe() {}
+  disconnect() {}
+}
+for (const name of ["IntersectionObserver", "ResizeObserver"] as const) {
+  if (typeof window[name] !== "function") vi.stubGlobal(name, InertObserver);
 }
