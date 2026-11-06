@@ -1,7 +1,7 @@
 import {ProjectsBanner} from "@/components/projects-banner/projects-banner";
 import {AutosInspection} from "@/features/division/autos-inspection";
 import {PhoneServices} from "@/features/division/phone-services";
-import {ServiceRows} from "@/features/division/service-rows";
+import {IconRowsSection} from "@/components/icon-row/icon-rows-section";
 import type {DivisionPage} from "@/lib/content/division-page";
 
 /** The one section only this business has, chosen by its key (division-pages design D1). */
@@ -20,7 +20,7 @@ export function SpecificSection({section}: {section: DivisionPage["specific"]}) 
     const {projects} = section;
     return (
       <>
-        <ServiceRows heading={section.heading.value} rows={section.rows} />
+        <IconRowsSection heading={section.heading.value} rows={section.rows} headingId="services-heading" />
         <ProjectsBanner
           eyebrow={projects.eyebrow.value}
           heading={projects.heading.value}

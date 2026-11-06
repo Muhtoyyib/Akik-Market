@@ -1,5 +1,5 @@
 import {Button} from "@/components/button/button";
-import {PhotoStack} from "@/features/home/founder/photo-stack";
+import {PhotoStack} from "@/components/photo-stack/photo-stack";
 import {Frame} from "@/components/frame/frame";
 
 type FounderProps = {
