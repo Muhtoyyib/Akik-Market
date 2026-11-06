@@ -14,8 +14,8 @@
 ## 3. Header
 
 - [x] 3.1 Announcement bar. Proof: tests for present, empty and truncated cases.
-- [ ] 3.2 Navigation, current page, WhatsApp link, mobile menu. Proof: Testing Library tests; browser test for Escape, focus return and focus containment.
-- [ ] 3.3 Floating pill. Proof: browser test that it appears after the header leaves view and isn't focusable when hidden.
+- [x] 3.2 Navigation, current page, WhatsApp link, mobile menu. Proof: Testing Library tests; browser test for Escape, focus return and focus containment.
+- [x] 3.3 Floating pill. Proof: browser test that it appears after the header leaves view and isn't focusable when hidden.
 
 ## 4. Sections
 

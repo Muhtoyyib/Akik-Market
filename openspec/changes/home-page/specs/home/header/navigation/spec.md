@@ -37,6 +37,11 @@ The pill SHALL open WhatsApp to Akik's main number with a short prefilled greeti
 
 Under 1024px the page links SHALL move into a menu opened by a round menu button beside the WhatsApp pill. The menu SHALL open as a full-width panel, close on Escape, on the close button and when a link is chosen, return focus to the menu button when closed, and keep focus inside while open.
 
+#### Scenario: No pages to list
+
+- **WHEN** Home is the only built page
+- **THEN** there is no menu button in the header or the floating pill, rather than one that opens an empty panel
+
 #### Scenario: Keyboard closes the menu
 
 - **WHEN** the menu is open and the visitor presses Escape

@@ -10,7 +10,17 @@ export default defineConfig({
   plugins: [tailwindcss(), react()],
   // Pre-bundled up front: when Vite finds a dependency mid-run it reloads the browser and every test file fails to import.
   optimizeDeps: {
-    include: ["react", "react-dom", "react-dom/client", "@base-ui/react/tabs", "lucide-react", "axe-core", "@testing-library/react", "cn"],
+    include: [
+      "react",
+      "react-dom",
+      "react-dom/client",
+      "@base-ui/react/tabs",
+      "@base-ui/react/dialog",
+      "lucide-react",
+      "axe-core",
+      "@testing-library/react",
+      "cn",
+    ],
   },
   test: {
     ...sharedTestConfig,

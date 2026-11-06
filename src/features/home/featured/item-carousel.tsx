@@ -1,13 +1,17 @@
+import {cn} from "cn";
 import {ChevronLeft, ChevronRight} from "lucide-react";
 import {useEffect, useState, type ReactNode} from "react";
+import {ROUND_ICON_BUTTON} from "@/components/button/round-icon-button";
 import {ItemCard, type FeaturedItem} from "@/features/home/featured/item-card";
 import {rowEnds} from "@/lib/row-ends";
 import {usePrefersReducedMotion} from "@/lib/use-prefers-reduced-motion";
 
 type ItemCarouselProps = {items: readonly FeaturedItem[]; action: ReactNode};
 
-const ARROW =
-  "inline-flex size-11 items-center justify-center rounded-full border border-line bg-card text-ink transition-colors ease-standard outline-offset-2 outline-brand-navy hover:border-ink hover:bg-ink hover:text-on-dark focus-visible:outline-2 focus-visible:outline-solid disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-line disabled:hover:bg-card disabled:hover:text-ink";
+const ARROW = cn(
+  ROUND_ICON_BUTTON,
+  "disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:border-line disabled:hover:bg-card disabled:hover:text-ink"
+);
 
 /** Keeps the arrows' disabled state in step with the row as it scrolls or resizes. */
 function useRowEnds(track: HTMLUListElement | null) {
