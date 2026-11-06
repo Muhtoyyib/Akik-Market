@@ -1,5 +1,6 @@
 // What the Engineering & Real Estate page says that is its own. Every promise, service and claim is a stand-in until
 // the owner confirms it (division-pages proposal, "Business facts and placeholders"). Photos: docs/placeholder-media.md.
+import {FileCheck, Hammer, Handshake, HardHat, Key, LandPlot, PaintRoller, Store} from "lucide-react";
 import {placeholder, real} from "@/lib/content-facts";
 import {pageDescriptions} from "@/lib/content/page-descriptions";
 import {photo, SIZES} from "@/lib/responsive-image";
@@ -38,19 +39,19 @@ export const engineeringPage = {
     heading: placeholder("How buying a home works"),
     image: placeholder(photo("/placeholders/division-engineering-photo.jpg", {alt: "", width: 800, height: 1000}, SIZES.halfWidth)),
     rows: [
-      placeholder({icon: "store" as const, title: "Visit the site", line: "See the house or plot with us, any day of the week."}),
-      placeholder({icon: "file-check" as const, title: "Check the papers", line: "We show you the title documents before you pay."}),
-      placeholder({icon: "handshake" as const, title: "Agree the price", line: "One clear price, written down, with no hidden fees."}),
-      placeholder({icon: "key" as const, title: "Get the keys", line: "Handover on site, with every document in your name."}),
+      placeholder({icon: Store, title: "Visit the site", line: "See the house or plot with us, any day of the week."}),
+      placeholder({icon: FileCheck, title: "Check the papers", line: "We show you the title documents before you pay."}),
+      placeholder({icon: Handshake, title: "Agree the price", line: "One clear price, written down, with no hidden fees."}),
+      placeholder({icon: Key, title: "Get the keys", line: "Handover on site, with every document in your name."}),
     ],
   },
   services: {
     heading: placeholder("Building and renovation"),
     rows: [
-      placeholder({icon: "hammer" as const, title: "Building from the ground up", line: "We build on your land, from plans to roof."}),
-      placeholder({icon: "paint-roller" as const, title: "Renovation", line: "We refresh and extend homes you already own."}),
-      placeholder({icon: "hard-hat" as const, title: "Site supervision", line: "We manage builders and materials so you don't have to."}),
-      placeholder({icon: "land-plot" as const, title: "Land sales", line: "Plots with clean papers, surveyed and marked out."}),
+      placeholder({icon: Hammer, title: "Building from the ground up", line: "We build on your land, from plans to roof."}),
+      placeholder({icon: PaintRoller, title: "Renovation", line: "We refresh and extend homes you already own."}),
+      placeholder({icon: HardHat, title: "Site supervision", line: "We manage builders and materials so you don't have to."}),
+      placeholder({icon: LandPlot, title: "Land sales", line: "Plots with clean papers, surveyed and marked out."}),
     ],
   },
   contact: {heading: placeholder("Talk to us about a home at Iwo Road")},

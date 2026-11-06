@@ -1,3 +1,4 @@
+import {OWN_PAGES} from "@/test/fixtures/own-pages";
 import {existsSync} from "node:fs";
 import {describe, expect, it} from "vite-plus/test";
 import {type Fact, placeholderFacts} from "@/lib/content-facts";
@@ -15,7 +16,7 @@ const built =
   (...paths: string[]) =>
   (path: string) =>
     paths.includes(path);
-const pages = businesses.map((entry) => divisionPage(entry.key, none));
+const pages = businesses.map((entry) => divisionPage(OWN_PAGES[entry.key], none));
 const own = [phonesPage, engineeringPage, autosPage];
 
 describe("division page content", () => {

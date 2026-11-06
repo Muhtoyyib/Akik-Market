@@ -1,3 +1,4 @@
+import {OWN_PAGES} from "@/test/fixtures/own-pages";
 import {render, screen, within} from "@testing-library/react";
 import {beforeEach, describe, expect, it} from "vite-plus/test";
 import {page} from "vite-plus/test/browser";
@@ -8,7 +9,7 @@ import {pageExists} from "@/lib/site-pages";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";
 
-const autos = divisionPage("autos", pageExists);
+const autos = divisionPage(OWN_PAGES.autos, pageExists);
 const heroBox = () => document.querySelector("[aria-labelledby='hero-heading'] img")!.parentElement!.getBoundingClientRect();
 
 describe("a division page in a browser", () => {
@@ -69,7 +70,7 @@ describe("a division page in a browser", () => {
 
   for (const entry of businesses) {
     it(`has no axe violations on the ${entry.name} page at 1440 and 390`, async () => {
-      const {container} = render(<DivisionView page={divisionPage(entry.key, pageExists)} />);
+      const {container} = render(<DivisionView page={divisionPage(OWN_PAGES[entry.key], pageExists)} />);
       const desktop = await axeViolations(container);
       await page.viewport(390, 844);
       expect([desktop, await axeViolations(container)]).toEqual([[], []]);

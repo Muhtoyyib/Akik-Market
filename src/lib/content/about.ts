@@ -1,6 +1,7 @@
 // Everything the About page says. Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the
 // placeholder report. Only the order the businesses began in is confirmed (client lead); the story around it is a
 // stand-in until the owner tells it.
+import {BadgeCheck, FileCheck, Handshake, Store} from "lucide-react";
 import {placeholder, real} from "@/lib/content-facts";
 import {address, businesses, businessYears, shopContacts, shopPhoto, startYear} from "@/lib/content/business";
 import {founderPhotos} from "@/lib/content/founder";
@@ -59,10 +60,10 @@ export const aboutContent = {
   values: {
     heading: placeholder("What we promise"),
     rows: [
-      placeholder({icon: "badge-check" as const, title: "Only the real thing", line: "Original phones, real papers, honest cars."}),
-      placeholder({icon: "file-check" as const, title: "Papers before payment", line: "You see every document before you pay."}),
-      placeholder({icon: "store" as const, title: "See it first", line: "Visit the shop, the site or the car before you decide."}),
-      placeholder({icon: "handshake" as const, title: "One clear price", line: "Agreed up front and written down, with no hidden fees."}),
+      placeholder({icon: BadgeCheck, title: "Only the real thing", line: "Original phones, real papers, honest cars."}),
+      placeholder({icon: FileCheck, title: "Papers before payment", line: "You see every document before you pay."}),
+      placeholder({icon: Store, title: "See it first", line: "Visit the shop, the site or the car before you decide."}),
+      placeholder({icon: Handshake, title: "One clear price", line: "Agreed up front and written down, with no hidden fees."}),
     ],
   },
   // Spec (about team, "Real people only"): empty until the owner supplies names, roles and photos.

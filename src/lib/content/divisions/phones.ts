@@ -1,5 +1,6 @@
 // What the Phones & Gadgets page says that is its own. Every promise, service and claim is a stand-in until the owner
 // confirms it (division-pages proposal, "Business facts and placeholders"). Photos: docs/placeholder-media.md.
+import {BadgeCheck, MessageCircle, RefreshCw, Shield, Store, Wrench} from "lucide-react";
 import {placeholder, real} from "@/lib/content-facts";
 import {pageDescriptions} from "@/lib/content/page-descriptions";
 import {photo, SIZES} from "@/lib/responsive-image";
@@ -38,10 +39,10 @@ export const phonesPage = {
     heading: placeholder("How buying a phone works"),
     image: placeholder(photo("/placeholders/division-phones-photo.jpg", {alt: "", width: 800, height: 1000}, SIZES.halfWidth)),
     rows: [
-      placeholder({icon: "message" as const, title: "Ask on WhatsApp", line: "Tell us the phone you want; we send photos and the price."}),
-      placeholder({icon: "store" as const, title: "See it at the shop", line: "Try the phone at Iwo Road before you pay."}),
-      placeholder({icon: "badge-check" as const, title: "Check it's original", line: "We open the box with you and check the serial."}),
-      placeholder({icon: "shield" as const, title: "Leave with a warranty", line: "Every phone comes with a written warranty."}),
+      placeholder({icon: MessageCircle, title: "Ask on WhatsApp", line: "Tell us the phone you want; we send photos and the price."}),
+      placeholder({icon: Store, title: "See it at the shop", line: "Try the phone at Iwo Road before you pay."}),
+      placeholder({icon: BadgeCheck, title: "Check it's original", line: "We open the box with you and check the serial."}),
+      placeholder({icon: Shield, title: "Leave with a warranty", line: "Every phone comes with a written warranty."}),
     ],
   },
   services: {
@@ -52,7 +53,7 @@ export const phonesPage = {
         title: real("Trade-in"),
         rows: [
           placeholder({
-            icon: "refresh" as const,
+            icon: RefreshCw,
             title: "Bring your old phone",
             line: "We price it on the spot and take it off your new one.",
           }),
@@ -60,13 +61,13 @@ export const phonesPage = {
       },
       {
         title: real("Repairs"),
-        rows: [placeholder({icon: "wrench" as const, title: "Screens and batteries", line: "Most repairs are done the same day."})],
+        rows: [placeholder({icon: Wrench, title: "Screens and batteries", line: "Most repairs are done the same day."})],
       },
       {
         title: real("Warranty"),
         rows: [
           placeholder({
-            icon: "shield" as const,
+            icon: Shield,
             title: "Covered for a year",
             line: "Faults are covered for 12 months from the day you buy.",
           }),

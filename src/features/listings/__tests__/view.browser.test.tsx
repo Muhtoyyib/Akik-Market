@@ -1,3 +1,4 @@
+import {OWN_PAGES} from "@/test/fixtures/own-pages";
 import {render, screen, waitFor} from "@testing-library/react";
 import {afterEach, beforeEach, describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
@@ -67,7 +68,7 @@ describe("the Listings page in a browser", () => {
   });
 
   it("has no axe violations on the Engineering page with linked offer cards", async () => {
-    render(<DivisionView page={divisionPage("engineering", pageExists)} />);
+    render(<DivisionView page={divisionPage(OWN_PAGES.engineering, pageExists)} />);
     expect(await axeViolations(document.body)).toEqual([]);
   });
 });

@@ -1,3 +1,4 @@
+import {OWN_PAGES} from "@/test/fixtures/own-pages";
 import {render, screen, within} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {AutosInspection} from "@/features/division/autos-inspection";
@@ -7,9 +8,9 @@ import {divisionPage, type DivisionPage} from "@/lib/content/division-page";
 import {pageExists} from "@/lib/site-pages";
 
 const renderPage = (page: DivisionPage) => render(<DivisionView page={page} />);
-const phones = divisionPage("phones", pageExists);
-const engineering = divisionPage("engineering", pageExists);
-const autos = divisionPage("autos", pageExists);
+const phones = divisionPage(OWN_PAGES.phones, pageExists);
+const engineering = divisionPage(OWN_PAGES.engineering, pageExists);
+const autos = divisionPage(OWN_PAGES.autos, pageExists);
 const sectionNames = () =>
   within(screen.getByRole("main"))
     .getAllByRole("region")
@@ -73,7 +74,7 @@ describe("a division page", () => {
   });
 
   it("shows the offer cards as content, not links, while no page lists the business", () => {
-    renderPage(divisionPage("autos", () => false));
+    renderPage(divisionPage(OWN_PAGES.autos, () => false));
     const offer = screen.getByRole("region", {name: autos.offer.heading.value});
     expect([within(offer).getAllByRole("listitem").length, within(offer).queryAllByRole("link")]).toEqual([4, []]);
   });

@@ -1,9 +1,9 @@
 // Each division page: its own copy plus what it takes from the site-wide facts and the shared collections. Every
 // WhatsApp action goes to this business's number (division page-template spec, "Every action reaches this business").
 import {address, business, hours, shopPhoto, whatsappTo, type BusinessKey} from "@/lib/content/business";
-import {autosPage} from "@/lib/content/divisions/autos";
-import {engineeringPage} from "@/lib/content/divisions/engineering";
-import {phonesPage} from "@/lib/content/divisions/phones";
+import type {autosPage} from "@/lib/content/divisions/autos";
+import type {engineeringPage} from "@/lib/content/divisions/engineering";
+import type {phonesPage} from "@/lib/content/divisions/phones";
 import {listings, type Listing} from "@/lib/content/listings";
 import {projectsBanner} from "@/lib/content/projects-banner";
 import {stories, type Story} from "@/lib/content/stories";
@@ -33,21 +33,29 @@ export function divisionStory(key: BusinessKey, all: readonly Story[]): Story | 
   return all.find((item) => item.business === key);
 }
 
-const OWN = {phones: phonesPage, engineering: engineeringPage, autos: autosPage};
+/**
+ * A business with its own copy. Each route passes its own, so a division page loads only its business's words
+ * (measured with Contact added: importing all three here cost every division page about 1 KB).
+ */
+export type OwnPage =
+  | {key: "phones"; page: typeof phonesPage}
+  | {key: "engineering"; page: typeof engineeringPage}
+  | {key: "autos"; page: typeof autosPage};
 
 /** The one section only this business has (division-pages design D1), with its WhatsApp action where it has one. */
-function specificSection(key: BusinessKey) {
-  const {number} = business(key);
-  if (key === "phones")
-    return {kind: "phones" as const, ...phonesPage.services, whatsappHref: whatsappTo(number.value, phonesPage.services.topic.value).href};
-  if (key === "engineering") return {kind: "engineering" as const, ...engineeringPage.services, projects: projectsBanner};
-  return {kind: "autos" as const, ...autosPage.inspection};
+function specificSection(own: OwnPage) {
+  if (own.key === "phones") {
+    const {services} = own.page;
+    return {kind: "phones" as const, ...services, whatsappHref: whatsappTo(business("phones").number.value, services.topic.value).href};
+  }
+  if (own.key === "engineering") return {kind: "engineering" as const, ...own.page.services, projects: projectsBanner};
+  return {kind: "autos" as const, ...own.page.inspection};
 }
 
 /** Everything one division page shows, in page order. */
-export function divisionPage(key: BusinessKey, exists: (path: string) => boolean) {
+export function divisionPage(ownPage: OwnPage, exists: (path: string) => boolean) {
+  const {key, page: own} = ownPage;
   const entry = business(key);
-  const own = OWN[key];
   const ask = whatsappTo(entry.number.value, entry.topic).href;
   return {
     key,
@@ -56,7 +64,7 @@ export function divisionPage(key: BusinessKey, exists: (path: string) => boolean
     offer: offerWithLinks(own.offer, listingsHref(key, exists)),
     stock: {...own.stock, items: divisionStock(key, listings), href: seeAllHref(key, exists)},
     steps: {...own.steps, whatsappHref: ask},
-    specific: specificSection(key),
+    specific: specificSection(ownPage),
     story: divisionStory(key, stories),
     contact: {
       heading: own.contact.heading,

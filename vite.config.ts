@@ -87,8 +87,9 @@ export default defineConfig({
   // smaller files that compress worse (measured with About added: Home 179.2 KB across 14 files, 172.5 across 4).
   // Content stays out of it: grouped with src/lib, every page loaded every page's copy. The page-head helpers join it
   // because every page loads them anyway; as two files of their own they cost 0.3 KB more (measured with News added).
-  // Stories, LeadQuote and ClosingBlock are left out: only Home, Projects and Testimonials use them, and in the group
-  // they cost every division page 0.4 KB (measured with Testimonials added: 172.0 KB in the group, 171.5 out of it).
+  // Components that neither Home nor the division pages use stay out (Stories, LeadQuote, ClosingBlock, BodyBlocks,
+  // BackLink): in the group they cost those, the heaviest pages, 0.1 to 0.4 KB each (measured with Testimonials and
+  // Contact added). Icons stay out too: grouped, Home loaded every division's icons (172.2 KB against 170.9).
   build: {
     rolldownOptions: {
       output: {
@@ -96,7 +97,7 @@ export default defineConfig({
           groups: [
             {
               name: "shared",
-              test: /\/src\/(components\/(?!stories\/|lead-quote\/|closing-block\/)|lib\/page-head\.ts|lib\/content\/page-descriptions\.ts)/,
+              test: /\/src\/(components\/(?!stories\/|lead-quote\/|closing-block\/|body-blocks\/|back-link\/)|lib\/page-head\.ts|lib\/content\/page-descriptions\.ts)/,
               minShareCount: 2,
             },
           ],

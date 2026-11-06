@@ -1,6 +1,7 @@
 // Everything Home says that is Home's own. Site-wide facts come from business.ts and site.ts; listings, posts and stories
 // from their collections. Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder
 // report. Approved for the pitch build by the client lead on 2026-11-06.
+import {ClipboardCheck, FileCheck, Key, Shield} from "lucide-react";
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
 import {address, businesses, shopContacts, shopPhoto, social, startYear, whatsappTo, type BusinessKey} from "@/lib/content/business";
 import {founderPhotos} from "@/lib/content/founder";
@@ -92,10 +93,10 @@ export const homeContent = {
     heading: placeholder("Buy with confidence"),
     image: placeholder(photo("/placeholders/trust-handshake.jpg", {alt: "", width: 800, height: 1000}, SIZES.halfWidth)),
     rows: [
-      placeholder({icon: "shield" as const, title: "Genuine phones", line: "Every device is original, with warranty."}),
-      placeholder({icon: "clipboard-check" as const, title: "Inspected cars", line: "Each car is checked before it's listed."}),
-      placeholder({icon: "file-check" as const, title: "Verified land papers", line: "We confirm the documents before you pay."}),
-      placeholder({icon: "key" as const, title: "Handover you can see", line: "Visit the site or the car before you commit."}),
+      placeholder({icon: Shield, title: "Genuine phones", line: "Every device is original, with warranty."}),
+      placeholder({icon: ClipboardCheck, title: "Inspected cars", line: "Each car is checked before it's listed."}),
+      placeholder({icon: FileCheck, title: "Verified land papers", line: "We confirm the documents before you pay."}),
+      placeholder({icon: Key, title: "Handover you can see", line: "Visit the site or the car before you commit."}),
     ],
   },
   featured: {
