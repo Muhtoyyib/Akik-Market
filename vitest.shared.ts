@@ -6,9 +6,11 @@ export const sharedViteConfig = {
     __BUILD_YEAR__: JSON.stringify(new Date().getFullYear()),
   },
   resolve: {
-    alias: {
-      "@": resolve(import.meta.dirname, "./src"),
-    },
+    alias: [
+      {find: "@", replacement: resolve(import.meta.dirname, "./src")},
+      // Only the bare "cn" import: "cn/engine" and the other entry points stay the package's (src/lib/cn.ts).
+      {find: /^cn$/, replacement: resolve(import.meta.dirname, "./src/lib/cn.ts")},
+    ],
   },
 };
 
@@ -16,14 +18,14 @@ export const sharedViteConfig = {
 // largest photo 155, largest phone copy 64, hero loop 904, all JS gzipped 168 (Home loads 165 of it; the menu's
 // dialog added 18 to the routes chunk). Since the division pages, scripts are budgeted per page (what one page's HTML
 // loads), measured 2026-11-06 at 171.7 for Engineering, the heaviest, with shared components in one chunk and
-// page copy kept out of route heads.
+// page copy kept out of route heads. With News and cn's compiled tables, 171.6 for Engineering (2026-11-06).
 // Budgets only go down: lower one when
 // the site gets lighter, and never raise one to get a change through.
 export const assetBudget = {
   photoKb: 200,
   phonePhotoKb: 80,
   videoKb: 1024,
-  scriptsGzipKb: 174,
+  scriptsGzipKb: 172,
 };
 
 export const sharedTestConfig = {

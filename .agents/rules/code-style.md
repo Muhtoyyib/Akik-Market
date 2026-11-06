@@ -22,7 +22,7 @@ description: Frontend code style rules for the Akik landing app.
 ## Styling
 
 - Use Tailwind utilities and the tokens in `src/styles/app.css`. No raw colours or inline styles (enforced by lint).
-- Merge classes with `cn` imported from `cn` (`import {cn} from "cn";`). Do not add a local `cn` helper.
+- Merge classes with `cn` imported from `cn` (`import {cn} from "cn";`). The bare import resolves to `src/lib/cn.ts`, cn's own compiled-table setup; do not add another `cn` helper.
 - Reuse existing primitives before creating new ones.
 
 ## Product truth

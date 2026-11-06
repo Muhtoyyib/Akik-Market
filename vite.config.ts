@@ -3,6 +3,7 @@ import {defineConfig, lazyPlugins} from "vite-plus";
 import {tanstackStart} from "@tanstack/react-start/plugin/vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
+import {cn} from "cn/vite";
 import {sharedViteConfig} from "./vitest.shared.ts";
 
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
     bracketSpacing: false,
     bracketSameLine: false,
     endOfLine: "lf",
-    ignorePatterns: ["routeTree.gen.ts"],
+    ignorePatterns: ["routeTree.gen.ts", "cn-tables.ts"],
   },
   lint: {
     plugins: ["react", "react-perf", "typescript", "jsx-a11y"],
@@ -45,7 +46,7 @@ export default defineConfig({
       "shadcn/no-inline-styles": "error",
       "shadcn/no-unknown-classes": "error",
     },
-    ignorePatterns: ["*.html", "public", "__tests__", "*.test.ts", "*.test.tsx", "*.config.ts", "routeTree.gen.ts"],
+    ignorePatterns: ["*.html", "public", "__tests__", "*.test.ts", "*.test.tsx", "*.config.ts", "routeTree.gen.ts", "cn-tables.ts"],
     options: {
       typeAware: true,
       typeCheck: true,
@@ -63,6 +64,8 @@ export default defineConfig({
       ...sharedViteConfig,
     });
     return [
+      // Refits src/lib/cn-tables.ts to the classes in src on every build and dev change (src/lib/cn.ts).
+      cn({content: ["src/**/*.{ts,tsx}"], out: "src/lib/cn-tables.ts"}),
       tailwindcss(),
       tanstackStart({
         prerender: {
@@ -97,6 +100,7 @@ export default defineConfig({
   },
   resolve: {
     tsconfigPaths: true,
+    alias: sharedViteConfig.resolve.alias,
   },
   server: {
     port: 5180,
