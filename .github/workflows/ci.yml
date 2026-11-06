@@ -24,3 +24,6 @@ jobs:
           bun-version: 1.4.2
       - run: bun install --frozen-lockfile
       - run: bun run ci:build
+      # Real-browser tests: tokens, focus rings, touch targets and axe. jsdom cannot check these.
+      - run: bunx playwright install --with-deps chromium
+      - run: bun run test:browser
