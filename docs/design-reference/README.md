@@ -4,8 +4,8 @@ How to choose the layout and components for any page section.
 
 ## Order of precedence
 
-1. **Matic (primary): https://maticrobots.com.** Every section starts from a Matic section pattern (P1–P11 in `matic-layout-study.md`). Use its layout, boxes, spacing and motion, adapted to Akik's tokens and content.
-2. **Lookup sites (secondary).** Use only when Matic has no pattern for what a section needs, or the client lead asks for a specific component. Name the site and the component in the page outline and spec.
+1. **Matic (first choice): https://maticrobots.com.** Consider a Matic pattern (P1–P11 in `matic-layout-study.md`) first for every section. Its boxes, spacing and motion are the house style for the whole site.
+2. **Lookup sites (equal options per section).** A section may use a lookup-site component whenever it fits that section's content better than the Matic pattern. Pages should mix sources where it helps; no page has to come from one site. Name the site and the component in the outline and spec, and rebuild it in the house style.
 
 | Site                | Look here for                                                             |
 | ------------------- | ------------------------------------------------------------------------- |
@@ -21,7 +21,7 @@ How to choose the layout and components for any page section.
 
 ## Process for each page
 
-1. Outline the page section by section. For each section give the Matic pattern it uses and, only if needed, a lookup-site alternative.
+1. Outline the page section by section. For each section give the best-fitting source (Matic pattern or lookup-site component) and why, with the runner-up where the choice is close.
 2. The client lead approves the outline or swaps components.
 3. Capture any lookup-site component before specifying it; don't rely on memory of a site.
 4. Write the page spec: `openspec/changes/<page>-page/specs/<page>/<section>/spec.md`, with a sub-folder per part when a section is large.
