@@ -1,6 +1,6 @@
 import {DIVISIONS_HEADING_ID, Divisions} from "@/features/home/divisions/divisions";
 import {Featured} from "@/features/home/featured/featured";
-import {Footer} from "@/features/home/footer/footer";
+import {Footer} from "@/components/footer/footer";
 import {Founder} from "@/features/home/founder/founder";
 import {Hero} from "@/features/home/hero/hero";
 import {ProjectsBanner} from "@/features/home/projects-banner/projects-banner";
@@ -9,8 +9,8 @@ import {Proof} from "@/features/home/proof/proof";
 import {Stories} from "@/features/home/stories/stories";
 import {Visit} from "@/features/home/visit/visit";
 import {Trust} from "@/features/home/trust/trust";
-import {SiteHeader} from "@/features/home/header/site-header";
-import {SkipLink} from "@/features/home/skip-link";
+import {SiteHeader} from "@/components/header/site-header";
+import {SkipLink} from "@/components/skip-link/skip-link";
 import {homeContent} from "@/lib/home-content";
 import {sectionLinks} from "@/lib/home-sections";
 

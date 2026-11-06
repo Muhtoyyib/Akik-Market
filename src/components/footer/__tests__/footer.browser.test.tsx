@@ -1,7 +1,7 @@
 import {render, screen} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page} from "vite-plus/test/browser";
-import {Footer} from "@/features/home/footer/footer";
+import {Footer} from "@/components/footer/footer";
 import {homeContent} from "@/lib/home-content";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";

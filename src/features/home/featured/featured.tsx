@@ -3,7 +3,7 @@ import {PillTabs} from "@/components/pill-tabs/pill-tabs";
 import {SectionHeader} from "@/components/section-header/section-header";
 import type {FeaturedItem} from "@/features/home/featured/item-card";
 import {ItemCarousel} from "@/features/home/featured/item-carousel";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 import type {OnwardLink} from "@/lib/onward-link";
 import {SECTION_IDS} from "@/lib/home-sections";
 

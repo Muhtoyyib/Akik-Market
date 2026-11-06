@@ -1,6 +1,6 @@
-import {Frame} from "@/features/home/frame";
-import {LinkColumns} from "@/features/home/footer/link-columns";
-import {Wordmark} from "@/features/home/footer/wordmark";
+import {Frame} from "@/components/frame/frame";
+import {LinkColumns} from "@/components/footer/link-columns";
+import {Wordmark} from "@/components/footer/wordmark";
 import type {FooterColumn} from "@/lib/footer-columns";
 
 type Counter = {figure: string; label: string};

@@ -1,7 +1,7 @@
 import {render, screen, waitFor} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
 import {page, userEvent} from "vite-plus/test/browser";
-import {SiteHeader} from "@/features/home/header/site-header";
+import {SiteHeader} from "@/components/header/site-header";
 import {sectionLinks} from "@/lib/home-sections";
 import {axeViolations} from "@/test/axe";
 import "@/styles/app.css";

@@ -1,5 +1,5 @@
 import {ArrowRight} from "lucide-react";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 import {opensInNewTab} from "@/lib/links";
 
 type Announcement = {text: string; href: string};

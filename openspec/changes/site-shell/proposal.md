@@ -38,7 +38,7 @@ None. Home's specs stay as they are; this change moves code, not behaviour.
 
 ## Impact
 
-- `src/features/home/header/*`, `footer/*`, `frame.tsx`, `skip-link.tsx` move to `src/components/site-shell/` (or similar), per `.agents/rules/code-style.md` ("move a component to `src/components` only when a second feature uses it").
+- `src/features/home/header/*`, `footer/*`, `frame.tsx`, `skip-link.tsx` move to `src/components/header/`, `footer/`, `frame/` and `skip-link/`, per `.agents/rules/code-style.md` ("move a component to `src/components` only when a second feature uses it").
 - `src/lib/home-divisions.ts`, `home-footer.ts` and parts of `home-content.ts` move to `src/lib/content/`.
 - `src/routes/__root.tsx` gains the 404 component; `wrangler.jsonc` serves it for unknown paths.
 - Every later page change depends on this one.

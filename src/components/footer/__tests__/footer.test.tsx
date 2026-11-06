@@ -1,6 +1,6 @@
 import {render, screen, within} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
-import {Footer} from "@/features/home/footer/footer";
+import {Footer} from "@/components/footer/footer";
 import {homeContent} from "@/lib/home-content";
 
 const {footer} = homeContent;

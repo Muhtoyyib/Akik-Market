@@ -1,7 +1,7 @@
 import {ClipboardCheck, FileCheck, Key, Shield, type LucideIcon} from "lucide-react";
 import {Button} from "@/components/button/button";
 import {MediaBox} from "@/components/media-box/media-box";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 
 // The content source names icons from the spec's table; this maps them to Lucide (icons.md: Lucide only).
 const ICONS = {shield: Shield, "clipboard-check": ClipboardCheck, "file-check": FileCheck, key: Key} satisfies Record<string, LucideIcon>;

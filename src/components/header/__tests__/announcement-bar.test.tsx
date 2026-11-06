@@ -1,6 +1,6 @@
 import {render} from "@testing-library/react";
 import {describe, expect, it} from "vite-plus/test";
-import {AnnouncementBar} from "@/features/home/header/announcement-bar";
+import {AnnouncementBar} from "@/components/header/announcement-bar";
 
 describe("AnnouncementBar", () => {
   it("is left out when there is no announcement", () => {

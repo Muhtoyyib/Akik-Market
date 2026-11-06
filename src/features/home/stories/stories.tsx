@@ -1,6 +1,6 @@
 import {MediaBox} from "@/components/media-box/media-box";
 import {PillTabs} from "@/components/pill-tabs/pill-tabs";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 import {SECTION_IDS} from "@/lib/home-sections";
 
 type Story = {name: string; since: string; quote: string; image: {src: string; alt: string; width: number; height: number}};

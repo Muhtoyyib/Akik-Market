@@ -1,6 +1,6 @@
 import {Card} from "@/components/card/card";
 import {MediaBox} from "@/components/media-box/media-box";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 
 type ProjectsBannerProps = {
   eyebrow: string;

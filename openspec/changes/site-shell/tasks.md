@@ -1,6 +1,6 @@
 ## 1. Move without changing Home
 
-- [ ] 1.1 Move header, menu, floating pill, footer, frame, skip link and wordmark to shared components. Proof: Home's unit and browser tests pass with only import paths changed.
+- [x] 1.1 Move header, menu, floating pill, footer, frame, skip link and wordmark to shared components. Proof: Home's unit and browser tests pass with only import paths changed.
 - [ ] 1.2 Add the page layout (skip link, header, main, footer, division accent). Proof: Testing Library landmark test on two pages; browser test that the accent applies on a division page and not on About.
 - [ ] 1.3 Header page links for every page but Home: the built pages in sitemap order, current page marked (Home's header has neither; see the Home navigation spec). Proof: unit test that an unbuilt page has no link; Testing Library test that About's header marks About current and Home's header shows section links only.
 - [ ] 1.4 Collection item pages mark their collection's link current. Proof: unit test of the current-path rule.

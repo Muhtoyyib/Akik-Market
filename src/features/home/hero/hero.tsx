@@ -1,6 +1,6 @@
 import {Button} from "@/components/button/button";
 import {MediaBox} from "@/components/media-box/media-box";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 
 type HeroProps = {
   media: {poster: string; src: string};

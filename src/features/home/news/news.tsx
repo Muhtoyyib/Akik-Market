@@ -1,7 +1,7 @@
 import {Button} from "@/components/button/button";
 import {MediaBox} from "@/components/media-box/media-box";
 import {SectionHeader} from "@/components/section-header/section-header";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 import {newsDate} from "@/lib/news";
 import {SECTION_IDS} from "@/lib/home-sections";
 

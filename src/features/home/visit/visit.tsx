@@ -1,6 +1,6 @@
 import {Button} from "@/components/button/button";
 import {MediaBox} from "@/components/media-box/media-box";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 import {directionsHref} from "@/lib/maps";
 import {localPhone, telHref} from "@/lib/phone";
 import {SECTION_IDS} from "@/lib/home-sections";

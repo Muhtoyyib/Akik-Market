@@ -1,4 +1,4 @@
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 
 type LeadQuote = {before: string; highlight: string; source: string};
 type ProofColumn = {key: "phones" | "engineering" | "autos"; quote: {value: string}; source: {value: string}};

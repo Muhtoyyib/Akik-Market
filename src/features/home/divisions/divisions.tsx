@@ -1,6 +1,6 @@
 import {Card} from "@/components/card/card";
 import {SectionHeader} from "@/components/section-header/section-header";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 import type {OnwardLink} from "@/lib/onward-link";
 import {SECTION_IDS} from "@/lib/home-sections";
 

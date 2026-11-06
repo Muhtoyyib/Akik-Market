@@ -3,9 +3,9 @@ import {X} from "lucide-react";
 import {type MouseEvent, useRef} from "react";
 import {Button} from "@/components/button/button";
 import {ROUND_ICON_BUTTON} from "@/components/button/round-icon-button";
-import {Frame} from "@/features/home/frame";
-import {jumpToSection, sectionHash, sectionHeading} from "@/features/home/header/jump-to-section";
-import {NavLinks} from "@/features/home/header/nav-links";
+import {Frame} from "@/components/frame/frame";
+import {jumpToSection, sectionHash, sectionHeading} from "@/components/header/jump-to-section";
+import {NavLinks} from "@/components/header/nav-links";
 import type {NavLink} from "@/lib/home-sections";
 
 type SiteMenuProps = {handle: Dialog.Handle<unknown>; links: NavLink[]; whatsappHref: string};

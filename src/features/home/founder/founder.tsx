@@ -1,6 +1,6 @@
 import {Button} from "@/components/button/button";
 import {PhotoStack} from "@/features/home/founder/photo-stack";
-import {Frame} from "@/features/home/frame";
+import {Frame} from "@/components/frame/frame";
 
 type FounderProps = {
   photos: readonly {src: string; alt: string; width: number; height: number}[];
