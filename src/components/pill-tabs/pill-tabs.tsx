@@ -14,6 +14,9 @@ type PillTabsProps = {
   header?: ReactNode;
   /** Floats the tabs over the bottom centre of the panel, for panels that are a media box (Matic P6). */
   overlay?: boolean;
+  /** The selected tab, for a page that keeps it elsewhere (the Projects filter keeps it in ?type=). */
+  value?: string;
+  onValueChange?: (value: string) => void;
 };
 
 const SURFACE = {
@@ -45,13 +48,17 @@ function panelSpacing(header: ReactNode, overlay: boolean) {
   return header ? "mt-8 md:mt-12" : "mt-6";
 }
 
-export function PillTabs({label, tabs, surface = "light", header, overlay = false}: PillTabsProps) {
+export function PillTabs({label, tabs, surface = "light", header, overlay = false, value, onValueChange}: PillTabsProps) {
   const listRef = useRef<HTMLDivElement>(null);
   const look = SURFACE[surface];
   return (
     <Tabs.Root
       defaultValue={tabs[0]?.value}
-      onValueChange={() => requestAnimationFrame(() => revealSelected(listRef.current))}
+      value={value}
+      onValueChange={(next: string) => {
+        onValueChange?.(next);
+        requestAnimationFrame(() => revealSelected(listRef.current));
+      }}
       className={overlay ? "relative" : undefined}
     >
       <div className={listRow(overlay)}>
