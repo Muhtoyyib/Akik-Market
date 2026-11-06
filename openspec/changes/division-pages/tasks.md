@@ -1,9 +1,9 @@
 ## 1. Template and content
 
-- [ ] 1.1 Content modules for the three businesses (offer, steps, specific section, metadata), placeholders marked. Proof: unit tests for each module's shape and that every promise is a placeholder.
+- [x] 1.1 Content modules for the three businesses (offer, steps, specific section, metadata), placeholders marked. Proof: unit tests for each module's shape and that every promise is a placeholder.
 - [x] 1.2 Move Home's item card and carousel, trust rows, story box and visit block to `src/components/`. Proof: Home's tests pass with only import paths changed.
 - [ ] 1.3 Template view, three routes, paths in `site-pages.ts`. Proof: Testing Library test of section order per page and of an empty section being left out; build outputs three HTML files.
-- [ ] 1.4 Metadata. Proof: unit test of each page's title and description.
+- [x] 1.4 Metadata. Proof: unit test of each page's title and description.
 
 ## 2. Sections
 

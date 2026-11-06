@@ -1,6 +1,7 @@
 // Who Akik is and how to reach it: the facts every page shares (site content-source spec, "One home for each fact").
 // Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder report.
 import {placeholder, real} from "@/lib/content-facts";
+import {photo, SIZES} from "@/lib/responsive-image";
 import {whatsappHref} from "@/lib/whatsapp";
 
 // Placeholder start year, chosen by the client lead; the owner's Instagram goes back to May 2020.
@@ -19,6 +20,9 @@ export const email = real("akikmarket@gmail.com");
 export const address = real({street: "Iwo Road Shopping Complex", city: "Ibadan", country: "NG"});
 
 export const hours = placeholder("Mon to Sat, 9am to 6pm");
+
+// Not Akik's shop; alt stays empty so the page doesn't claim it is. Source in docs/placeholder-media.md.
+export const shopPhoto = placeholder(photo("/placeholders/visit-shop.jpg", {alt: "", width: 1024, height: 768}, SIZES.fullWidth));
 
 // Both numbers are on the owner's 2023 flyer; which business each belongs to is still unknown.
 export const mainNumber = placeholder("2347065470198");

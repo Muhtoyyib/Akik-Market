@@ -2,16 +2,15 @@
 // from their collections. Wrap any value the owner hasn't confirmed in placeholder(...) so it shows up in the placeholder
 // report. Approved for the pitch build by the client lead on 2026-11-06.
 import {fromFacts, placeholder, real} from "@/lib/content-facts";
-import {address, businesses, hours, social, startYear, whatsappTo, type BusinessKey} from "@/lib/content/business";
+import {address, businesses, hours, shopPhoto, social, startYear, whatsappTo, type BusinessKey} from "@/lib/content/business";
 import {homeFeatured, homeNews, homeStories} from "@/lib/content/home-collections";
 import {listings} from "@/lib/content/listings";
 import {posts} from "@/lib/content/news";
 import {leadQuote, quotes, stories} from "@/lib/content/stories";
+import {projectsBanner} from "@/lib/content/projects-banner";
 import {onwardLink} from "@/lib/onward-link";
 import {photo, SIZES, variantPath} from "@/lib/responsive-image";
 import {pageExists} from "@/lib/site-pages";
-
-const engineering = businesses[1];
 
 // Stryker disable StringLiteral,ObjectLiteral,ArrayDeclaration : stand-in copy the owner will replace; tests pin the rules.
 // Each business's card on Home.
@@ -32,17 +31,6 @@ const cardCopy = {
     image: placeholder(photo("/placeholders/division-autos-photo.jpg", {alt: "", width: 800, height: 1000}, SIZES.cardRow)),
   },
 } satisfies Record<BusinessKey, object>;
-
-const projectsPath = "/projects";
-
-// Spec (projects-banner, "Link target"): until the Projects page exists the heading says where the card really goes.
-const projects = {
-  eyebrow: real(engineering.name),
-  heading: pageExists(projectsPath) ? placeholder("Homes we've built and handed over") : real("Ask about our projects on WhatsApp"),
-  link: onwardLink(projectsPath, whatsappTo(engineering.number.value, "your projects")),
-  // Not an Akik building; alt stays empty so the page doesn't claim it is. Source in docs/placeholder-media.md.
-  image: placeholder(photo("/placeholders/projects-house.jpg", {alt: "", width: 1024, height: 768}, SIZES.fullWidth)),
-};
 
 const newsPath = "/news";
 
@@ -78,7 +66,7 @@ export const homeContent = {
     heading: real("Customer stories"),
     tabs: homeStories(stories),
   },
-  projects,
+  projects: projectsBanner,
   news,
   // Spec (founder): the founder's own photos and story replace these; the story is invented apart from the order of
   // the businesses, so it stays a placeholder even once the start year is confirmed.
@@ -106,7 +94,7 @@ export const homeContent = {
   visit: {
     heading: placeholder("Come and see us at Iwo Road"),
     address,
-    image: placeholder(photo("/placeholders/visit-shop.jpg", {alt: "", width: 1024, height: 768}, SIZES.fullWidth)),
+    image: shopPhoto,
     contacts: businesses.map((entry) => ({
       key: entry.key,
       name: entry.name,

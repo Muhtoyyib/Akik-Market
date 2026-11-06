@@ -21,14 +21,9 @@ describe("the site-wide placeholder report", () => {
         .split("\n## ")
         .find((page) => page.includes(text))
         ?.split(" (")[0];
-    expect(["Mon to Sat", "iPhone 13", "New phones landed", "CHIAMAKA", "I bought my phone from Akik", "fair price"].map(under)).toEqual([
-      "Site-wide",
-      "Listings",
-      "News posts",
-      "Customer stories",
-      "Customer stories",
-      "Customer stories",
-    ]);
+    expect(
+      ["Mon to Sat", "iPhone 13", "New phones landed", "CHIAMAKA", "I bought my phone from Akik", "fair price", "projects-house"].map(under)
+    ).toEqual(["Site-wide", "Listings", "News posts", "Customer stories", "Customer stories", "Customer stories", "Projects banner"]);
   });
 
   it("loses none of Home's placeholders", () => {
