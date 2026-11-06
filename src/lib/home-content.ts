@@ -25,7 +25,7 @@ const divisions = [
     topic: "a phone",
     heading: placeholder("Where Akik began"),
     line: placeholder("Original phones, laptops and accessories, with warranty."),
-    image: placeholder({src: "/placeholders/division-phones.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder({src: "/placeholders/division-phones-photo.jpg", alt: "", width: 800, height: 1000}),
   },
   {
     key: "engineering",
@@ -35,7 +35,7 @@ const divisions = [
     topic: "a house or land",
     heading: placeholder("Homes built and sold"),
     line: placeholder("We build houses and sell land with clean, verified papers."),
-    image: placeholder({src: "/placeholders/division-engineering.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder({src: "/placeholders/division-engineering-photo.jpg", alt: "", width: 800, height: 1000}),
   },
   {
     key: "autos",
@@ -45,7 +45,7 @@ const divisions = [
     topic: "a car",
     heading: placeholder("Cars you can trust"),
     line: placeholder("Inspected cars, ready to drive, with honest prices."),
-    image: placeholder({src: "/placeholders/division-autos.jpg", alt: "", width: 800, height: 1000}),
+    image: placeholder({src: "/placeholders/division-autos-photo.jpg", alt: "", width: 800, height: 1000}),
   },
 ] as const;
 
@@ -61,7 +61,7 @@ export const homeContent = {
   },
   announcement: placeholder({text: "New phones arrive every week. See what just came in", href: "https://www.instagram.com/akikmarket/"}),
   hero: {
-    media: placeholder({poster: "/placeholders/hero-poster.jpg", src: "/placeholders/hero-loop.webm"}),
+    media: placeholder({poster: "/placeholders/hero-montage-poster.jpg", src: "/placeholders/hero-montage.webm"}),
     heading: placeholder("Phones, homes and cars from one name you trust."),
     claims: placeholder(["Original phones", "Inspected cars", "Verified land papers"]),
   },

@@ -25,7 +25,7 @@ describe("Home page shell", () => {
 describe("Home header", () => {
   it("links the wordmark home", () => {
     render(<HomeView />);
-    expect(screen.getByRole("link", {name: "Akik"})).toHaveAttribute("href", "/");
+    expect(screen.getByRole("link", {name: "Akik Market home"})).toHaveAttribute("href", "/");
   });
 
   it("shows no links to pages that are not built yet", () => {

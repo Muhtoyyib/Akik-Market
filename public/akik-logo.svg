@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 340" role="img" aria-labelledby="akik-logo-title">
+  <title id="akik-logo-title">Akik Market</title>
+  <!-- Redrawn from the owner's flyer logo until a vector original is supplied. -->
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Cart: speed stripes -->
+    <path d="M40 100 C110 70 190 64 250 70" stroke="#133D7E" stroke-width="20"/>
+    <path d="M40 100 C34 140 52 176 88 198" stroke="#133D7E" stroke-width="20"/>
+    <path d="M70 126 C120 120 170 118 214 120" stroke="#1A9A3C" stroke-width="14"/>
+    <path d="M80 160 C126 156 168 154 206 156" stroke="#1A9A3C" stroke-width="14"/>
+    <path d="M108 86 L148 184" stroke="#F2C40C" stroke-width="14"/>
+    <path d="M74 92 L112 192" stroke="#D4111D" stroke-width="14"/>
+    <!-- Cart: handle and base -->
+    <path d="M338 36 C318 26 302 38 298 62 L282 200 C278 220 264 228 244 228 H118 C100 228 90 220 86 206" stroke="#D4111D" stroke-width="24"/>
+    <!-- Wheels -->
+    <circle cx="130" cy="280" r="18" stroke="#1A1A1A" stroke-width="12"/>
+    <circle cx="254" cy="280" r="18" stroke="#1A1A1A" stroke-width="12"/>
+    <!-- AKIK -->
+    <g stroke="#133D7E" stroke-width="46">
+      <path d="M362 230 L428 92 Q440 70 452 92 L518 230 M396 178 H484"/>
+      <path d="M574 80 V230 M664 80 L590 156 L668 230"/>
+      <path d="M730 80 V230"/>
+      <path d="M792 80 V230 M882 80 L808 156 L886 230"/>
+    </g>
+    <!-- MARKET -->
+    <g stroke="#D4111D" stroke-width="10" stroke-linecap="butt" stroke-linejoin="miter">
+      <path d="M346 308 V274 H384 V308 M365 274 V308"/>
+      <path d="M446 308 V274 H482 V308 M446 292 H482"/>
+      <path d="M546 308 V274 H580 V291 H546 M562 291 L584 308"/>
+      <path d="M652 274 V308 M688 274 L660 291 L692 308"/>
+      <path d="M792 274 H758 V308 H792 M758 291 H786"/>
+      <path d="M860 274 H904 M882 274 V308"/>
+    </g>
+  </g>
+  <text x="930" y="32" text-anchor="end" font-family="Arial, sans-serif" font-size="26" fill="#555555">RC:3067479</text>
+</svg>
